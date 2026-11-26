@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organization of the Islamic Republic of Iran: Regime &amp; Security Apparatus (November 2026) &amp; Fall-of-System Event Scenarios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    }
+    .svg-node {
+      cursor: pointer;
+      transition: opacity 0.18s ease;
+    }
+    .svg-node:hover .node-frame {
+      filter: drop-shadow(0 2px 6px rgba(15, 23, 42, 0.22));
+    }
+    .svg-edge {
+      transition: opacity 0.18s ease, stroke-width 0.18s ease;
+    }
+    .dimmed {
+      opacity: 0.24;
+    }
+    .highlighted-edge {
+      stroke-width: 2.8 !important;
+      opacity: 1 !important;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- Top Institutional Header & Export Bar -->
+  <header class="bg-white border-b border-slate-200 shadow-xs sticky top-0 z-30">
+    <div class="max-w-[1760px] mx-auto px-4 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <!-- Title & Metadata -->
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-9 h-9 rounded-lg bg-[#1E3A5F] text-[#FAF9F5] flex items-center justify-center shadow-inner shrink-0 border border-slate-700">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+            <rect x="3" y="3" width="18" height="6" rx="1" />
+            <rect x="3" y="15" width="7" height="6" rx="1" />
+            <rect x="14" y="15" width="7" height="6" rx="1" />
+            <path d="M12 9v3M6.5 12h11M6.5 12v3M17.5 12v3" stroke-linecap="square" />
+          </svg>
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h1 class="text-sm sm:text-base font-bold tracking-tight text-slate-900 truncate">
+              Organization of the Islamic Republic of Iran (Nov 2026)
+            </h1>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-900 border border-amber-300">
+              CIA NIS 1973 Chart Style
+            </span>
+            <span class="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+              12 Verified Sources
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-500 truncate">
+            Regime &amp; Security Apparatus + Fall-of-System Event Scenarios &bull; Standalone W3C Vector SVG &amp; 4K PNG Exporter
+          </p>
+        </div>
+      </div>
+
+      <!-- Export & Rasterizer Controls -->
+      <div class="flex items-center gap-1.5 flex-wrap">
+        <button id="btn-copy-svg" type="button"
+          class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 shadow-2xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="copy-btn-text">Copy SVG</span>
+        </button>
+
+        <button id="btn-download-svg" type="button"
+          class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-[#1E3A5F] hover:bg-[#162d4a] text-white shadow-2xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          Download .SVG
+        </button>
+
+        <div class="flex items-center gap-1.5 pl-2 ml-0.5 border-l border-slate-200 flex-wrap">
+          <select id="png-resolution" title="PNG Export Width"
+            class="px-2 py-1.5 text-xs font-mono font-medium rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <option value="1280">1280 px</option>
+            <option value="1920" selected>1920 px (HD)</option>
+            <option value="2800">2800 px (Print)</option>
+            <option value="3840">3840 px (4K)</option>
+          </select>
+
+          <label title="Render PNG with transparent background instead of parchment (#FAF9F5)"
+            class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-300 cursor-pointer text-[11px] font-medium text-slate-700 select-none">
+            <input type="checkbox" id="png-transparent-bg" class="rounded text-emerald-600 focus:ring-emerald-500" />
+            <span>Transparent BG</span>
+          </label>
+
+          <button id="btn-preview-png" type="button"
+            class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-white hover:bg-emerald-50 text-emerald-800 border border-emerald-300 shadow-2xs transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            Preview PNG
+          </button>
+
+          <button id="btn-export-png" type="button"
+            class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white shadow-2xs transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span id="export-png-label">Export .PNG</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Toast Banner -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden transition-all duration-200">
+    <div class="bg-slate-900 text-white text-xs font-medium px-4 py-3 rounded-xl shadow-xl border border-slate-700 flex items-center gap-2.5">
+      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span id="toast-message">Action completed</span>
+    </div>
+  </div>
+
+  <!-- PNG Preview Modal -->
+  <div id="png-preview-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/75 backdrop-blur-xs p-4">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden">
+      <div class="px-5 py-3.5 border-b border-slate-200 flex items-center justify-between gap-3 bg-slate-50">
+        <div>
+          <h3 class="text-sm font-bold text-slate-900">Rasterized PNG Preview (Client-Side SVG &rarr; Offscreen Canvas)</h3>
+          <p id="png-preview-meta" class="text-xs font-mono text-slate-500 mt-0.5">Rendering...</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btn-modal-download-png" type="button"
+            class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white shadow-xs transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+            </svg>
+            Download PNG
+          </button>
+          <button id="btn-modal-close-png" type="button"
+            class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 transition">
+            Close
+          </button>
+        </div>
+      </div>
+      <div class="flex-1 overflow-auto p-4 flex items-center justify-center"
+           style="background-image: linear-gradient(45deg, #e2e8f0 25%, transparent 25%), linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e2e8f0 75%), linear-gradient(-45deg, transparent 75%, #e2e8f0 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;">
+        <img id="png-preview-img" src="" alt="Rasterized Iran Regime & Security Apparatus PNG" class="max-w-full max-h-[74vh] rounded-lg shadow-lg border border-slate-300" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-[1760px] w-full mx-auto p-3 sm:p-4 grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+    <!-- Left/Center: Interactive SVG Viewport -->
+    <section id="diagram-column" class="lg:col-span-8 xl:col-span-9 flex flex-col gap-3 transition-all">
+
+      <!-- View Switcher, Feature Toggles & Zoom Controls -->
+      <div class="bg-white rounded-xl border border-slate-200 px-3.5 py-2.5 shadow-xs flex flex-wrap items-center justify-between gap-2.5">
+        <!-- 3 Switchable Vector Views -->
+        <div class="inline-flex items-center rounded-lg border border-slate-300 bg-slate-100 p-0.5 text-xs flex-wrap">
+          <button type="button" data-view="org"
+            class="view-tab-btn px-3 py-1.5 rounded-md font-semibold transition bg-[#1E3A5F] text-white shadow-2xs">
+            1. Regime &amp; Security Org Chart
+          </button>
+          <button type="button" data-view="scenarios"
+            class="view-tab-btn px-3 py-1.5 rounded-md font-medium transition text-slate-700 hover:text-slate-900">
+            2. Fall-of-System Scenarios
+          </button>
+          <button type="button" data-view="combined"
+            class="view-tab-btn px-3 py-1.5 rounded-md font-medium transition text-slate-700 hover:text-slate-900">
+            3. Combined Master Poster
+          </button>
+        </div>
+
+        <!-- Layer Toggles -->
+        <div class="flex items-center gap-2 flex-wrap">
+          <label class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 cursor-pointer text-xs font-medium text-slate-700 select-none">
+            <input type="checkbox" id="toggle-status-badges" checked class="rounded text-[#7F1D1D] focus:ring-[#7F1D1D]" />
+            <span>2026 KIA / Vacancy Badges</span>
+          </label>
+
+          <label class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 cursor-pointer text-xs font-medium text-slate-700 select-none">
+            <input type="checkbox" id="toggle-informal-links" checked class="rounded text-[#1E3A5F] focus:ring-[#1E3A5F]" />
+            <span>Informal / Dotted Links</span>
+          </label>
+        </div>
+
+        <!-- Zoom & Sidebar Controls -->
+        <div class="flex items-center gap-1.5">
+          <div class="inline-flex rounded-lg border border-slate-300 overflow-hidden bg-white">
+            <button id="zoom-out" type="button" title="Zoom Out" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-slate-100 border-r border-slate-300">&minus;</button>
+            <span id="zoom-level" class="px-2 py-1 text-xs font-mono text-slate-600 bg-slate-50">100%</span>
+            <button id="zoom-in" type="button" title="Zoom In" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-slate-100 border-l border-slate-300">+</button>
+            <button id="zoom-fit" type="button" title="Fit to Viewport" class="px-2.5 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-100 border-l border-slate-300">Fit</button>
+            <button id="zoom-reset" type="button" title="Reset Zoom & Selection" class="px-2.5 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-100 border-l border-slate-300">Reset</button>
+          </div>
+          <button id="btn-toggle-sidebar" type="button" title="Collapse/Expand Inspector Panel"
+            class="hidden lg:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-xs font-medium text-slate-700 transition">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <line x1="15" y1="4" x2="15" y2="20" />
+            </svg>
+            Panel
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive Parchment SVG Canvas -->
+      <div id="svg-viewport" class="relative bg-[#FAF9F5] rounded-xl border border-slate-300 shadow-md overflow-hidden select-none min-h-[540px] lg:min-h-[680px] flex items-center justify-center cursor-grab active:cursor-grabbing">
+        <!-- Quick Hint Pill -->
+        <div class="absolute bottom-3 left-3 z-10 pointer-events-none px-2.5 py-1 rounded-md bg-white/90 border border-slate-300 text-[10.5px] font-medium text-slate-600 shadow-2xs">
+          Click any box to trace connections &amp; inspect sources &bull; Scroll to zoom &bull; Drag to pan
+        </div>
+
+        <!-- SVG Container (populated dynamically with pure W3C SVG) -->
+        <div id="svg-host" class="w-full h-full flex items-center justify-center overflow-hidden"></div>
+      </div>
+    </section>
+
+    <!-- Right Collapsible Inspector & Verified Sources Panel -->
+    <aside id="inspector-sidebar" class="lg:col-span-4 xl:col-span-3 flex flex-col gap-3">
+      <div class="bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col overflow-hidden max-h-[840px]">
+        <!-- Sidebar Tabs -->
+        <div class="grid grid-cols-2 border-b border-slate-200 bg-slate-50 p-1 gap-1">
+          <button type="button" data-sidebar-tab="inspector"
+            class="sidebar-tab-btn py-2 px-3 rounded-lg text-xs font-bold transition bg-white text-slate-900 shadow-2xs border border-slate-200">
+            Node Inspector
+          </button>
+          <button type="button" data-sidebar-tab="sources"
+            class="sidebar-tab-btn py-2 px-3 rounded-lg text-xs font-semibold transition text-slate-600 hover:text-slate-900">
+            Verified Sources (12)
+          </button>
+        </div>
+
+        <!-- Tab 1: Node Inspector -->
+        <div id="panel-inspector" class="p-4 overflow-y-auto space-y-3 flex-1">
+          <div class="flex items-start justify-between gap-2">
+            <span id="insp-pillar-pill" class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#1E3A5F] text-white">
+              Clerical-Constitutional Core
+            </span>
+            <button id="btn-clear-selection" type="button" class="text-[11px] font-medium text-blue-600 hover:underline shrink-0">
+              Clear Highlight
+            </button>
+          </div>
+
+          <div>
+            <h2 id="insp-title" class="text-base font-bold text-slate-900 leading-snug">Supreme Leader (Rahbar)</h2>
+            <p id="insp-persian" class="text-xs font-mono text-slate-500 mt-0.5">Rahbar / Vali-e Faqih (ولی فقیه)</p>
+          </div>
+
+          <div id="insp-status-banner" class="hidden rounded-lg px-3 py-2 text-xs font-semibold border"></div>
+
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+              <span class="block text-[9.5px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">Current Incumbent (Nov 2026)</span>
+              <p id="insp-incumbent" class="font-semibold text-slate-900 leading-snug"></p>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+              <span class="block text-[9.5px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">Predecessor / 2026 War Status</span>
+              <p id="insp-predecessor" class="text-slate-700 leading-snug"></p>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+              <span class="block text-[9.5px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">Institutional Mandate / Scenario Path</span>
+              <p id="insp-mandate" class="text-slate-700 leading-relaxed"></p>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-amber-50/80 border border-amber-200/90">
+              <span class="block text-[9.5px] font-bold uppercase tracking-wider text-amber-800 mb-0.5">Key Vulnerabilities &amp; Dynamics</span>
+              <p id="insp-vulnerabilities" class="text-amber-950 leading-relaxed"></p>
+            </div>
+          </div>
+
+          <!-- Primary Source Links for Selected Node -->
+          <div class="pt-1">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Primary Source Citations</span>
+            <div id="insp-sources" class="space-y-1.5"></div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Verified Sources (12 URLs) -->
+        <div id="panel-sources" class="hidden p-3.5 overflow-y-auto space-y-2 flex-1">
+          <div class="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-900 leading-snug mb-2">
+            All 12 URLs below are grounded primary/analytical references documenting the 2026 Iranian leadership succession, August–November 2026 security restructuring, and regime-collapse scenario modeling.
+          </div>
+          <div id="sources-directory" class="space-y-2"></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    /**
+     * ============================================================================
+     * 1. VERIFIED SOURCE BIBLIOGRAPHY (12 REAL, CLICKABLE URLs)
+     * ============================================================================
+     */
+    const SOURCES = {
+      frs2026: {
+        id: 'frs2026',
+        org: 'Fondation pour la Recherche Stratégique (FRS)',
+        date: 'Autumn 2026',
+        title: 'Iran after Ali Khamenei: Power, Security Governance, and the Emerging Political Order',
+        url: 'https://www.frstrategie.org/en/publications/recherches-et-documents/iran-after-ali-khamenei-power-security-governance-and-emerging-political-order-2026'
+      },
+      lwjMois: {
+        id: 'lwjMois',
+        org: "FDD's Long War Journal",
+        date: 'Nov 24, 2026',
+        title: 'Iran moves to restructure Intelligence Ministry as 5 contenders emerge to lead it',
+        url: 'https://www.longwarjournal.org/archives/2026/11/analysis-iran-moves-to-restructure-intelligence-ministry-as-5-contenders-emerge-to-lead-it.php'
+      },
+      lwjBasij: {
+        id: 'lwjBasij',
+        org: "FDD's Long War Journal",
+        date: 'Nov 20, 2026',
+        title: 'Iran expands Basij surveillance network with AI platform amid fears of renewed protests',
+        url: 'https://www.longwarjournal.org/archives/2026/11/iran-expands-basij-surveillance-network-with-ai-platform-amid-fears-of-renewed-protests.php'
+      },
+      anadoluRezaei: {
+        id: 'anadoluRezaei',
+        org: 'Anadolu Agency',
+        date: 'Aug 9, 2026',
+        title: 'Iran appoints former IRGC chief Mohsen Rezaee secretary of top security body',
+        url: 'https://www.aa.com.tr/en/middle-east/iran-appoints-former-irgc-chief-mohsen-rezaee-secretary-of-top-security-body/4022621'
+      },
+      newArabHormuz: {
+        id: 'newArabHormuz',
+        org: 'The New Arab',
+        date: 'Nov 26, 2026',
+        title: 'Iran tightens grip over Hormuz as diplomacy inches forward & Mojtaba addresses Basij',
+        url: 'https://www.newarab.com/news/iran-tightens-grip-over-hormuz-diplomacy-inches-forward'
+      },
+      ctpIswAug: {
+        id: 'ctpIswAug',
+        org: 'CTP-ISW (Institute for the Study of War)',
+        date: 'Aug 10, 2026',
+        title: 'Iran Update Special Report: Extensive Armed Forces Reorganization & IRGC Navy Command',
+        url: 'https://understandingwar.org/research/middle-east/iran-update-special-report-august-10-2026/'
+      },
+      golkarMef: {
+        id: 'golkarMef',
+        org: 'Middle East Forum (Saeid Golkar)',
+        date: 'Jan–Nov 2026',
+        title: "Why Iran's Regime Didn't Collapse & IRGC Wartime State Consolidation Series",
+        url: 'https://www.meforum.org/mef-online/why-irans-regime-didnt-collapse'
+      },
+      quincyCollapse: {
+        id: 'quincyCollapse',
+        org: 'Quincy Institute for Responsible Statecraft',
+        date: 'Nov 17, 2026',
+        title: "Next Year in Tehran: Predictions of the Islamic Republic's Collapse and US Foreign Policy",
+        url: 'https://quincyinst.org/research/next-year-in-tehran-predictions-of-the-islamic-republics-collapse-and-us-foreign-policy/'
+      },
+      quincyMilitary: {
+        id: 'quincyMilitary',
+        org: 'Quincy Institute for Responsible Statecraft',
+        date: 'Apr 28, 2026',
+        title: "Iran's Next Transformation: How War Could Shift Power from Clerics to the Military",
+        url: 'https://quincyinst.org/research/irans-next-transformation-how-war-could-shift-power-from-clerics-to-the-military/'
+      },
+      chathamWar: {
+        id: 'chathamWar',
+        org: 'Chatham House',
+        date: 'Nov 9, 2026',
+        title: 'Will the US and Iran return to war? Blockade, Deterrence & Regime Survival',
+        url: 'https://www.chathamhouse.org/2026/11/will-us-and-iran-return-war'
+      },
+      niacMois: {
+        id: 'niacMois',
+        org: 'NIAC (Iran Unfiltered)',
+        date: 'Nov 16, 2026',
+        title: 'Iran Moves to Restructure Intelligence Ministry After Major Security Failures',
+        url: 'https://niacouncil.org/iran-moves-to-restructure-intelligence-ministry-after-major-security-failures/'
+      },
+      wikimediaCia: {
+        id: 'wikimediaCia',
+        org: 'Wikimedia Commons / CIA NIS (1973) & Wikipedia (2026)',
+        date: '1973 / Mar 2026',
+        title: 'File:Organization of the Imperial Iranian Armed Forces.png (Chart Style Reference)',
+        url: 'https://commons.wikimedia.org/wiki/File:Organization_of_the_Imperial_Iranian_Armed_Forces.png'
+      }
+    };
+
+    /**
+     * Color Palette — Institutional CIA NIS 1973 Parchment + Refined Encyclopedic Header Strips
+     */
+    const PALETTE = {
+      parchment: '#FAF9F5',
+      ink: '#111827',
+      border: '#1E293B',
+      muted: '#475569',
+      clerical: '#1E3A5F',      // Clerical-Constitutional Core
+      securityHub: '#7F1D1D',   // Strategic Security Coordination Hub
+      military: '#1F2937',      // Military & Coercive Forces (IRGC/Artesh/FARAJA)
+      militarySub: '#3F6212',   // IRGC Sub-branches olive-charcoal accent
+      intel: '#115E59',         // Intelligence & Cyber Apparatus
+      civilian: '#57534E',      // Civilian Executive / Parliament / Judiciary
+      stressor: '#991B1B',      // Scenario Stressors
+      tipping: '#92400E',       // Decisive Tipping Points
+      scenA: '#7F1D1D',         // Praetorian Junta
+      scenB: '#1E3A5F',         // Elite Pact
+      scenC: '#0F766E',         // Revolutionary Upheaval
+      scenD: '#581C87',         // Fragmentation
+      resilience: '#334155'     // Resilience Counter-Indicators
+    };
+
+    const STATUS_STYLES = {
+      new: { fill: '#DBEAFE', stroke: '#1D4ED8', text: '#1E3A8A' },
+      vacant: { fill: '#FEF3C7', stroke: '#D97706', text: '#92400E' },
+      kia: { fill: '#FEE2E2', stroke: '#B91C1C', text: '#7F1D1D' }
+    };
+
+    /**
+     * ============================================================================
+     * 2. VIEW 1 DATA: REGIME & SECURITY APPARATUS (NOVEMBER 2026) — 1600 x 1020
+     * ============================================================================
+     */
+    const ORG_NODES = [
+      // --- TIER 1: APEX & CLERICAL-CONSTITUTIONAL CORE ---
+      {
+        id: 'assembly-experts',
+        x: 42, y: 112, w: 230, h: 108,
+        headerColor: PALETTE.clerical,
+        pillarName: 'Clerical-Constitutional Core',
+        title: 'ASSEMBLY OF EXPERTS',
+        persian: 'Majles-e Khobregan (مجلس خبرگان)',
+        lines: [
+          '88 Elected Shiite Clerics',
+          'Selected Mojtaba Khamenei',
+          '(Mar 8–9, 2026) amid war',
+          'Constitutional oversight body'
+        ],
+        incumbent: '88-Member Clerical Assembly',
+        predecessor: 'Invoked wartime succession after Ali Khamenei KIA Feb 28, 2026',
+        mandate: 'Constitutionally empowered to appoint, supervise, and dismiss the Supreme Leader; ratified Mojtaba Khamenei following an interim 3-man Leadership Council.',
+        vulnerabilities: 'Perceived rubber-stamp of dynastic succession eroded clerical legitimacy among traditional Qom seminaries.',
+        sources: ['frs2026', 'wikimediaCia']
+      },
+      {
+        id: 'guardian-council',
+        x: 290, y: 112, w: 222, h: 108,
+        headerColor: PALETTE.clerical,
+        pillarName: 'Clerical-Constitutional Core',
+        title: 'GUARDIAN COUNCIL',
+        persian: 'Shura-ye Negahban (شورای نگهبان)',
+        lines: [
+          '12 Members (6 Clerics, 6 Jurists)',
+          'Vets all electoral candidates',
+          'Reviews Majles laws for',
+          'Sharia & constitutional compliance'
+        ],
+        incumbent: '6 Clerics (appt. by Leader) + 6 Jurists (nominated by Judiciary)',
+        predecessor: 'Alireza Arafi served on Mar 2026 Interim Leadership Council',
+        mandate: 'Acts as ideological gatekeeper controlling candidate eligibility for Presidency, Parliament, and Assembly of Experts, plus legislative veto power.',
+        vulnerabilities: 'Heavy vetting depresses voter turnout and narrows regime social base during economic crises.',
+        sources: ['frs2026', 'quincyMilitary']
+      },
+      {
+        id: 'supreme-leader',
+        x: 544, y: 100, w: 512, h: 132,
+        doubleBorder: true,
+        headerColor: PALETTE.clerical,
+        pillarName: 'Supreme Command Apex',
+        title: 'SUPREME LEADER (RAHBAR / VALI-E FAQIH)',
+        persian: 'Rahbar-e Enqelab (رهبر انقلاب اسلامی)',
+        badge: { text: 'NEW MAR 2026', type: 'new' },
+        lines: [
+          'Ayatollah Seyyed Mojtaba Khamenei (Selected Mar 8–9, 2026)',
+          'Commander-in-Chief of All Armed Forces & Ultimate Policy Arbiter',
+          'Governs via written decrees & closed military meetings; unseen publicly',
+          'Predecessor: Ali Khamenei KIA Feb 28, 2026 (US-Israeli strikes)'
+        ],
+        incumbent: 'Ayatollah Seyyed Mojtaba Khamenei (in office since Mar 8–9, 2026)',
+        predecessor: 'Ayatollah Ali Khamenei (assassinated Feb 28, 2026 in opening US-Israeli strikes)',
+        mandate: 'Constitutional apex holding direct command over IRGC, Artesh, FARAJA, Judiciary, state media, and war/peace decisions; governs increasingly through a collective security coalition.',
+        vulnerabilities: 'Unseen in public since appointment due to assassination threat; lacks his father\'s decades-long personal brokerage network and faces dynastic legitimacy critiques.',
+        sources: ['frs2026', 'newArabHormuz', 'anadoluRezaei']
+      },
+      {
+        id: 'office-leader',
+        x: 1088, y: 112, w: 230, h: 108,
+        headerColor: PALETTE.clerical,
+        pillarName: 'Clerical-Constitutional Core',
+        title: 'OFFICE OF SUPREME LEADER',
+        persian: 'Beit-e Rahbari (دفتر مقام معظم رهبری)',
+        badge: { text: 'KIA FEB 2026', type: 'kia' },
+        lines: [
+          'Beit-e Rahbari & Military Office',
+          'Special Reps across ministries',
+          'Former Military Office Chief:',
+          'M. Shirazi KIA Feb 2026'
+        ],
+        incumbent: 'Secretariat & Political/Military Bureaus (Zolghadr appt. Pol. Adviser Aug 2026)',
+        predecessor: 'Brig. Gen. Mohammad Shirazi (Military Office Chief) KIA Feb 2026',
+        mandate: 'Shadow executive bureaucracy managing clerical commissars, parallel intelligence assessments, and direct decrees to military and economic bonyads.',
+        vulnerabilities: 'Heavily targeted in Feb–Mar 2026 decapitation strikes; reliant on veteran IRGC intermediaries.',
+        sources: ['frs2026', 'anadoluRezaei']
+      },
+      {
+        id: 'expediency-council',
+        x: 1336, y: 112, w: 222, h: 108,
+        headerColor: PALETTE.clerical,
+        pillarName: 'Clerical-Constitutional Core',
+        title: 'EXPEDIENCY COUNCIL',
+        persian: 'Majma-e Tashkhis-e Maslahat',
+        lines: [
+          'Chair: Sadeq Larijani',
+          'Mediates Majles vs. Guardian',
+          'Council legislative deadlocks',
+          'Advises Rahbar on macro-policy'
+        ],
+        incumbent: 'Chair: Ayatollah Sadeq Amoli Larijani',
+        predecessor: 'Former Secretary Mohsen Rezaei moved to SNSC (Aug 2026)',
+        mandate: 'Arbitrates disputes between Parliament and the Guardian Council and drafts long-term General Policies of the System for the Supreme Leader.',
+        vulnerabilities: 'Factional competition between Larijani network and hardline IRGC/Jalili poles.',
+        sources: ['frs2026', 'anadoluRezaei']
+      },
+
+      // --- TIER 2: STRATEGIC SECURITY GOVERNANCE COALITION (POST-AUG 2026) ---
+      {
+        id: 'snsc',
+        x: 42, y: 278, w: 362, h: 112,
+        headerColor: PALETTE.securityHub,
+        pillarName: 'Strategic Security Coordination Hub',
+        title: 'SUPREME NATIONAL SECURITY COUNCIL',
+        persian: 'Shora-ye Ali-ye Amniyat-e Melli (SNSC)',
+        badge: { text: 'NEW AUG 2026', type: 'new' },
+        lines: [
+          'Sec: Mohsen Rezaei (appt. Aug 9, 2026)',
+          "Leader's Reps: M. Rezaei & Saeed Jalili",
+          'Prev. Sec: Ali Larijani KIA Mar 17, 2026',
+          'Core collective security & Hormuz policy hub'
+        ],
+        incumbent: 'Secretary: Mohsen Rezaei (dual-hatted as Leader\'s Rep alongside Saeed Jalili)',
+        predecessor: 'Ali Larijani (KIA Mar 17, 2026); interim Mohammad Bagher Zolghadr moved to Leader\'s Political Adviser Aug 9, 2026',
+        mandate: 'Top inter-agency security decision-making body linking Presidency, IRGC, Artesh, Intelligence, and Leader\'s Office; steers wartime negotiations and Strait of Hormuz policy.',
+        vulnerabilities: 'Tactical friction between confrontational IRGC-veteran pole (Rezaei/Jalili) and pragmatic diplomatic factions.',
+        sources: ['frs2026', 'anadoluRezaei']
+      },
+      {
+        id: 'defense-council',
+        x: 428, y: 278, w: 356, h: 112,
+        headerColor: PALETTE.securityHub,
+        pillarName: 'Strategic Security Coordination Hub',
+        title: 'DEFENSE COUNCIL (SHURA-YE DEFA)',
+        persian: 'Shura-ye Defa (شورای دفاع)',
+        badge: { text: 'KIA FEB 2026', type: 'kia' },
+        lines: [
+          'Revived post-2025 12-Day War for',
+          'wartime mobilization & readiness',
+          'Prev. Sec: Adm. Ali Shamkhani',
+          'KIA Feb 28, 2026'
+        ],
+        incumbent: 'Wartime Collective Defense Secretariat (post-Shamkhani reorganization)',
+        predecessor: 'Rear Adm. Ali Shamkhani KIA Feb 28, 2026',
+        mandate: 'Statutory defense coordination body revived after the June 2025 war to synchronize strategic deterrence, civil defense, and military-industrial surge production.',
+        vulnerabilities: 'Loss of Shamkhani removed a seasoned cross-branch broker between Artesh, IRGC, and diplomatic channels.',
+        sources: ['frs2026', 'ctpIswAug']
+      },
+      {
+        id: 'afgs',
+        x: 808, y: 278, w: 362, h: 112,
+        headerColor: PALETTE.securityHub,
+        pillarName: 'Strategic Security Coordination Hub',
+        title: 'ARMED FORCES GENERAL STAFF (AFGS)',
+        persian: 'Setad-e Koll-e Niruha-ye Mosallah',
+        badge: { text: 'NEW AUG 2026', type: 'new' },
+        lines: [
+          'Chief: Maj. Gen. Ali Abdollahi (Aug 10, 2026)',
+          'Deputy: Brig. Gen. Kioumars Heydari',
+          'Prev. Chief: A. Mousavi KIA Feb 28, 2026',
+          'Ordered to integrate with Khatam al-Anbiya'
+        ],
+        incumbent: 'Chief: Maj. Gen. Ali Abdollahi | Deputy: Brig. Gen. Kioumars Heydari (former Artesh Ground Cmdr.)',
+        predecessor: 'Maj. Gen. Abdolrahim Mousavi KIA Feb 28, 2026 (following M. Bagheri KIA Jun 2025)',
+        mandate: 'Highest joint military staff overseeing doctrine, force readiness, logistics, and unified conventional/hybrid/cognitive warfare across IRGC, Artesh, and FARAJA.',
+        vulnerabilities: 'Rapid command turnover following successive 2025–2026 decapitation strikes.',
+        sources: ['frs2026', 'ctpIswAug', 'newArabHormuz']
+      },
+      {
+        id: 'khatam-hq',
+        x: 1194, y: 278, w: 364, h: 112,
+        headerColor: PALETTE.securityHub,
+        pillarName: 'Strategic Security Coordination Hub',
+        title: 'KHATAM AL-ANBIYA CENTRAL HQ',
+        persian: 'Qarargah-e Markazi-ye Khatam al-Anbiya',
+        lines: [
+          'Wartime Joint Operational Command',
+          'Integrates IRGC & Artesh theater ops',
+          'Aug 10, 2026 decree mandates full',
+          'merger / integration with AFGS'
+        ],
+        incumbent: 'Joint Operational Command (integrating under AFGS Chief Ali Abdollahi)',
+        predecessor: 'Previous wartime commanders targeted in 2025–2026 air campaigns',
+        mandate: 'Directs joint wartime operational planning, air-defense integration, and multi-domain theater command across IRGC and Regular Armed Forces.',
+        vulnerabilities: 'Command-and-control nodes remain primary targets of US-Israeli standoff strikes.',
+        sources: ['ctpIswAug', 'frs2026']
+      },
+
+      // --- TIER 3: PILLAR A — ISLAMIC REVOLUTIONARY GUARD CORPS (IRGC / SEPAH) ---
+      {
+        id: 'irgc-cmd',
+        x: 42, y: 440, w: 584, h: 106,
+        headerColor: PALETTE.military,
+        pillarName: 'IRGC (Sepah) Command',
+        title: 'ISLAMIC REVOLUTIONARY GUARD CORPS (IRGC / SEPAH)',
+        persian: 'Sepah-e Pasdaran-e Enqelab-e Eslami',
+        badge: { text: 'NEW AUG 2026', type: 'new' },
+        lines: [
+          'C-in-C: Maj. Gen. Ahmad Vahidi (appt. Aug 10, 2026) | Deputy: Maj. Gen. Mostafa Izadi',
+          '3rd C-in-C in 14 mos: M. Pakpour KIA Feb 28, 2026 & H. Salami KIA Jun 2025',
+          'Core regime guardian: asymmetric warfare, strategic missiles, domestic control & economy'
+        ],
+        incumbent: 'C-in-C: Maj. Gen. Ahmad Vahidi (Aug 10, 2026) | Deputy: Maj. Gen. Mostafa Izadi',
+        predecessor: 'Maj. Gen. Mohammad Pakpour (KIA Feb 28, 2026); Maj. Gen. Hossein Salami (KIA Jun 2025)',
+        mandate: 'Ideological-military praetorian guard tasked with defending the Islamic Revolution domestically and projecting strategic deterrence regionally.',
+        vulnerabilities: 'Severe senior officer attrition; balancing wartime survival with growing economic/political dominance over civilian institutions.',
+        sources: ['frs2026', 'ctpIswAug', 'golkarMef']
+      },
+      {
+        id: 'irgc-ground',
+        x: 42, y: 576, w: 186, h: 138,
+        headerColor: PALETTE.militarySub,
+        pillarName: 'IRGC Sub-Branch',
+        title: 'IRGC GROUND FORCES',
+        persian: 'Niru-ye Zamini-ye Sepah',
+        lines: [
+          'Cmdr: Brig. Gen.',
+          'Mohammad Karami',
+          '31 provincial corps',
+          '(Mosaic Defense doctrine)',
+          'Border & internal security'
+        ],
+        incumbent: 'Brig. Gen. Mohammad Karami',
+        predecessor: 'Mohammad Pakpour (promoted to IRGC C-in-C, then KIA Feb 28, 2026)',
+        mandate: 'Commands 31 decentralized provincial corps designed to sustain resistance and internal regime control even if Tehran is cut off.',
+        vulnerabilities: 'Decentralized provincial autonomy could fuel regional warlordism in a severe state-fragmentation crisis.',
+        sources: ['frs2026', 'golkarMef']
+      },
+      {
+        id: 'irgc-aerospace',
+        x: 241, y: 576, w: 186, h: 138,
+        headerColor: PALETTE.militarySub,
+        pillarName: 'IRGC Sub-Branch',
+        title: 'IRGC AEROSPACE FORCE',
+        persian: 'Niru-ye Havagaza-ye Sepah',
+        lines: [
+          'Cmdr: Brig. Gen.',
+          'Majid Mousavi',
+          'Ballistic/cruise missiles,',
+          'UCAV drones, SLVs &',
+          'tactical air defense'
+        ],
+        incumbent: 'Brig. Gen. Majid Mousavi',
+        predecessor: 'Brig. Gen. Amir Ali Hajizadeh (KIA Jun 2025)',
+        mandate: 'Controls Iran\'s strategic ballistic missile cities, long-range Shahed/Mohajer drone fleets, space launch vehicles, and point air defense.',
+        vulnerabilities: 'Production complexes (Khojir, Parchin, Shahroud) heavily targeted in 2025–2026 strikes.',
+        sources: ['ctpIswAug', 'chathamWar']
+      },
+      {
+        id: 'irgc-navy',
+        x: 440, y: 576, w: 186, h: 138,
+        headerColor: PALETTE.militarySub,
+        pillarName: 'IRGC Sub-Branch',
+        title: 'IRGC NAVY (IRGCN)',
+        persian: 'Niru-ye Daryayi-ye Sepah',
+        badge: { text: 'NEW AUG 2026', type: 'new' },
+        lines: [
+          'Cmdr: Rear Adm.',
+          'Ali Azmaei (Jul/Aug 2026)',
+          'Prev: A. Tangsiri KIA Mar',
+          'Strait of Hormuz mining,',
+          'fast boats & AShM'
+        ],
+        incumbent: 'Rear Adm. Ali Azmaei (Ozmaei; appointed Jul–Aug 2026)',
+        predecessor: 'Rear Adm. Alireza Tangsiri (KIA Mar 2026)',
+        mandate: 'Enforces asymmetric maritime denial in the Persian Gulf and Strait of Hormuz via sea mines, fast-attack craft, drones, and coastal anti-ship missiles.',
+        vulnerabilities: 'High attrition of surface vessels under US naval blockade, though mining/coastal batteries retain leverage.',
+        sources: ['ctpIswAug', 'newArabHormuz', 'chathamWar']
+      },
+      {
+        id: 'quds-force',
+        x: 42, y: 734, w: 284, h: 158,
+        headerColor: PALETTE.militarySub,
+        pillarName: 'IRGC Sub-Branch',
+        title: 'QUDS FORCE (IRGC-QF)',
+        persian: 'Niru-ye Qods (نیروی قدس)',
+        lines: [
+          'Cmdr: Brig. Gen. Esmail Qaani',
+          'Extraterritorial covert operations &',
+          'Axis of Resistance proxy coordination',
+          '(Iraq PMF cells, Houthis, Hezbollah)',
+          'External intelligence & arms smuggling'
+        ],
+        incumbent: 'Brig. Gen. Esmail Qaani',
+        predecessor: 'Maj. Gen. Qasem Soleimani (KIA Jan 2020)',
+        mandate: 'Conducts forward-defense proxy warfare, covert advising of regional Shia militias, and clandestine weapons transfers.',
+        vulnerabilities: 'Hezbollah degradation and US-Saudi strikes on Iraqi militia advisers have weakened forward deterrence.',
+        sources: ['ctpIswAug', 'chathamWar']
+      },
+      {
+        id: 'basij',
+        x: 342, y: 734, w: 284, h: 158,
+        headerColor: PALETTE.militarySub,
+        pillarName: 'IRGC Sub-Branch',
+        title: 'BASIJ ORGANIZATION',
+        persian: 'Sazman-e Basij-e Mostazafin',
+        badge: { text: 'NEW AUG 2026', type: 'new' },
+        lines: [
+          'Head: Cleric Hossein Taeb (Aug 2026)',
+          'Prev: G. Soleimani KIA Mar 17, 2026',
+          'Domestic suppression, neighborhood',
+          'informants & new AI surveillance',
+          'platform (Nov 2026 expansion)'
+        ],
+        incumbent: 'Cleric Hossein Taeb (former IRGC-IO chief; appointed Aug 10, 2026)',
+        predecessor: 'Brig. Gen. Gholamreza Soleimani (KIA Mar 17, 2026)',
+        mandate: 'Nationwide paramilitary volunteer force deployed for domestic protest suppression, ideological policing, and intelligence-driven preemptive surveillance.',
+        vulnerabilities: 'Appointment of former spy chief Taeb signals acute regime anxiety over renewed urban unrest.',
+        sources: ['frs2026', 'lwjBasij', 'newArabHormuz']
+      },
+
+      // --- TIER 3: PILLAR B — REGULAR ARMED FORCES (ARTESH) & POLICE (FARAJA) ---
+      {
+        id: 'artesh',
+        x: 646, y: 440, w: 292, h: 214,
+        headerColor: PALETTE.military,
+        pillarName: 'Regular Armed Forces',
+        title: 'REGULAR ARMED FORCES (ARTESH)',
+        persian: 'Artesh-e Jomhuri-ye Eslami-ye Iran',
+        lines: [
+          'C-in-C: Maj. Gen. Amir Hatami',
+          '• Ground Forces (conventional border)',
+          '• Air Force (IRIAF — TABs & Eagle 44)',
+          '• Air Defense Force (Khatam network)',
+          '• Regular Navy (IRIN — Kilo subs,',
+          '  Gulf of Oman & Hormuz coord.)',
+          'Conscript-heavy national defense force'
+        ],
+        incumbent: 'C-in-C: Maj. Gen. Amir Hatami (met with Mojtaba Khamenei Oct 31, 2026)',
+        predecessor: 'Maj. Gen. Abdolrahim Mousavi (moved to AFGS, KIA Feb 28, 2026)',
+        mandate: 'Conventional territorial defense of Iran\'s borders, airspace, and blue-water maritime approaches (Caspian & Gulf of Oman).',
+        vulnerabilities: 'Less ideologically indoctrinated than IRGC; key swing actor in any elite-pact or revolutionary-defection scenario.',
+        sources: ['newArabHormuz', 'quincyMilitary', 'wikimediaCia']
+      },
+      {
+        id: 'faraja',
+        x: 646, y: 676, w: 292, h: 216,
+        headerColor: PALETTE.military,
+        pillarName: 'Internal Law Enforcement',
+        title: 'LAW ENFORCEMENT (FARAJA / LEC)',
+        persian: 'Farmandehi-ye Entezami (فراجا)',
+        badge: { text: 'KIA MAR 2026', type: 'kia' },
+        lines: [
+          'Cmdr: Brig. Gen. Ahmad-Reza Radan',
+          '• NOPO Special Riot-Control Units',
+          '• Border Guard Command',
+          '• Guidance Patrol (Morality Police)',
+          '• FATA Cyber Police',
+          'Police Intel Chief G. Rezaian',
+          'KIA Mar 2, 2026'
+        ],
+        incumbent: 'Brig. Gen. Ahmad-Reza Radan',
+        predecessor: 'Police Intelligence Chief Brig. Gen. Gholamreza Rezaian KIA Mar 2, 2026',
+        mandate: 'First-line domestic policing, riot suppression (NOPO), border security, and enforcement of social/ideological laws under Supreme Leader operational command.',
+        vulnerabilities: 'Experienced localized retreats and leaks during Dec 2025–Jan 2026 nationwide unrest; vulnerable to rank-and-file exhaustion.',
+        sources: ['golkarMef', 'lwjBasij']
+      },
+
+      // --- TIER 3: PILLAR C — INTELLIGENCE & CYBER APPARATUS ---
+      {
+        id: 'mois',
+        x: 958, y: 440, w: 292, h: 146,
+        headerColor: PALETTE.intel,
+        pillarName: 'Intelligence & Cyber',
+        title: 'MINISTRY OF INTELLIGENCE (MOIS)',
+        persian: 'Vezarat-e Ettelaat (VAJA / VEVAK)',
+        badge: { text: 'VACANT / RESTRUCTURING', type: 'vacant' },
+        lines: [
+          'Ministerial post VACANT since',
+          'Esmail Khatib KIA Mar 18, 2026',
+          'Majles voted 192–49 (Nov 15, 2026)',
+          'to restructure & expand Rahbar',
+          'control (5 contenders emerging)'
+        ],
+        incumbent: '[VACANT] — 5 contenders (incl. Pourmohammadi, Esmaili, Shafiei, Rashidian)',
+        predecessor: 'Esmail Khatib (assassinated Mar 18, 2026 by Israel)',
+        mandate: 'Primary statutory civilian intelligence and counter-espionage agency; undergoing parliamentary restructuring to tighten Supreme Leader oversight after catastrophic 2026 intelligence breaches.',
+        vulnerabilities: 'Severe Israeli/Western penetration exposed during 2025–2026 assassinations; 8-month leadership vacuum.',
+        sources: ['lwjMois', 'niacMois']
+      },
+      {
+        id: 'irgc-io',
+        x: 958, y: 602, w: 292, h: 138,
+        headerColor: PALETTE.intel,
+        pillarName: 'Intelligence & Cyber',
+        title: 'IRGC INTELLIGENCE (SAS) & IPO',
+        persian: 'Sazman-e Ettelaat-e Sepah',
+        badge: { text: 'KIA APR 2026', type: 'kia' },
+        lines: [
+          'Parallel political security,',
+          'dissident arrest & counter-espionage',
+          'Prev. Chief: Brig. Gen. Majid',
+          'Khademi KIA Apr 6, 2026',
+          'Intelligence Protection Org (IPO)'
+        ],
+        incumbent: 'Post-Khademi IRGC Intelligence Directorate (closely linked to H. Taeb)',
+        predecessor: 'Brig. Gen. Majid Khademi (KIA Apr 6, 2026)',
+        mandate: 'IRGC\'s autonomous intelligence arm rivaling MOIS; polices internal elites, targets dissidents, and operates counter-intelligence inside armed forces (IPO).',
+        vulnerabilities: 'Institutional rivalry with MOIS impaired counter-espionage coordination against foreign infiltration.',
+        sources: ['lwjMois', 'niacMois']
+      },
+      {
+        id: 'cyberspace',
+        x: 958, y: 756, w: 292, h: 136,
+        headerColor: PALETTE.intel,
+        pillarName: 'Intelligence & Cyber',
+        title: 'SUPREME COUNCIL OF CYBERSPACE',
+        persian: 'Shora-ye Ali-ye Faza-ye Majazi',
+        lines: [
+          'National Cyberspace Center (NCC)',
+          'National Information Network (NIN)',
+          'Internet shutdown authority &',
+          'Nov 2026 digital surveillance /',
+          'counter-espionage bill'
+        ],
+        incumbent: 'Chaired formally by President; dominated by Leader-appointed security reps',
+        predecessor: 'Expanded wartime censorship & counter-espionage authorities (2026)',
+        mandate: 'Controls national internet gateways, telecom throttling, Starlink countermeasures, and integration of AI facial/behavioral surveillance.',
+        vulnerabilities: 'Blackouts inflict severe collateral economic damage on Iran\'s already contracting domestic commerce.',
+        sources: ['lwjMois', 'lwjBasij']
+      },
+
+      // --- TIER 3: PILLAR D — CIVILIAN STATE & JUDICIARY ---
+      {
+        id: 'presidency',
+        x: 1270, y: 440, w: 288, h: 146,
+        headerColor: PALETTE.civilian,
+        pillarName: 'Civilian Executive',
+        title: 'PRESIDENCY & CABINET',
+        persian: 'Riasat-e Jomhuri (ریاست جمهوری)',
+        badge: { text: 'KIA FEB 2026', type: 'kia' },
+        lines: [
+          'President: Masoud Pezeshkian',
+          'FM: Abbas Araghchi (indirect talks)',
+          'MODAFL: Defense logistics (prev.',
+          'Min. A. Nasirzadeh KIA Feb 28)',
+          'Administers economy & civil state'
+        ],
+        incumbent: 'President Masoud Pezeshkian | FM Abbas Araghchi',
+        predecessor: 'Defense Minister Brig. Gen. Aziz Nasirzadeh KIA Feb 28, 2026',
+        mandate: 'Manages daily civil administration, fiscal policy, and diplomatic messaging, but remains constitutionally subordinate to the Supreme Leader and SNSC on war and security.',
+        vulnerabilities: 'Absorbs public blame for inflation, job losses, and blockade pain while lacking authority over coercive organs.',
+        sources: ['frs2026', 'anadoluRezaei', 'chathamWar']
+      },
+      {
+        id: 'parliament',
+        x: 1270, y: 602, w: 288, h: 138,
+        headerColor: PALETTE.civilian,
+        pillarName: 'Legislature',
+        title: 'PARLIAMENT (MAJLES)',
+        persian: 'Majles-e Shura-ye Eslami',
+        lines: [
+          'Speaker: Mohammad Bagher Ghalibaf',
+          '290 Seats (vetted by Guardian Council)',
+          'Passed MOIS restructuring bill',
+          '(192–49) on Nov 15, 2026',
+          'Approves budget & cabinet ministers'
+        ],
+        incumbent: 'Speaker: Mohammad Bagher Ghalibaf (former IRGC Aerospace & Police chief)',
+        predecessor: 'Re-elected Speaker; key rival pole to Jalili/Rezaei networks',
+        mandate: 'Drafts legislation, approves national budgets, and confirms cabinet nominees subject to Guardian Council veto.',
+        vulnerabilities: 'Factional infighting between Ghalibaf pragmatist-conservatives and Paydari/Jalili ultra-hardliners.',
+        sources: ['lwjMois', 'niacMois', 'frs2026']
+      },
+      {
+        id: 'judiciary',
+        x: 1270, y: 756, w: 288, h: 136,
+        headerColor: PALETTE.civilian,
+        pillarName: 'Judicial Apparatus',
+        title: 'JUDICIARY',
+        persian: 'Qovveh-ye Qazaiyeh (قوه قضائیه)',
+        lines: [
+          'Chief: Gholam-Hossein Mohseni-Eje\'i',
+          '(Reappointed Jun 2026)',
+          '• Islamic Revolutionary Courts',
+          '• Special Clerical Court',
+          'Enforces security & espionage trials'
+        ],
+        incumbent: 'Chief Justice Gholam-Hossein Mohseni-Eje\'i (reappointed Jun 2026)',
+        predecessor: 'Served on Mar 2026 Interim Leadership Council after Ali Khamenei KIA',
+        mandate: 'Directly appointed by the Supreme Leader; prosecutes political dissidents, espionage suspects, and elite corruption cases via Revolutionary Courts.',
+        vulnerabilities: 'Weaponization of wartime espionage charges deepens societal alienation.',
+        sources: ['frs2026', 'niacMois']
+      }
+    ];
+
+    /**
+     * Orthogonal Edge Definitions for View 1 (Strictly 90-degree bus routing)
+     * style: 'solid' (Direct Command) | 'dashed' (Strategic Coordination) | 'dotted' (Clerical Vetting / Informal)
+     */
+    const ORG_EDGES = [
+      // Tier 1 Horizontal Flanks to Supreme Leader
+      { id: 'e-ae-sl', from: 'assembly-experts', to: 'supreme-leader', style: 'dashed', d: 'M 272,154 H 544' },
+      { id: 'e-gc-sl', from: 'guardian-council', to: 'supreme-leader', style: 'dotted', d: 'M 512,186 H 544' },
+      { id: 'e-ae-gc', from: 'assembly-experts', to: 'guardian-council', style: 'dotted', d: 'M 272,186 H 290' },
+      { id: 'e-sl-osl', from: 'supreme-leader', to: 'office-leader', style: 'solid', d: 'M 1056,154 H 1088' },
+      { id: 'e-sl-ec', from: 'supreme-leader', to: 'expediency-council', style: 'dashed', d: 'M 1056,186 H 1072 V 236 H 1447 V 220' },
+
+      // Tier 1 Supreme Leader -> Tier 2 Security Governance Bus (y = 254)
+      { id: 'e-sl-snsc', from: 'supreme-leader', to: 'snsc', style: 'solid', d: 'M 800,232 V 254 H 223 V 278' },
+      { id: 'e-sl-def', from: 'supreme-leader', to: 'defense-council', style: 'solid', d: 'M 800,232 V 254 H 606 V 278' },
+      { id: 'e-sl-afgs', from: 'supreme-leader', to: 'afgs', style: 'solid', d: 'M 800,232 V 254 H 989 V 278' },
+      { id: 'e-sl-kha', from: 'supreme-leader', to: 'khatam-hq', style: 'solid', d: 'M 800,232 V 254 H 1376 V 278' },
+
+      // Tier 2 Horizontal Strategic Coordination
+      { id: 'e-snsc-def', from: 'snsc', to: 'defense-council', style: 'dashed', d: 'M 404,334 H 428' },
+      { id: 'e-def-afgs', from: 'defense-council', to: 'afgs', style: 'dashed', d: 'M 784,334 H 808' },
+      { id: 'e-afgs-kha', from: 'afgs', to: 'khatam-hq', style: 'solid', d: 'M 1170,334 H 1194' },
+
+      // Tier 2 -> Tier 3 Operational Command Bus (y = 414)
+      { id: 'e-afgs-irgc', from: 'afgs', to: 'irgc-cmd', style: 'solid', d: 'M 989,390 V 414 H 334 V 440' },
+      { id: 'e-afgs-artesh', from: 'afgs', to: 'artesh', style: 'solid', d: 'M 989,390 V 414 H 792 V 440' },
+      { id: 'e-snsc-mois', from: 'snsc', to: 'mois', style: 'dashed', d: 'M 223,390 V 406 H 1104 V 440' },
+      { id: 'e-snsc-pres', from: 'snsc', to: 'presidency', style: 'dashed', d: 'M 223,390 V 406 H 1414 V 440' },
+      { id: 'e-kha-artesh', from: 'khatam-hq', to: 'artesh', style: 'dashed', d: 'M 1376,390 V 414 H 792 V 440' },
+
+      // Pillar A: IRGC Command -> 5 Sub-branches (Row 1 bus y = 560, Row 2 spine at x = 234 & bus y = 724)
+      { id: 'e-irgc-grd', from: 'irgc-cmd', to: 'irgc-ground', style: 'solid', d: 'M 334,546 V 560 H 135 V 576' },
+      { id: 'e-irgc-aero', from: 'irgc-cmd', to: 'irgc-aerospace', style: 'solid', d: 'M 334,546 V 576' },
+      { id: 'e-irgc-navy', from: 'irgc-cmd', to: 'irgc-navy', style: 'solid', d: 'M 334,546 V 560 H 533 V 576' },
+      { id: 'e-irgc-quds', from: 'irgc-cmd', to: 'quds-force', style: 'solid', d: 'M 334,546 V 560 H 234 V 724 H 184 V 734' },
+      { id: 'e-irgc-basij', from: 'irgc-cmd', to: 'basij', style: 'solid', d: 'M 334,546 V 560 H 433 V 724 H 484 V 734' },
+
+      // Pillar B: Artesh & FARAJA Coordination
+      { id: 'e-art-far', from: 'artesh', to: 'faraja', style: 'dashed', d: 'M 792,654 V 676' },
+      { id: 'e-basij-far', from: 'basij', to: 'faraja', style: 'dashed', d: 'M 626,812 H 646' },
+
+      // Pillar C: Intelligence & Cyber Internal Links
+      { id: 'e-mois-io', from: 'mois', to: 'irgc-io', style: 'dashed', d: 'M 1104,586 V 602' },
+      { id: 'e-io-cyber', from: 'irgc-io', to: 'cyberspace', style: 'dashed', d: 'M 1104,740 V 756' },
+      { id: 'e-irgc-io-link', from: 'irgc-cmd', to: 'irgc-io', style: 'dotted', d: 'M 626,492 H 636 V 665 H 948 V 665 H 958' },
+
+      // Pillar D: Civilian State & Judiciary Links
+      { id: 'e-pres-parl', from: 'presidency', to: 'parliament', style: 'dashed', d: 'M 1414,586 V 602' },
+      { id: 'e-parl-jud', from: 'parliament', to: 'judiciary', style: 'dotted', d: 'M 1414,740 V 756' },
+      { id: 'e-pres-mois', from: 'presidency', to: 'mois', style: 'dotted', d: 'M 1270,512 H 1250' },
+      { id: 'e-gc-parl', from: 'guardian-council', to: 'parliament', style: 'dotted', d: 'M 401,220 V 244 H 1574 V 670 H 1558' }
+    ];
+
+    /**
+     * ============================================================================
+     * 3. VIEW 2 DATA: FALL-OF-SYSTEM EVENT SCENARIOS & CASCADE — 1600 x 980
+     * ============================================================================
+     */
+    const SCENARIO_NODES = [
+      // --- COLUMN 1: STRUCTURAL STRESSORS & TRIPPED INDICATORS (2025-2026) ---
+      {
+        id: 'stressor-1',
+        x: 42, y: 126, w: 396, h: 154,
+        headerColor: PALETTE.stressor,
+        pillarName: 'Structural Stressor (1/4)',
+        title: '1. LEADERSHIP DECAPITATION & INVISIBLE APEX',
+        persian: 'Succession & Legitimacy Shock',
+        badge: { text: 'TRIPPED 2026', type: 'kia' },
+        lines: [
+          '• 50+ senior military/intel leaders KIA (Feb–Apr 2026)',
+          '• Mojtaba Khamenei unseen publicly since Mar 2026',
+          '• Dynastic hereditary perception alienates Qom clergy',
+          '• Collective security coalition replaces personal broker'
+        ],
+        incumbent: 'Apex Vulnerability — Active since Feb 28, 2026',
+        predecessor: 'Loss of Ali Khamenei, Pakpour, Mousavi, Larijani, Shamkhani, Khatib',
+        mandate: 'Sustained decapitation removes historical consensus brokers and forces reliance on narrow IRGC/SNSC veterans.',
+        vulnerabilities: 'Any renewed strike on Mojtaba or the Aug 2026 command cohort risks acute succession paralysis.',
+        sources: ['frs2026', 'golkarMef', 'anadoluRezaei']
+      },
+      {
+        id: 'stressor-2',
+        x: 42, y: 296, w: 396, h: 154,
+        headerColor: PALETTE.stressor,
+        pillarName: 'Structural Stressor (2/4)',
+        title: '2. ECONOMIC SHOCK & CAPITAL FLIGHT',
+        persian: 'Blockade & Fiscal Contraction',
+        badge: { text: 'SEVERE', type: 'vacant' },
+        lines: [
+          '• >10% GDP contraction est. & ~500k jobs lost (2026)',
+          '• US naval blockade halts oil tanker loadings (Sep 2026)',
+          '• Hyper-inflation & rial collapse erode middle-class',
+          '• $1.5B+ elite capital / crypto flight reported (Jan 2026)'
+        ],
+        incumbent: 'Macroeconomic Strain — Ongoing Blockade',
+        predecessor: 'Compounded by Spring–Summer 2026 war damage & sanctions',
+        mandate: 'Fiscal throttling constrains patronage payouts to lower-tier bureaucrats, pensioners, and conscript families.',
+        vulnerabilities: 'When economic collapse hits security-force salaries, regime defection risk rises sharply.',
+        sources: ['chathamWar', 'quincyCollapse']
+      },
+      {
+        id: 'stressor-3',
+        x: 42, y: 466, w: 396, h: 154,
+        headerColor: PALETTE.stressor,
+        pillarName: 'Structural Stressor (3/4)',
+        title: '3. SOCIETAL RUPTURE & MASS REPRESSION',
+        persian: 'Dec 2025–Jan 2026 Protests & Aftermath',
+        badge: { text: 'HIGH TENSION', type: 'kia' },
+        lines: [
+          '• Nationwide protests swept Iranian cities (Dec 25–Jan 26)',
+          '• Lethal crackdown; localized FARAJA retreats & leaks',
+          '• Regime deploys Basij AI surveillance platform (Nov 2026)',
+          '• Deep generational alienation across urban population'
+        ],
+        incumbent: 'Domestic Security Front — Preemptive Surveillance',
+        predecessor: 'Follows 2022–2023 Mahsa Amini uprising & 2025–2026 wave',
+        mandate: 'State relies on fear, informants, and digital policing rather than ideological consent to keep streets quiet.',
+        vulnerabilities: 'Coercive over-reliance creates brittle stability prone to sudden cascade if a spark triggers general strikes.',
+        sources: ['golkarMef', 'lwjBasij']
+      },
+      {
+        id: 'stressor-4',
+        x: 42, y: 636, w: 396, h: 154,
+        headerColor: PALETTE.stressor,
+        pillarName: 'Structural Stressor (4/4)',
+        title: '4. INTEL PENETRATION & DETERRENCE EROSION',
+        persian: 'Counter-Espionage Failure & Axis Strain',
+        badge: { text: 'VACANT MOIS', type: 'vacant' },
+        lines: [
+          '• MOIS (Khatib) & IRGC-IO (Khademi) chiefs assassinated',
+          '• 8-month MOIS ministerial vacancy; Nov 15 overhaul bill',
+          '• Forward Axis of Resistance (Hezbollah/PMF) degraded',
+          '• Hormuz mining becomes primary remaining deterrent'
+        ],
+        incumbent: 'Intelligence & Regional Deterrence Deficit',
+        predecessor: 'Exposed by precision Israeli/US targeting throughout 2025–2026',
+        mandate: 'Pervasive foreign intelligence penetration breeds elite paranoia, internal purges, and institutional paralysis.',
+        vulnerabilities: 'Internal spy hunts can fracture trust among senior IRGC and ministerial cliques.',
+        sources: ['lwjMois', 'niacMois', 'chathamWar']
+      },
+
+      // --- COLUMN 2: DECISIVE TIPPING POINTS (THE COERCIVE BOTTLENECK) ---
+      {
+        id: 'tipping-1',
+        x: 496, y: 142, w: 356, h: 196,
+        headerColor: PALETTE.tipping,
+        pillarName: 'Tipping Point Gate (1/3)',
+        title: 'GATE 1: ELITE COHESION vs. CLAN INFIGHTING',
+        persian: 'Factional Equilibrium Test',
+        lines: [
+          'Do IRGC factions & political networks',
+          '(Vahidi / Rezaei / Taeb / Jalili / Ghalibaf /',
+          'Larijani) hold a unified wartime pact?',
+          '• YES -> Praetorian consolidation (Scen. A)',
+          '• SPLIT -> Managed exit (B) or Fracture (D)'
+        ],
+        incumbent: 'Collective Security Coalition (Aug 2026 realignment)',
+        predecessor: 'Formerly arbitrated personally by Ali Khamenei',
+        mandate: 'Determines whether the regime adapts as a cohesive security cartel or splinters into rival patronage clans.',
+        vulnerabilities: 'Absence of a charismatic supreme broker magnifies disputes over war termination and economic spoils.',
+        sources: ['frs2026', 'golkarMef', 'quincyMilitary']
+      },
+      {
+        id: 'tipping-2',
+        x: 496, y: 362, w: 356, h: 196,
+        headerColor: PALETTE.tipping,
+        pillarName: 'Tipping Point Gate (2/3)',
+        title: 'GATE 2: COERCIVE LOYALTY TEST',
+        persian: 'Shoot-to-Kill Obedience Threshold',
+        lines: [
+          'Will FARAJA, Artesh & provincial IRGC',
+          'corps obey mass lethal orders during a',
+          'nationwide general strike / uprising?',
+          '• OBEY -> Regime endures via repression',
+          '• DEFECT -> Rapid implosion (Scenario C)'
+        ],
+        incumbent: 'CTP-ISW & Golkar Collapse Threshold Indicator',
+        predecessor: 'Tested partially during Jan 2026 unrest (localized retreats)',
+        mandate: 'Historical authoritarian collapses hinge on whether mid-level security officers refuse orders to fire on civilians.',
+        vulnerabilities: 'Artesh conscripts and overstretched FARAJA units are far more likely to defect than ideological IRGC/Basij cores.',
+        sources: ['golkarMef', 'quincyCollapse', 'ctpIswAug']
+      },
+      {
+        id: 'tipping-3',
+        x: 496, y: 582, w: 356, h: 196,
+        headerColor: PALETTE.tipping,
+        pillarName: 'Tipping Point Gate (3/3)',
+        title: 'GATE 3: EXTERNAL SHOCK vs. OFF-RAMP',
+        persian: 'War Resumption vs. Hormuz Deal',
+        lines: [
+          'Does US-Israel launch renewed high-tempo',
+          'strikes, OR does indirect mediation yield',
+          'a Hormuz-for-blockade-relief deal?',
+          '• DEAL -> Stabilizes Junta/Pact (A or B)',
+          '• RENEWED WAR -> Risks Fracture (C or D)'
+        ],
+        incumbent: 'Stalemate over Strait of Hormuz & US Naval Blockade',
+        predecessor: 'April 2026 2-week ceasefire collapsed; Qatar mediation ongoing',
+        mandate: 'External military pressure can either rally nationalist cohesion around the IRGC or shatter central command.',
+        vulnerabilities: 'Chatham House warns Tehran may escalate militarily rather than accept slow economic strangulation.',
+        sources: ['chathamWar', 'newArabHormuz', 'quincyCollapse']
+      },
+
+      // --- COLUMN 3: FOUR EVENT SCENARIOS FOR SYSTEM FALL / TRANSFORMATION ---
+      {
+        id: 'scenario-a',
+        x: 912, y: 126, w: 646, h: 154,
+        headerColor: PALETTE.scenA,
+        pillarName: 'Event Scenario A',
+        title: 'SCENARIO A: IRGC PRAETORIAN JUNTA ("SECURITIZED CONTINUITY")',
+        persian: 'Highest Near-Term Institutional Capacity',
+        badge: { text: 'HIGHEST NEAR-TERM PROB.', type: 'new' },
+        lines: [
+          '• Trigger: Prolonged war/blockade + intact IRGC cohesion (Vahidi / Rezaei / Taeb axis)',
+          '• Trajectory: Velayat-e faqih hollowed out or reduced to ceremonial rubber-stamp; SNSC & IRGC',
+          '  formalize direct military-security dictatorship ("Pakistan/Egypt model" with Persian nationalism)',
+          '• Outcome: Clerical regime falls internally, replaced by rigid, hawkish military-security state'
+        ],
+        incumbent: 'Key Actors: Ahmad Vahidi (IRGC), Mohsen Rezaei (SNSC), Hossein Taeb (Basij), Ali Abdollahi (AFGS)',
+        predecessor: 'Already partially underway via Aug 2026 security-coalition consolidation (FRS / Quincy)',
+        mandate: 'Replaces theological legitimacy with wartime national-security nationalism and AI-assisted police state controls.',
+        vulnerabilities: 'Struggles to attract foreign investment or resolve chronic economic stagnation without sanctions relief.',
+        sources: ['quincyMilitary', 'frs2026', 'golkarMef']
+      },
+      {
+        id: 'scenario-b',
+        x: 912, y: 296, w: 646, h: 154,
+        headerColor: PALETTE.scenB,
+        pillarName: 'Event Scenario B',
+        title: 'SCENARIO B: ELITE PACT & CONTROLLED TRANSITION ("MANAGED EXIT")',
+        persian: 'Negotiated Post-Clerical Settlement',
+        badge: { text: 'MODERATE / CONDITIONAL', type: 'vacant' },
+        lines: [
+          '• Trigger: Acute fiscal exhaustion + elite fear of total destruction prompts insider fracture',
+          '• Trajectory: Pragmatic officials (Pezeshkian/Ghalibaf/Larijani circles) + Artesh commanders',
+          '  negotiate constitutional exit pact with domestic opposition & external powers',
+          '• Outcome: Clerical guardianship abolished; state bureaucracy preserved; amnesty for military elites'
+        ],
+        incumbent: 'Key Actors: Civil technocrats, Artesh leadership (Hatami), pragmatic Majles/Expediency insiders',
+        predecessor: 'Modeled on pacted authoritarian transitions (Spain/Chile/post-Soviet)',
+        mandate: 'Secures sanctions lifting and institutional continuity by sacrificing ideological hardliners and velayat-e faqih.',
+        vulnerabilities: 'Hardline IRGC commanders view compromise as an existential threat ("cannot afford to leave" — Golkar).',
+        sources: ['golkarMef', 'chathamWar', 'quincyCollapse']
+      },
+      {
+        id: 'scenario-c',
+        x: 912, y: 466, w: 646, h: 154,
+        headerColor: PALETTE.scenC,
+        pillarName: 'Event Scenario C',
+        title: 'SCENARIO C: REVOLUTIONARY UPHEAVAL & SECURITY DEFECTION ("BOTTOM-UP COLLAPSE")',
+        persian: 'Rapid Regime Implosion',
+        badge: { text: 'CONTINGENT ON DEFECTION', type: 'vacant' },
+        lines: [
+          '• Trigger: Hyper-inflation / fuel shock sparks nationwide general strike (bazaar + oil workers + youth)',
+          '• Trajectory: Mid-level FARAJA & Artesh officers refuse shoot-to-kill orders, tripping CTP-ISW',
+          '  collapse threshold; Basij overwhelmed in major cities (Tehran, Isfahan, Mashhad, Tabriz)',
+          '• Outcome: Rapid regime collapse; provisional transitional council formed; risk of post-fall factionalism'
+        ],
+        incumbent: 'Key Actors: Urban labor/bazaar networks, student/women movements, defecting Artesh/FARAJA units',
+        predecessor: 'Echoes 1979 oil-strike + military-neutrality cascade',
+        mandate: 'Requires unified opposition leadership and simultaneous paralysis of coercive organs to succeed.',
+        vulnerabilities: 'Absence of organized domestic opposition leadership and ruthless IRGC/Basij willingness to use lethal force.',
+        sources: ['golkarMef', 'quincyCollapse', 'lwjBasij']
+      },
+      {
+        id: 'scenario-d',
+        x: 912, y: 636, w: 646, h: 154,
+        headerColor: PALETTE.scenD,
+        pillarName: 'Event Scenario D',
+        title: 'SCENARIO D: STATE FRAGMENTATION & WARLORDISM ("FAILED-STATE SPIRAL")',
+        persian: 'Territorial Fracture Tail-Risk',
+        badge: { text: 'HIGH-IMPACT TAIL RISK', type: 'kia' },
+        lines: [
+          '• Trigger: Simultaneous central decapitation + full-scale external air campaign + fiscal collapse',
+          '• Trajectory: 31 Mosaic-Defense IRGC provincial corps act autonomously as local warlords while',
+          '  armed ethnic insurgencies surge in Sistan-Baluchestan (MPF merger Nov 2026), Kurdistan & Khuzestan',
+          '• Outcome: Loss of central monopoly on force; proliferation risk over nuclear/missile stockpiles'
+        ],
+        incumbent: 'Key Actors: Autonomous IRGC provincial commanders, Baloch (MPF) & Kurdish armed groups',
+        predecessor: 'Warning sign: Nov 11, 2026 Baloch militant merger reported by CTP-ISW',
+        mandate: 'Worst-case regional security outcome creating refugee crises and unsecured WMD/missile arsenals.',
+        vulnerabilities: 'Iran\'s strong historical national identity acts as a partial counterweight against full Yugoslav/Libyan breakup.',
+        sources: ['ctpIswAug', 'quincyCollapse', 'chathamWar']
+      },
+
+      // --- BOTTOM STRIP: REGIME RESILIENCE & COUNTER-INDICATORS ---
+      {
+        id: 'resilience-strip',
+        x: 42, y: 822, w: 1516, h: 118,
+        headerColor: PALETTE.resilience,
+        pillarName: 'Analytical Counterweight (Quincy Institute & FRS 2026)',
+        title: 'REGIME RESILIENCE & COUNTER-INDICATORS (WHY COLLAPSE IS NOT AUTOMATIC)',
+        persian: 'Institutional Survival Mechanisms',
+        lines: [
+          '1. PRE-DESIGNATED 3-TIER IRGC SUCCESSION: Instant replacement of 50+ slain commanders (Aug 2026 decrees) prevented operational paralysis.',
+          '2. COMMITTED LOYALIST CORE (~10% BASE): ~8–9M ideological & patronage dependents tied to bonyads, Basij, and IRGC survival.',
+          '3. CROSS-BORDER REINFORCEMENT & AI SURVEILLANCE: Ability to mobilize allied regional militias & deploy preemptive digital policing (Taeb/Basij).',
+          '4. COLLECTIVE SECURITY GOVERNANCE: Power dispersion across SNSC, AFGS, IRGC & Judiciary eliminates single-point failure after Ali Khamenei.'
+        ],
+        incumbent: 'Structural Resilience Factors Documented in Nov 2026 Assessments',
+        predecessor: 'Survived 2025 12-Day War, Feb–Apr 2026 decapitation strikes, and Jan 2026 unrest',
+        mandate: 'Quincy Institute (Nov 17, 2026) and FRS warn against assuming external pressure automatically produces democratic collapse.',
+        vulnerabilities: 'Resilience ensures survival in the short run but deepens long-term economic and legitimacy decay.',
+        sources: ['quincyCollapse', 'frs2026', 'golkarMef', 'chathamWar']
+      }
+    ];
+
+    /**
+     * Strictly Orthogonal Elbow Connectors for View 2
+     */
+    const SCENARIO_EDGES = [
+      // Column 1 (Stressors) -> Column 2 (Tipping Points) via clean vertical bus at x = 466
+      { id: 'se-s1-t1', from: 'stressor-1', to: 'tipping-1', style: 'solid', d: 'M 438,203 H 466 V 240 H 496' },
+      { id: 'se-s2-t1', from: 'stressor-2', to: 'tipping-1', style: 'dashed', d: 'M 438,373 H 460 V 262 H 496' },
+      { id: 'se-s2-t2', from: 'stressor-2', to: 'tipping-2', style: 'solid', d: 'M 438,373 H 466 V 440 H 496' },
+      { id: 'se-s3-t2', from: 'stressor-3', to: 'tipping-2', style: 'solid', d: 'M 438,543 H 474 V 480 H 496' },
+      { id: 'se-s4-t1', from: 'stressor-4', to: 'tipping-1', style: 'dotted', d: 'M 438,713 H 452 V 284 H 496' },
+      { id: 'se-s4-t3', from: 'stressor-4', to: 'tipping-3', style: 'solid', d: 'M 438,713 H 466 V 680 H 496' },
+
+      // Column 2 (Tipping Points) -> Column 3 (Event Scenarios) via clean bus channels at x = 876..892
+      { id: 'se-t1-sa', from: 'tipping-1', to: 'scenario-a', style: 'solid', d: 'M 852,216 H 880 V 203 H 912' },
+      { id: 'se-t1-sb', from: 'tipping-1', to: 'scenario-b', style: 'dashed', d: 'M 852,256 H 872 V 356 H 912' },
+      { id: 'se-t2-sa', from: 'tipping-2', to: 'scenario-a', style: 'dotted', d: 'M 852,424 H 888 V 225 H 912' },
+      { id: 'se-t2-sc', from: 'tipping-2', to: 'scenario-c', style: 'solid', d: 'M 852,464 H 880 V 543 H 912' },
+      { id: 'se-t3-sb', from: 'tipping-3', to: 'scenario-b', style: 'dashed', d: 'M 852,644 H 896 V 390 H 912' },
+      { id: 'se-t3-sd', from: 'tipping-3', to: 'scenario-d', style: 'solid', d: 'M 852,692 H 880 V 713 H 912' },
+
+      // Resilience Counterweight upward dashed dampening arrows to Tipping Points
+      { id: 'se-res-t2', from: 'resilience-strip', to: 'tipping-2', style: 'dotted', d: 'M 674,822 V 778' }
+    ];
+
+    /**
+     * ============================================================================
+     * 4. APPLICATION STATE & SVG RENDERING ENGINE
+     * ============================================================================
+     */
+    const state = {
+      view: 'org', // 'org' | 'scenarios' | 'combined'
+      showBadges: true,
+      showInformal: true,
+      selectedNodeId: 'supreme-leader',
+      zoom: 1,
+      panX: 0,
+      panY: 0,
+      sidebarCollapsed: false
+    };
+
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+
+    function el(tag, attrs = {}, parent = null) {
+      const node = document.createElementNS(SVG_NS, tag);
+      for (const [k, v] of Object.entries(attrs)) {
+        node.setAttribute(k, String(v));
+      }
+      if (parent) parent.appendChild(node);
+      return node;
+    }
+
+    /**
+     * Render a crisp CIA NIS 1973-inspired rectangular institutional box
+     */
+    function renderNodeBox(parent, node, showBadges) {
+      const g = el('g', {
+        id: `node-${node.id}`,
+        class: 'svg-node',
+        'data-id': node.id
+      }, parent);
+
+      const frameG = el('g', { class: 'node-frame' }, g);
+
+      // Subtle architectural shadow
+      el('rect', {
+        x: node.x + 2,
+        y: node.y + 2.5,
+        width: node.w,
+        height: node.h,
+        rx: 2,
+        fill: '#0F172A',
+        opacity: '0.08'
+      }, frameG);
+
+      // Outer Double Border for Supreme Command Node
+      if (node.doubleBorder) {
+        el('rect', {
+          x: node.x - 4,
+          y: node.y - 4,
+          width: node.w + 8,
+          height: node.h + 8,
+          rx: 3,
+          fill: 'none',
+          stroke: '#1E3A5F',
+          'stroke-width': '2'
+        }, frameG);
+      }
+
+      // Main Box Body
+      el('rect', {
+        x: node.x,
+        y: node.y,
+        width: node.w,
+        height: node.h,
+        rx: 2,
+        fill: '#FFFFFF',
+        stroke: node.doubleBorder ? '#1E3A5F' : '#1E293B',
+        'stroke-width': node.doubleBorder ? '1.8' : '1.4'
+      }, frameG);
+
+      // Header Strip
+      const headerH = 26;
+      el('rect', {
+        x: node.x,
+        y: node.y,
+        width: node.w,
+        height: headerH,
+        rx: 2,
+        fill: node.headerColor
+      }, frameG);
+      // Square off bottom corners of header strip
+      el('rect', {
+        x: node.x,
+        y: node.y + headerH - 4,
+        width: node.w,
+        height: 4,
+        fill: node.headerColor
+      }, frameG);
+
+      // Header Title Text
+      const hasBadge = showBadges && node.badge;
+      const titleFontSize = node.w < 210 ? 9.4 : 10.6;
+      const titleText = el('text', {
+        x: node.x + 9,
+        y: node.y + 17,
+        fill: '#FFFFFF',
+        'font-family': "'Inter', 'Helvetica Neue', Arial, sans-serif",
+        'font-size': titleFontSize,
+        'font-weight': '700',
+        'letter-spacing': '0.35'
+      }, g);
+      titleText.textContent = node.title;
+
+      // Optional 2026 Status Pill (placed neatly on top-right of header or just below header for narrow boxes)
+      let bodyStartY = node.y + headerH + 17;
+      if (hasBadge) {
+        const st = STATUS_STYLES[node.badge.type] || STATUS_STYLES.new;
+        const pillText = `[${node.badge.text}]`;
+        const pillW = Math.max(66, pillText.length * 5.6 + 10);
+        const pillH = 15;
+        const placeInsideBody = node.w < 320;
+        const px = placeInsideBody ? node.x + 9 : node.x + node.w - pillW - 7;
+        const py = placeInsideBody ? node.y + headerH + 6 : node.y + 5.5;
+
+        el('rect', {
+          x: px,
+          y: py,
+          width: pillW,
+          height: pillH,
+          rx: 2.5,
+          fill: st.fill,
+          stroke: st.stroke,
+          'stroke-width': '0.9'
+        }, g);
+
+        const bTxt = el('text', {
+          x: px + pillW / 2,
+          y: py + 10.8,
+          'text-anchor': 'middle',
+          fill: st.text,
+          'font-family': "'JetBrains Mono', monospace",
+          'font-size': '8.2',
+          'font-weight': '700'
+        }, g);
+        bTxt.textContent = pillText;
+
+        if (placeInsideBody) {
+          bodyStartY = node.y + headerH + 34;
+        }
+      }
+
+      // Body Lines (strictly computed vertical spacing, zero overflow)
+      const bodyFontSize = node.w < 210 ? 9.4 : (node.w > 500 ? 10.6 : 10.0);
+      const lineStep = node.w < 210 ? 14.5 : (node.lines.length >= 6 ? 16.5 : 17.5);
+
+      const txt = el('text', {
+        x: node.x + 10,
+        y: bodyStartY,
+        fill: '#1E293B',
+        'font-family': "'Inter', 'Helvetica Neue', Arial, sans-serif",
+        'font-size': bodyFontSize,
+        'font-weight': '500'
+      }, g);
+
+      node.lines.forEach((line, idx) => {
+        const tspan = el('tspan', {
+          x: node.x + 10,
+          dy: idx === 0 ? '0' : String(lineStep)
+        }, txt);
+        if (idx === 0 && (node.doubleBorder || node.id === 'irgc-cmd' || node.id === 'snsc' || node.id === 'afgs')) {
+          tspan.setAttribute('font-weight', '700');
+          tspan.setAttribute('fill', '#0F172A');
+        }
+        tspan.textContent = line;
+      });
+
+      // Selection Outline (toggled via JS)
+      el('rect', {
+        class: 'selection-ring',
+        x: node.x - 3,
+        y: node.y - 3,
+        width: node.w + 6,
+        height: node.h + 6,
+        rx: 3.5,
+        fill: 'none',
+        stroke: '#2563EB',
+        'stroke-width': '2.6',
+        opacity: '0'
+      }, g);
+
+      g.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectNode(node.id);
+      });
+
+      return g;
+    }
+
+    /**
+     * Render Orthogonal Edge with CIA NIS line styles
+     */
+    function renderEdge(parent, edge, showInformal) {
+      if (edge.style === 'dotted' && !showInformal) return null;
+
+      const attrs = {
+        id: edge.id,
+        class: 'svg-edge',
+        d: edge.d,
+        fill: 'none',
+        'data-from': edge.from,
+        'data-to': edge.to,
+        'stroke-linejoin': 'miter'
+      };
+
+      if (edge.style === 'solid') {
+        attrs.stroke = '#1E293B';
+        attrs['stroke-width'] = '1.75';
+      } else if (edge.style === 'dashed') {
+        attrs.stroke = '#475569';
+        attrs['stroke-width'] = '1.45';
+        attrs['stroke-dasharray'] = '6,4';
+      } else {
+        attrs.stroke = '#64748B';
+        attrs['stroke-width'] = '1.4';
+        attrs['stroke-dasharray'] = '2,3.5';
+      }
+
+      return el('path', attrs, parent);
+    }
+
+    /**
+     * Render View 1 Content into a target <g> (1600 x 1020)
+     */
+    function buildOrgChartLayer(parent, offsetY = 0) {
+      const root = el('g', {
+        id: 'layer-regime-org-chart',
+        transform: offsetY ? `translate(0, ${offsetY})` : ''
+      }, parent);
+
+      // Drafting Border
+      el('rect', { x: 14, y: 14, width: 1572, height: 992, fill: 'none', stroke: '#1E293B', 'stroke-width': '1.6' }, root);
+      el('rect', { x: 19, y: 19, width: 1562, height: 982, fill: 'none', stroke: '#94A3B8', 'stroke-width': '0.7' }, root);
+
+      // CIA NIS 1973 Style Header Block
+      const headerG = el('g', { id: 'org-title-block' }, root);
+      const tMain = el('text', {
+        x: 800, y: 48, 'text-anchor': 'middle',
+        fill: '#0F172A', 'font-family': "'Inter', 'Helvetica Neue', Arial, sans-serif",
+        'font-size': '19', 'font-weight': '800', 'letter-spacing': '1.4'
+      }, headerG);
+      tMain.textContent = 'ORGANIZATION OF THE ISLAMIC REPUBLIC OF IRAN';
+
+      const tSub = el('text', {
+        x: 800, y: 69, 'text-anchor': 'middle',
+        fill: '#334155', 'font-family': "'Inter', 'Helvetica Neue', Arial, sans-serif",
+        'font-size': '11.8', 'font-weight': '600', 'letter-spacing': '1.1'
+      }, headerG);
+      tSub.textContent = 'REGIME GOVERNANCE, COERCIVE & SECURITY APPARATUS  —  AS OF NOVEMBER 2026';
+
+      // Top-Right Reference Box
+      el('rect', { x: 1326, y: 28, width: 242, height: 48, fill: '#F1F5F9', stroke: '#64748B', 'stroke-width': '0.9' }, headerG);
+      const ref1 = el('text', { x: 1336, y: 45, fill: '#0F172A', 'font-family': "'JetBrains Mono', monospace", 'font-size': '9.2', 'font-weight': '700' }, headerG);
+      ref1.textContent = 'CHART: IRI-SEC-2026-11';
+      const ref2 = el('text', { x: 1336, y: 60, fill: '#475569', 'font-family': "'JetBrains Mono', monospace", 'font-size': '8.5' }, headerG);
+      ref2.textContent = 'STYLE REF: CIA NIS (1973)';
+      const ref3 = el('text', { x: 1336, y: 71, fill: '#7F1D1D', 'font-family': "'JetBrains Mono', monospace", 'font-size': '8.2', 'font-weight': '600' }, headerG);
+      ref3.textContent = 'POST-AUG 2026 REALIGNMENT';
+
+      // Horizontal Hairline under Title
+      el('line', { x1: 36, y1: 84, x2: 1564, y2: 84, stroke: '#CBD5E1', 'stroke-width': '1' }, headerG);
+
+      // Subtle Tier Band Labels on Left Margin
+      const tierLabels = [
+        { y: 97, text: 'TIER 1 — CLERICAL-CONSTITUTIONAL APEX' },
+        { y: 270, text: 'TIER 2 — STRATEGIC SECURITY GOVERNANCE COALITION (POST-AUG 2026)' },
+        { y: 432, text: 'TIER 3 — OPERATIONAL SECURITY, INTELLIGENCE & CIVILIAN PILLARS' }
+      ];
+      tierLabels.forEach((tl) => {
+        const lbl = el('text', {
+          x: 42, y: tl.y, fill: '#64748B',
+          'font-family': "'JetBrains Mono', monospace", 'font-size': '8.8', 'font-weight': '700', 'letter-spacing': '0.6'
+        }, headerG);
+        lbl.textContent = tl.text;
+      });
+
+      // Edges Layer (drawn behind nodes)
+      const edgesG = el('g', { id: 'org-edges' }, root);
+      ORG_EDGES.forEach((edge) => renderEdge(edgesG, edge, state.showInformal));
+
+      // Nodes Layer
+      const nodesG = el('g', { id: 'org-nodes' }, root);
+      ORG_NODES.forEach((node) => renderNodeBox(nodesG, node, state.showBadges));
+
+      // Legend & Attribution Footer (y = 912..988)
+      const legG = el('g', { id: 'org-legend-footer' }, root);
+      el('rect', { x: 42, y: 912, width: 1516, height: 74, rx: 3, fill: '#FFFFFF', stroke: '#94A3B8', 'stroke-width': '1' }, legG);
+
+      // Line Style Legend
+      const lTitle = el('text', { x: 56, y: 932, fill: '#0F172A', 'font-family': "'Inter', Arial, sans-serif", 'font-size': '9.8', 'font-weight': '700' }, legG);
+      lTitle.textContent = 'LINE KEY:';
+
+      el('line', { x1: 118, y1: 928, x2: 154, y2: 928, stroke: '#1E293B', 'stroke-width': '2' }, legG);
+      const l1 = el('text', { x: 162, y: 932, fill: '#1E293B', 'font-family': "'Inter', Arial, sans-serif", 'font-size': '9.5' }, legG);
+      l1.textContent = 'Direct Constitutional / Operational Command';
+
+      el('line', { x1: 396, y1: 928, x2: 432, y2: 928, stroke: '#475569', 'stroke-width': '1.6', 'stroke-dasharray': '6,4' }, legG);
+      const l2 = el('text', { x: 440, y: 932, fill: '#1E293B', 'font-family': "'Inter', Arial, sans-serif", 'font-size': '9.5' }, legG);
+      l2.textContent = 'Strategic Coordination / Supervisory Oversight';
+
+      el('line', { x1: 682, y1: 928, x2: 718, y2: 928, stroke: '#64748B', 'stroke-width': '1.6', 'stroke-dasharray': '2,3.5' }, legG);
+      const l3 = el('text', { x: 726, y: 932, fill: '#1E293B', 'font-family': "'Inter', Arial, sans-serif", 'font-size': '9.5' }, legG);
+      l3.textContent = 'Clerical Vetting / Ideological Control / Informal Influence';
+
+      // Color Swatch Legend (Row 2 inside footer)
+      const swatches = [
+        { x: 56, c: PALETTE.clerical, label: 'Clerical-Constitutional Core' },
+        { x: 254, c: PALETTE.securityHub, label: 'Security Governance Hub' },
+        { x: 438, c: PALETTE.military, label: 'IRGC / Artesh / FARAJA' },
+        { x: 604, c: PALETTE.intel, label: 'Intelligence & Cyber' },
+        { x: 756, c: PALETTE.civilian, label: 'Civilian Executive / Majles / Judiciary' }
+      ];
+      swatches.forEach((s) => {
+        el('rect', { x: s.x, y: 948, width: 12, height: 12, rx: 1.5, fill: s.c }, legG);
+        const st = el('text', { x: s.x + 17, y: 958, fill: '#334155', 'font-family': "'Inter', Arial, sans-serif", 'font-size': '9.3', 'font-weight': '600' }, legG);
+        st.textContent = s.label;
+      });
+
+      // Attribution Line
+      const attr = el('text', {
+        x: 56, y: 976, fill: '#64748B',
+        'font-family': "'Inter', Arial, sans-serif", 'font-size': '8.8'
+      }, legG);
+      attr.textContent = 'Sources: FRS (2026), FDD Long War Journal (Nov 2026), Anadolu Agency (Aug 2026), CTP-ISW (Aug 2026), The New Arab (Nov 2026), NIAC (Nov 2026). Chart architecture adapted from CIA NIS (1973) via Wikimedia Commons.';
+
+      return root;
+    }
+
+    /**
+     * Render View 2 Content into a target <g> (1600 x 980)
+     */
+    function buildScenariosLayer(parent, offsetY = 0) {
+      const root = el('g', {
+        id: 'layer-fall-scenarios',
+        transform: offsetY ? `translate(0, ${offsetY})` : ''
+      }, parent);
+
+      // Drafting Border
+      el('rect', { x: 14, y: 14, width: 1572, height: 952, fill: 'none', stroke: '#1E293B', 'stroke-width': '1.6' }, root);
+      el('rect', { x: 19, y: 19, width: 1562, height: 942, fill: 'none', stroke: '#94A3B8', 'stroke-width': '0.7' }, root);
+
+      // Header Block
+      const headerG = el('g', { id: 'scenarios-title-block' }, root);
+      const tMain = el('text', {
+        x: 800, y: 48, 'text-anchor': 'middle',
+        fill: '#0F172A', 'font-family': "'Inter', 'Helvetica Neue', Arial, sans-serif",
+        'font-size': '19', 'font-weight': '800', 'letter-spacing': '1.4'
+      }, headerG);
+      tMain.textContent = 'FALL OF SYSTEM: EVENT SCENARIOS & CASCADE MODEL';
+
+      const tSub = el('text', {
+        x: 800, y: 69, 'text-anchor': 'middle',
+        fill: '#334155', 'font-family': "'Inter', 'Helvetica Neue', Arial, sans-serif",
+        'font-size': '11.6', 'font-weight': '600', 'letter-spacing': '1.0'
+      }, headerG);
+      tSub.textContent = 'STRUCTURAL STRESSORS, COERCIVE BOTTLENECKS & TRANSITION TRAJECTORIES — NOVEMBER 2026';
+
+      el('line', { x1: 36, y1: 84, x2: 1564, y2: 84, stroke: '#CBD5E1', 'stroke-width': '1' }, headerG);
+
+      // Column Headers
+      const colHeaders = [
+        { x: 42, w: 396, text: 'COLUMN 1 — STRUCTURAL STRESSORS (2025–2026)', bg: '#FEF2F2', stroke: '#FECACA', fg: '#991B1B' },
+        { x: 496, w: 356, text: 'COLUMN 2 — DECISIVE TIPPING POINTS', bg: '#FFFBEB', stroke: '#FDE68A', fg: '#92400E' },
+        { x: 912, w: 646, text: 'COLUMN 3 — FOUR EVENT SCENARIOS FOR SYSTEM FALL / TRANSFORMATION', bg: '#F1F5F9', stroke: '#CBD5E1', fg: '#0F172A' }
+      ];
+      colHeaders.forEach((ch) => {
+        el('rect', { x: ch.x, y: 94, width: ch.w, height: 22, rx: 2, fill: ch.bg, stroke: ch.stroke, 'stroke-width': '1' }, headerG);
+        const ct = el('text', {
+          x: ch.x + ch.w / 2, y: 109, 'text-anchor': 'middle',
+          fill: ch.fg, 'font-family': "'JetBrains Mono', monospace", 'font-size': '9.4', 'font-weight': '700'
+        }, headerG);
+        ct.textContent = ch.text;
+      });
+
+      // Edges Layer
+      const edgesG = el('g', { id: 'scenario-edges' }, root);
+      SCENARIO_EDGES.forEach((edge) => renderEdge(edgesG, edge, state.showInformal));
+
+      // Nodes Layer
+      const nodesG = el('g', { id: 'scenario-nodes' }, root);
+      SCENARIO_NODES.forEach((node) => renderNodeBox(nodesG, node, state.showBadges));
+
+      // Attribution Note at very bottom
+      const foot = el('text', {
+        x: 800, y: 954, 'text-anchor': 'middle', fill: '#64748B',
+        'font-family': "'Inter', Arial, sans-serif", 'font-size': '8.8'
+      }, root);
+      foot.textContent = 'Analytical synthesis grounded in Saeid Golkar (Middle East Forum 2026), CTP-ISW (2026), FRS (2026), Quincy Institute (Apr & Nov 2026), and Chatham House (Nov 2026).';
+
+      return root;
+    }
+
+    /**
+     * Build Active Master SVG Element for current view
+     */
+    function renderActiveSvg() {
+      const host = document.getElementById('svg-host');
+      host.innerHTML = '';
+
+      const dims = {
+        org: { w: 1600, h: 1020 },
+        scenarios: { w: 1600, h: 980 },
+        combined: { w: 1600, h: 2020 }
+      }[state.view];
+
+      const svg = el('svg', {
+        id: 'master-diagram-svg',
+        xmlns: 'http://www.w3.org/2000/svg',
+        version: '1.1',
+        viewBox: `0 0 ${dims.w} ${dims.h}`,
+        width: '100%',
+        height: '100%',
+        class: 'w-full h-full block'
+      });
+
+      // Standalone Metadata
+      const titleEl = el('title', {}, svg);
+      titleEl.textContent = 'Organization of the Islamic Republic of Iran: Regime & Security Apparatus (November 2026) & Fall-of-System Event Scenarios';
+
+      // Pan/Zoom Group
+      const pz = el('g', { id: 'svg-pan-zoom-group' }, svg);
+
+      // Parchment Background Rect
+      el('rect', {
+        id: 'svg-bg-rect',
+        x: 0, y: 0, width: dims.w, height: dims.h,
+        fill: PALETTE.parchment
+      }, pz);
+
+      if (state.view === 'org') {
+        buildOrgChartLayer(pz, 0);
+      } else if (state.view === 'scenarios') {
+        buildScenariosLayer(pz, 0);
+      } else {
+        buildOrgChartLayer(pz, 0);
+        // Divider between top & bottom poster halves
+        el('line', { x1: 24, y1: 1018, x2: 1576, y2: 1018, stroke: '#1E293B', 'stroke-width': '1.2', 'stroke-dasharray': '8,6' }, pz);
+        buildScenariosLayer(pz, 1026);
+      }
+
+      svg.addEventListener('click', () => clearSelectionHighlight());
+
+      host.appendChild(svg);
+      applyTransform();
+      applySelectionHighlight();
+    }
+
+    /**
+     * ============================================================================
+     * 5. NODE INSPECTION & UPSTREAM/DOWNSTREAM CONNECTION TRACING
+     * ============================================================================
+     */
+    function getAllNodes() {
+      return [...ORG_NODES, ...SCENARIO_NODES];
+    }
+
+    function getAllEdges() {
+      return [...ORG_EDGES, ...SCENARIO_EDGES];
+    }
+
+    function selectNode(nodeId) {
+      const node = getAllNodes().find((n) => n.id === nodeId);
+      if (!node) return;
+      state.selectedNodeId = nodeId;
+
+      // Switch sidebar to Inspector tab if currently on Sources
+      switchSidebarTab('inspector');
+
+      // Populate Inspector Card
+      const pill = document.getElementById('insp-pillar-pill');
+      pill.textContent = node.pillarName;
+      pill.style.backgroundColor = node.headerColor;
+
+      document.getElementById('insp-title').textContent = node.title;
+      document.getElementById('insp-persian').textContent = node.persian || '';
+      document.getElementById('insp-incumbent').textContent = node.incumbent;
+      document.getElementById('insp-predecessor').textContent = node.predecessor;
+      document.getElementById('insp-mandate').textContent = node.mandate;
+      document.getElementById('insp-vulnerabilities').textContent = node.vulnerabilities;
+
+      const statusBanner = document.getElementById('insp-status-banner');
+      if (node.badge) {
+        const st = STATUS_STYLES[node.badge.type] || STATUS_STYLES.new;
+        statusBanner.textContent = `2026 STATUS: ${node.badge.text}`;
+        statusBanner.style.backgroundColor = st.fill;
+        statusBanner.style.borderColor = st.stroke;
+        statusBanner.style.color = st.text;
+        statusBanner.classList.remove('hidden');
+      } else {
+        statusBanner.classList.add('hidden');
+      }
+
+      const srcContainer = document.getElementById('insp-sources');
+      srcContainer.innerHTML = (node.sources || []).map((key) => {
+        const s = SOURCES[key];
+        if (!s) return '';
+        return `
+          <a href="${s.url}" target="_blank" rel="noopener noreferrer"
+             class="block p-2 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 transition group">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[10.5px] font-bold text-slate-800 group-hover:text-blue-800 truncate">${s.org}</span>
+              <span class="text-[9.5px] font-mono text-slate-400 shrink-0">${s.date}</span>
+            </div>
+            <p class="text-[11px] text-blue-700 group-hover:underline leading-snug mt-0.5">${s.title}</p>
+          </a>
+        `;
+      }).join('');
+
+      applySelectionHighlight();
+    }
+
+    function applySelectionHighlight() {
+      const svg = document.getElementById('master-diagram-svg');
+      if (!svg) return;
+
+      const selectedId = state.selectedNodeId;
+      const allNodeEls = svg.querySelectorAll('.svg-node');
+      const allEdgeEls = svg.querySelectorAll('.svg-edge');
+
+      if (!selectedId || !svg.querySelector(`#node-${selectedId}`)) {
+        allNodeEls.forEach((n) => {
+          n.classList.remove('dimmed');
+          const ring = n.querySelector('.selection-ring');
+          if (ring) ring.setAttribute('opacity', '0');
+        });
+        allEdgeEls.forEach((e) => e.classList.remove('dimmed', 'highlighted-edge'));
+        return;
+      }
+
+      const connectedNodes = new Set([selectedId]);
+      const connectedEdges = new Set();
+
+      getAllEdges().forEach((edge) => {
+        if (edge.from === selectedId || edge.to === selectedId) {
+          connectedEdges.add(edge.id);
+          connectedNodes.add(edge.from);
+          connectedNodes.add(edge.to);
+        }
+      });
+
+      allNodeEls.forEach((n) => {
+        const nid = n.getAttribute('data-id');
+        const ring = n.querySelector('.selection-ring');
+        if (connectedNodes.has(nid)) {
+          n.classList.remove('dimmed');
+        } else {
+          n.classList.add('dimmed');
+        }
+        if (ring) ring.setAttribute('opacity', nid === selectedId ? '1' : '0');
+      });
+
+      allEdgeEls.forEach((e) => {
+        if (connectedEdges.has(e.id)) {
+          e.classList.remove('dimmed');
+          e.classList.add('highlighted-edge');
+        } else {
+          e.classList.add('dimmed');
+          e.classList.remove('highlighted-edge');
+        }
+      });
+    }
+
+    function clearSelectionHighlight() {
+      state.selectedNodeId = null;
+      applySelectionHighlight();
+    }
+
+    /**
+     * Render the 12 Verified Sources Directory in Sidebar Tab 2
+     */
+    function renderSourcesDirectory() {
+      const dir = document.getElementById('sources-directory');
+      dir.innerHTML = Object.values(SOURCES).map((s, idx) => `
+        <a href="${s.url}" target="_blank" rel="noopener noreferrer"
+           class="block p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 transition group">
+          <div class="flex items-center justify-between gap-2 mb-0.5">
+            <span class="text-[10.5px] font-bold text-slate-900 group-hover:text-blue-900">
+              ${idx + 1}. ${s.org}
+            </span>
+            <span class="text-[9.5px] font-mono text-slate-500 shrink-0">${s.date}</span>
+          </div>
+          <p class="text-[11px] text-blue-700 group-hover:underline leading-snug">${s.title}</p>
+          <p class="text-[9.5px] font-mono text-slate-400 truncate mt-1">${s.url}</p>
+        </a>
+      `).join('');
+    }
+
+    /**
+     * ============================================================================
+     * 6. INTERACTIVE CONTROLS, PAN/ZOOM & SIDEBAR TABS
+     * ============================================================================
+     */
+    function switchSidebarTab(tabName) {
+      const inspPanel = document.getElementById('panel-inspector');
+      const srcPanel = document.getElementById('panel-sources');
+      document.querySelectorAll('.sidebar-tab-btn').forEach((btn) => {
+        const active = btn.getAttribute('data-sidebar-tab') === tabName;
+        btn.className = active
+          ? 'sidebar-tab-btn py-2 px-3 rounded-lg text-xs font-bold transition bg-white text-slate-900 shadow-2xs border border-slate-200'
+          : 'sidebar-tab-btn py-2 px-3 rounded-lg text-xs font-semibold transition text-slate-600 hover:text-slate-900';
+      });
+      if (tabName === 'inspector') {
+        inspPanel.classList.remove('hidden');
+        srcPanel.classList.add('hidden');
+      } else {
+        inspPanel.classList.add('hidden');
+        srcPanel.classList.remove('hidden');
+      }
+    }
+
+    document.querySelectorAll('.sidebar-tab-btn').forEach((btn) => {
+      btn.addEventListener('click', () => switchSidebarTab(btn.getAttribute('data-sidebar-tab')));
+    });
+
+    // View Switcher Tabs
+    document.querySelectorAll('.view-tab-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        state.view = btn.getAttribute('data-view');
+        document.querySelectorAll('.view-tab-btn').forEach((b) => {
+          const isMe = b === btn;
+          b.className = isMe
+            ? 'view-tab-btn px-3 py-1.5 rounded-md font-semibold transition bg-[#1E3A5F] text-white shadow-2xs'
+            : 'view-tab-btn px-3 py-1.5 rounded-md font-medium transition text-slate-700 hover:text-slate-900';
+        });
+        state.zoom = 1;
+        state.panX = 0;
+        state.panY = 0;
+        state.selectedNodeId = state.view === 'scenarios' ? 'scenario-a' : 'supreme-leader';
+        renderActiveSvg();
+        selectNode(state.selectedNodeId);
+      });
+    });
+
+    // Feature Toggles
+    document.getElementById('toggle-status-badges').addEventListener('change', (e) => {
+      state.showBadges = e.target.checked;
+      renderActiveSvg();
+    });
+    document.getElementById('toggle-informal-links').addEventListener('change', (e) => {
+      state.showInformal = e.target.checked;
+      renderActiveSvg();
+    });
+    document.getElementById('btn-clear-selection').addEventListener('click', clearSelectionHighlight);
+
+    // Sidebar Collapse (Desktop)
+    document.getElementById('btn-toggle-sidebar').addEventListener('click', () => {
+      state.sidebarCollapsed = !state.sidebarCollapsed;
+      const sidebar = document.getElementById('inspector-sidebar');
+      const col = document.getElementById('diagram-column');
+      if (state.sidebarCollapsed) {
+        sidebar.classList.add('lg:hidden');
+        col.classList.remove('lg:col-span-8', 'xl:col-span-9');
+        col.classList.add('lg:col-span-12');
+      } else {
+        sidebar.classList.remove('lg:hidden');
+        col.classList.remove('lg:col-span-12');
+        col.classList.add('lg:col-span-8', 'xl:col-span-9');
+      }
+    });
+
+    // Pan & Zoom Engine
+    function applyTransform() {
+      const pz = document.getElementById('svg-pan-zoom-group');
+      if (pz) {
+        pz.setAttribute('transform', `translate(${state.panX}, ${state.panY}) scale(${state.zoom})`);
+      }
+      document.getElementById('zoom-level').textContent = `${Math.round(state.zoom * 100)}%`;
+    }
+
+    document.getElementById('zoom-in').addEventListener('click', () => {
+      state.zoom = Math.min(3.5, +(state.zoom + 0.25).toFixed(2));
+      applyTransform();
+    });
+    document.getElementById('zoom-out').addEventListener('click', () => {
+      state.zoom = Math.max(0.6, +(state.zoom - 0.25).toFixed(2));
+      applyTransform();
+    });
+    document.getElementById('zoom-fit').addEventListener('click', () => {
+      state.zoom = 1;
+      state.panX = 0;
+      state.panY = 0;
+      applyTransform();
+    });
+    document.getElementById('zoom-reset').addEventListener('click', () => {
+      state.zoom = 1;
+      state.panX = 0;
+      state.panY = 0;
+      clearSelectionHighlight();
+      applyTransform();
+    });
+
+    const viewport = document.getElementById('svg-viewport');
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+
+    viewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.18 : -0.18;
+      state.zoom = Math.min(3.5, Math.max(0.6, +(state.zoom + delta).toFixed(2)));
+      applyTransform();
+    }, { passive: false });
+
+    viewport.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      dragStartX = e.clientX - state.panX;
+      dragStartY = e.clientY - state.panY;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      state.panX = e.clientX - dragStartX;
+      state.panY = e.clientY - dragStartY;
+      applyTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    /**
+     * ============================================================================
+     * 7. STANDALONE W3C SVG SERIALIZER & UNTAINTED CANVAS PNG RASTERIZER
+     * ============================================================================
+     */
+    function getActiveDimensions() {
+      if (state.view === 'scenarios') return { w: 1600, h: 980, slug: 'iran_fall_of_system_scenarios_2026' };
+      if (state.view === 'combined') return { w: 1600, h: 2020, slug: 'iran_regime_and_scenarios_master_poster_2026' };
+      return { w: 1600, h: 1020, slug: 'iran_regime_security_apparatus_nov2026' };
+    }
+
+    function buildCleanStandaloneSVG(options = {}) {
+      const dims = getActiveDimensions();
+      const targetW = options.width || dims.w;
+      const targetH = options.height || dims.h;
+      const transparentBg = Boolean(options.transparentBg);
+
+      const svg = document.getElementById('master-diagram-svg');
+      const clone = svg.cloneNode(true);
+      clone.removeAttribute('class');
+      clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      clone.setAttribute('viewBox', `0 0 ${dims.w} ${dims.h}`);
+      clone.setAttribute('width', String(targetW));
+      clone.setAttribute('height', String(targetH));
+
+      // Reset pan/zoom and dim/selection UI states for clean print export
+      const pz = clone.querySelector('#svg-pan-zoom-group');
+      if (pz) pz.removeAttribute('transform');
+
+      clone.querySelectorAll('.dimmed').forEach((n) => n.classList.remove('dimmed'));
+      clone.querySelectorAll('.highlighted-edge').forEach((n) => n.classList.remove('highlighted-edge'));
+      clone.querySelectorAll('.selection-ring').forEach((r) => r.remove());
+
+      const bgRect = clone.querySelector('#svg-bg-rect');
+      if (bgRect && transparentBg) {
+        bgRect.setAttribute('fill', 'none');
+      }
+
+      const serializer = new XMLSerializer();
+      let xml = serializer.serializeToString(clone);
+      if (!xml.startsWith('<?xml')) {
+        xml = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' + xml;
+      }
+      return xml;
+    }
+
+    function formatBytes(bytes) {
+      if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+      return `${(bytes / 1024).toFixed(1)} KB`;
+    }
+
+    function rasterizeSvgToPng(targetWidth, transparentBg = false) {
+      return new Promise((resolve, reject) => {
+        const t0 = performance.now();
+        const dims = getActiveDimensions();
+        const targetHeight = Math.round(targetWidth * (dims.h / dims.w));
+
+        try {
+          const cleanSvg = buildCleanStandaloneSVG({
+            width: targetWidth,
+            height: targetHeight,
+            transparentBg
+          });
+          const svgBlob = new Blob([cleanSvg], { type: 'image/svg+xml;charset=utf-8' });
+          const svgUrl = URL.createObjectURL(svgBlob);
+          const img = new Image();
+          img.crossOrigin = 'anonymous';
+
+          img.onload = () => {
+            try {
+              const canvas = document.createElement('canvas');
+              canvas.width = targetWidth;
+              canvas.height = targetHeight;
+              const ctx = canvas.getContext('2d');
+
+              if (!transparentBg) {
+                ctx.fillStyle = PALETTE.parchment;
+                ctx.fillRect(0, 0, targetWidth, targetHeight);
+              }
+              ctx.imageSmoothingEnabled = true;
+              ctx.imageSmoothingQuality = 'high';
+              ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+              URL.revokeObjectURL(svgUrl);
+
+              canvas.toBlob((pngBlob) => {
+                if (!pngBlob) {
+                  reject(new Error('Canvas PNG encoding failed.'));
+                  return;
+                }
+                const elapsedMs = Math.round(performance.now() - t0);
+                resolve({
+                  blob: pngBlob,
+                  width: targetWidth,
+                  height: targetHeight,
+                  elapsedMs,
+                  sizeText: formatBytes(pngBlob.size),
+                  slug: dims.slug
+                });
+              }, 'image/png');
+            } catch (drawErr) {
+              URL.revokeObjectURL(svgUrl);
+              reject(drawErr);
+            }
+          };
+
+          img.onerror = () => {
+            URL.revokeObjectURL(svgUrl);
+            reject(new Error('Failed to decode SVG for PNG rasterization.'));
+          };
+
+          img.src = svgUrl;
+        } catch (err) {
+          reject(err);
+        }
+      });
+    }
+
+    function triggerDownload(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => toast.classList.add('hidden'), 3600);
+    }
+
+    // Download .SVG
+    document.getElementById('btn-download-svg').addEventListener('click', () => {
+      const dims = getActiveDimensions();
+      const xml = buildCleanStandaloneSVG();
+      const blob = new Blob([xml], { type: 'image/svg+xml;charset=utf-8' });
+      triggerDownload(blob, `${dims.slug}.svg`);
+      showToast(`Downloaded standalone W3C SVG: ${dims.slug}.svg`);
+    });
+
+    // Copy SVG (iFrame-safe)
+    document.getElementById('btn-copy-svg').addEventListener('click', () => {
+      const xml = buildCleanStandaloneSVG();
+      const ta = document.createElement('textarea');
+      ta.value = xml;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        const lbl = document.getElementById('copy-btn-text');
+        lbl.textContent = 'Copied!';
+        showToast('Clean W3C SVG XML copied to clipboard.');
+        setTimeout(() => { lbl.textContent = 'Copy SVG'; }, 2000);
+      } catch (err) {
+        showToast('Unable to copy automatically; use Download .SVG.');
+      }
+      document.body.removeChild(ta);
+    });
+
+    // Export .PNG
+    document.getElementById('btn-export-png').addEventListener('click', async () => {
+      const width = parseInt(document.getElementById('png-resolution').value, 10) || 1920;
+      const transparentBg = document.getElementById('png-transparent-bg').checked;
+      const lbl = document.getElementById('export-png-label');
+      lbl.textContent = 'Rendering...';
+      try {
+        const res = await rasterizeSvgToPng(width, transparentBg);
+        triggerDownload(res.blob, `${res.slug}_${res.width}px.png`);
+        showToast(`Exported PNG: ${res.width}×${res.height} px • ${res.sizeText} • ${res.elapsedMs} ms`);
+      } catch (err) {
+        showToast(`PNG export failed: ${err.message}`);
+      } finally {
+        lbl.textContent = 'Export .PNG';
+      }
+    });
+
+    // Preview PNG Modal
+    let lastPreview = null;
+    const modal = document.getElementById('png-preview-modal');
+    const modalImg = document.getElementById('png-preview-img');
+    const modalMeta = document.getElementById('png-preview-meta');
+
+    document.getElementById('btn-preview-png').addEventListener('click', async () => {
+      const width = parseInt(document.getElementById('png-resolution').value, 10) || 1920;
+      const transparentBg = document.getElementById('png-transparent-bg').checked;
+      modalMeta.textContent = `Rasterizing ${width}px PNG via offscreen Canvas...`;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      try {
+        const res = await rasterizeSvgToPng(width, transparentBg);
+        if (lastPreview?.objectUrl) URL.revokeObjectURL(lastPreview.objectUrl);
+        const objectUrl = URL.createObjectURL(res.blob);
+        lastPreview = { ...res, objectUrl };
+        modalImg.src = objectUrl;
+        modalMeta.textContent = `${res.width} × ${res.height} px  •  ${res.sizeText}  •  ${res.elapsedMs} ms  •  ${transparentBg ? 'Transparent BG' : 'Parchment (#FAF9F5)'}`;
+      } catch (err) {
+        modalMeta.textContent = `Preview failed: ${err.message}`;
+      }
+    });
+
+    document.getElementById('btn-modal-download-png').addEventListener('click', () => {
+      if (lastPreview) {
+        triggerDownload(lastPreview.blob, `${lastPreview.slug}_${lastPreview.width}px.png`);
+        showToast(`Downloaded PNG: ${lastPreview.width}×${lastPreview.height} px (${lastPreview.sizeText})`);
+      }
+    });
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    document.getElementById('btn-modal-close-png').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Initialize Application
+    renderSourcesDirectory();
+    renderActiveSvg();
+    selectNode('supreme-leader');
+  </script>
+</body>
+</html>

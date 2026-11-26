@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iran Nuclear Program Map — Verified Wikimedia Commons Vector SVG</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Smooth highlight on SVG markers */
+    .facility-marker {
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .facility-marker:hover .marker-halo {
+      opacity: 0.38;
+    }
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); opacity: 0.75; }
+      70% { transform: scale(1.75); opacity: 0; }
+      100% { transform: scale(1.75); opacity: 0; }
+    }
+    .new-site-pulse {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pulseRing 2.2s infinite cubic-bezier(0.24, 0, 0.38, 1);
+    }
+    /* Custom scrollbar for sidebar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- Top Encyclopedic Header Bar -->
+  <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-30">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 shadow-inner">
+          <!-- Radiation / Cartography Emblem -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="2.2"/>
+            <path d="M12 2a10 10 0 0 0-8.66 5l4.33 2.5A5 5 0 0 1 12 7V2zm8.66 5A10 10 0 0 0 12 2v5a5 5 0 0 1 4.33 2.5L20.66 7zM12 17a5 5 0 0 1-4.33-2.5L3.34 17A10 10 0 0 0 12 22v-5zm4.33-2.5A5 5 0 0 1 12 17v5a10 10 0 0 0 8.66-5l-4.33-2.5z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <h1 class="text-base sm:text-lg font-bold tracking-tight text-slate-900">
+              File:Iran_nuclear_program_map-en.svg
+            </h1>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+              Counties Basemap + Nov 2026 Sites
+            </span>
+          </div>
+          <p class="text-xs text-slate-500">
+            Wikimedia <code>Iran_location_map_(counties).svg</code> (1200&times;1070.635, CC0 Ali Zifan) &bull; 17 Verified Sites
+          </p>
+        </div>
+      </div>
+
+      <!-- Export & Action Buttons -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <button id="btn-reset-view" type="button"
+          class="px-3 py-2 text-xs font-medium rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          Reset View
+        </button>
+
+        <button id="btn-copy-svg" type="button"
+          class="px-3 py-2 text-xs font-semibold rounded-lg bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 shadow-sm transition flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="copy-btn-text">Copy SVG</span>
+        </button>
+
+        <button id="btn-download-svg" type="button"
+          class="px-3.5 py-2 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          Download .SVG
+        </button>
+
+        <!-- Wikimedia-Style SVG-to-PNG Rasterizer Controls -->
+        <div class="flex items-center gap-1.5 pl-2 ml-0.5 border-l border-slate-200 flex-wrap">
+          <select id="png-resolution" title="Wikimedia Commons PNG Export Resolution"
+            class="px-2.5 py-2 text-xs font-mono font-medium rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <option value="960">960 &times; 857 px</option>
+            <option value="1280" selected>1280 &times; 1142 px</option>
+            <option value="2400">2400 &times; 2141 px</option>
+            <option value="3840">3840 &times; 3427 px (4K)</option>
+          </select>
+
+          <label title="Render PNG with transparent ocean/background instead of solid ocean fill"
+            class="inline-flex items-center gap-1 px-2 py-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-300 cursor-pointer text-[11px] font-medium text-slate-700 select-none">
+            <input type="checkbox" id="png-transparent-bg" class="rounded text-emerald-600 focus:ring-emerald-500" />
+            <span>Transparent</span>
+          </label>
+
+          <button id="btn-preview-png" type="button"
+            class="px-3 py-2 text-xs font-semibold rounded-lg bg-white hover:bg-emerald-50 text-emerald-800 border border-emerald-300 shadow-sm transition flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+            Preview PNG
+          </button>
+
+          <button id="btn-export-png" type="button"
+            class="px-3.5 py-2 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <span id="export-png-label">Export .PNG</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Toast Notification Banner -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden transform transition-all duration-200">
+    <div class="bg-slate-900 text-white text-xs font-medium px-4 py-3 rounded-xl shadow-xl border border-slate-700 flex items-center gap-2.5">
+      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span id="toast-message">Action completed</span>
+    </div>
+  </div>
+
+  <!-- Wikimedia-Style PNG Preview Modal -->
+  <div id="png-preview-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/70 backdrop-blur-xs p-4">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-4xl w-full max-h-[92vh] flex flex-col overflow-hidden">
+      <div class="px-5 py-3.5 border-b border-slate-200 flex items-center justify-between gap-3 bg-slate-50">
+        <div>
+          <h3 class="text-sm font-bold text-slate-900">Rasterized PNG Preview (Client-Side SVG &rarr; Canvas)</h3>
+          <p id="png-preview-meta" class="text-xs font-mono text-slate-500 mt-0.5">Rendering...</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btn-modal-download-png" type="button"
+            class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            Download PNG
+          </button>
+          <button id="btn-modal-close-png" type="button"
+            class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 transition">
+            Close
+          </button>
+        </div>
+      </div>
+      <div class="flex-1 overflow-auto p-4 flex items-center justify-center"
+           style="background-image: linear-gradient(45deg, #e2e8f0 25%, transparent 25%), linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e2e8f0 75%), linear-gradient(-45deg, transparent 75%, #e2e8f0 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;">
+        <img id="png-preview-img" src="" alt="Rasterized Iran Nuclear Program Map PNG" class="max-w-full max-h-[72vh] rounded-lg shadow-lg border border-slate-300" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-[1600px] w-full mx-auto p-3 sm:p-5 grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+    <!-- Left/Center: Interactive SVG Map Canvas -->
+    <section class="lg:col-span-8 xl:col-span-9 flex flex-col gap-3">
+
+      <!-- Layer Control Strip -->
+      <div class="bg-white rounded-xl border border-slate-200 px-3.5 py-2.5 shadow-sm flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mr-1">Layers:</span>
+
+          <label class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 cursor-pointer text-xs font-medium text-slate-700 select-none">
+            <input type="checkbox" id="toggle-counties" checked class="rounded text-blue-600 focus:ring-blue-500" />
+            <span>County Borders</span>
+          </label>
+
+          <label class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 cursor-pointer text-xs font-medium text-slate-700 select-none">
+            <input type="checkbox" id="toggle-graticule" checked class="rounded text-blue-600 focus:ring-blue-500" />
+            <span>Lat/Lon Grid</span>
+          </label>
+
+          <label class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 cursor-pointer text-xs font-medium text-slate-700 select-none">
+            <input type="checkbox" id="toggle-labels" checked class="rounded text-blue-600 focus:ring-blue-500" />
+            <span>Facility Labels</span>
+          </label>
+
+          <label class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 cursor-pointer text-xs font-medium text-slate-700 select-none">
+            <input type="checkbox" id="toggle-corridor" checked class="rounded text-blue-600 focus:ring-blue-500" />
+            <span>Isfahan–Natanz Corridor</span>
+          </label>
+
+          <button id="btn-toggle-calib" type="button"
+            class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-200 text-xs font-medium text-amber-800 transition">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+            </svg>
+            Calibrate
+          </button>
+        </div>
+
+        <!-- Zoom Controls & Live Cursor Coordinates -->
+        <div class="flex items-center gap-2">
+          <div id="basemap-status" class="hidden xl:flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-50 border border-emerald-200 text-[11px] font-medium text-emerald-700">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span id="basemap-status-text">Loading Wikimedia Counties SVG...</span>
+          </div>
+          <div id="cursor-coords" class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-600">
+            <span>33.17°N, 51.72°E</span>
+          </div>
+          <div class="inline-flex rounded-lg border border-slate-300 overflow-hidden bg-white shadow-xs">
+            <button id="zoom-out" type="button" title="Zoom Out" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-slate-100 border-r border-slate-300">&minus;</button>
+            <span id="zoom-level" class="px-2.5 py-1 text-xs font-mono text-slate-600 bg-slate-50">100%</span>
+            <button id="zoom-in" type="button" title="Zoom In" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-slate-100 border-l border-slate-300">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsible Calibration Fine-Tune Bar -->
+      <div id="calibration-bar" class="hidden bg-amber-50/90 border border-amber-200 rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="font-bold text-amber-900">Basemap Projection Calibration:</span>
+          <span class="text-amber-800">Bounds <code>43.8°E–63.6°E</code>, <code>24.8°N–40.0°N</code> (1200&times;1070.635)</span>
+        </div>
+        <div class="flex items-center gap-3 flex-wrap">
+          <label class="flex items-center gap-1.5 font-mono text-[11px] text-amber-900">
+            <span>Lon Offset:</span>
+            <input type="range" id="calib-lon" min="-0.25" max="0.25" step="0.01" value="0" class="w-24 accent-amber-600" />
+            <span id="calib-lon-val">0.00°</span>
+          </label>
+          <label class="flex items-center gap-1.5 font-mono text-[11px] text-amber-900">
+            <span>Lat Offset:</span>
+            <input type="range" id="calib-lat" min="-0.25" max="0.25" step="0.01" value="0" class="w-24 accent-amber-600" />
+            <span id="calib-lat-val">0.00°</span>
+          </label>
+          <button id="calib-reset" type="button" class="px-2 py-0.5 rounded bg-amber-200/80 hover:bg-amber-300 text-amber-950 font-semibold">Reset</button>
+        </div>
+      </div>
+
+      <!-- Map Viewport Container (Matches exact 1200 x 1070.635 aspect ratio of Iran_location_map_(counties).svg) -->
+      <div id="map-viewport" class="relative bg-[#c6ecff] rounded-xl border border-slate-300 shadow-md overflow-hidden select-none" style="aspect-ratio: 1200 / 1070.635;">
+        <!-- Floating Hover/Selection Tooltip -->
+        <div id="map-tooltip" class="hidden absolute z-20 pointer-events-none max-w-xs bg-white/95 backdrop-blur-sm border border-slate-300 rounded-xl shadow-lg p-3 text-xs transition-opacity duration-100">
+          <div class="flex items-start justify-between gap-2 mb-1">
+            <span id="tt-name" class="font-bold text-slate-900 text-sm leading-tight"></span>
+            <span id="tt-badge" class="px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide shrink-0"></span>
+          </div>
+          <div id="tt-coords" class="font-mono text-[11px] text-slate-500 mb-1.5"></div>
+          <p id="tt-role" class="text-slate-700 font-medium mb-1"></p>
+          <p id="tt-verify" class="text-[11px] text-emerald-700 bg-emerald-50/90 border border-emerald-200/80 rounded px-2 py-1 leading-snug"></p>
+        </div>
+
+        <!-- The Master W3C Standalone SVG Vector Map (1200 x 1070.635 matching Iran_location_map_(counties).svg) -->
+        <svg id="iran-nuclear-svg"
+             xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             version="1.1"
+             viewBox="0 0 1200 1070.635"
+             width="100%"
+             height="100%"
+             class="w-full h-full block cursor-grab active:cursor-grabbing">
+          <title>Iran Nuclear Program Map — Official Wikimedia Counties Basemap + November 2026 Underground Sites</title>
+          <desc>High-precision encyclopedic vector map built atop Wikimedia Commons Iran_location_map_(counties).svg (1200x1070.635, CC0 Ali Zifan), depicting all 15 classic Iranian nuclear sites plus Pickaxe Mountain (Kuh-e Kolang Gaz La) and the newly identified Behjatabad Underground Facility (Nov 2026 Vantor / ISIS satellite imagery).</desc>
+
+          <defs>
+            <!-- Clip path matching the exact 1200 x 1070.635 frame -->
+            <clipPath id="map-frame-clip">
+              <rect x="0" y="0" width="1200" height="1070.635" />
+            </clipPath>
+
+            <!-- Subtle drop shadow for legend & symbols -->
+            <filter id="legend-shadow" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="1" dy="1.5" stdDeviation="1.8" flood-color="#0f172a" flood-opacity="0.16" />
+            </filter>
+
+            <!-- Reusable Nuclear Facility Symbols -->
+            <g id="icon-enrichment">
+              <circle cx="0" cy="0" r="9.2" fill="#dc2626" stroke="#ffffff" stroke-width="1.7" />
+              <circle cx="0" cy="0" r="2.2" fill="#fef08a" />
+              <path d="M 0,-6.6 A 6.6,6.6 0 0,1 5.72,-3.3 L 2.45,-1.41 A 2.8,2.8 0 0,0 0,-2.8 Z" fill="#fef08a" />
+              <path d="M 5.72,3.3 A 6.6,6.6 0 0,1 0,6.6 L 0,2.8 A 2.8,2.8 0 0,0 2.45,1.41 Z" fill="#fef08a" />
+              <path d="M -5.72,3.3 A 6.6,6.6 0 0,1 -5.72,-3.3 L -2.45,-1.41 A 2.8,2.8 0 0,0 -2.45,1.41 Z" fill="#fef08a" />
+            </g>
+
+            <g id="icon-reactor">
+              <rect x="-8" y="-8" width="16" height="16" rx="2.6" fill="#d97706" stroke="#ffffff" stroke-width="1.7" />
+              <circle cx="0" cy="0" r="2.2" fill="#ffffff" />
+              <path d="M 0,-5.8 A 5.8,5.8 0 0,1 5.02,-2.9 L 2.2,-1.27 A 2.5,2.5 0 0,0 0,-2.5 Z" fill="#ffffff" />
+              <path d="M 5.02,2.9 A 5.8,5.8 0 0,1 0,5.8 L 0,2.5 A 2.5,2.5 0 0,0 2.2,1.27 Z" fill="#ffffff" />
+              <path d="M -5.02,2.9 A 5.8,5.8 0 0,1 -5.02,-2.9 L -2.2,-1.27 A 2.5,2.5 0 0,0 -2.2,1.27 Z" fill="#ffffff" />
+            </g>
+
+            <g id="icon-mining">
+              <polygon points="0,-9.5 9.0,6.8 -9.0,6.8" fill="#15803d" stroke="#ffffff" stroke-width="1.7" stroke-linejoin="round" />
+              <circle cx="0" cy="1.9" r="2.3" fill="#dcfce7" />
+            </g>
+
+            <g id="icon-research">
+              <polygon points="0,-9.2 9.2,0 0,9.2 -9.2,0" fill="#2563eb" stroke="#ffffff" stroke-width="1.7" stroke-linejoin="round" />
+              <circle cx="0" cy="0" r="2.4" fill="#ffffff" />
+            </g>
+
+            <!-- Deep Underground / Hardened Tunnel Facility Symbol (Pickaxe Mountain & Behjatabad) -->
+            <g id="icon-underground">
+              <polygon points="0,-10.2 9.8,7.4 -9.8,7.4" fill="#7c3aed" stroke="#ffffff" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M -3.6,7.4 L -3.6,3.2 A 3.6,3.6 0 0,1 3.6,3.2 L 3.6,7.4 Z" fill="#fef08a" />
+            </g>
+
+            <g id="icon-capital">
+              <circle cx="0" cy="0" r="11.2" fill="none" stroke="#991b1b" stroke-width="1.5" stroke-dasharray="2.5,1.5" />
+              <polygon points="0,-7.0 1.95,-2.25 7.0,-2.25 2.9,0.85 4.45,5.8 0,2.8 -4.45,5.8 -2.9,0.85 -7.0,-2.25 -1.95,-2.25" fill="#b91c1c" stroke="#ffffff" stroke-width="1.0" />
+            </g>
+          </defs>
+
+          <!-- Embedded Styles for Standalone SVG Portability -->
+          <style type="text/css"><![CDATA[
+            .water-bg { fill: #c6ecff; }
+            .neighbor-land { fill: #e3e3de; stroke: #8a8a82; stroke-width: 1.05; stroke-linejoin: round; }
+            .iran-land { fill: #fdfbea; stroke: #4b4a44; stroke-width: 1.85; stroke-linejoin: round; }
+            .lake-water { fill: #c6ecff; stroke: #3b82b6; stroke-width: 1.1; }
+            .graticule-line { fill: none; stroke: #475569; stroke-width: 0.6; stroke-opacity: 0.35; stroke-dasharray: 4,3; }
+            .graticule-text { font-family: 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif; font-size: 10.5px; font-weight: 600; fill: #334155; paint-order: stroke; stroke: #ffffff; stroke-width: 2.2px; }
+            .country-label { font-family: 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #5c5c54; letter-spacing: 2.2px; paint-order: stroke; stroke: #e3e3de; stroke-width: 2.5px; }
+            .water-label { font-family: 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif; font-size: 15px; font-style: italic; font-weight: 700; fill: #1e6091; letter-spacing: 1.5px; }
+            .water-sublabel { font-family: 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif; font-size: 11px; font-style: italic; font-weight: 600; fill: #1e6091; }
+            .facility-label { font-family: 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #111827; paint-order: stroke; stroke: #fdfbea; stroke-width: 3.4px; stroke-linecap: round; stroke-linejoin: round; }
+            .facility-label-new { font-family: 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif; font-size: 12.2px; font-weight: 700; fill: #5b21b6; paint-order: stroke; stroke: #fdfbea; stroke-width: 3.6px; stroke-linecap: round; stroke-linejoin: round; }
+            .facility-sublabel { font-family: 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif; font-size: 9.6px; font-weight: 500; fill: #374151; paint-order: stroke; stroke: #fdfbea; stroke-width: 2.8px; stroke-linecap: round; stroke-linejoin: round; }
+            .leader-line { fill: none; stroke: #374151; stroke-width: 1.05; }
+            .corridor-line { fill: none; stroke: #7c3aed; stroke-width: 1.6; stroke-dasharray: 4,3; opacity: 0.78; }
+            .legend-title { font-family: 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif; font-size: 13px; font-weight: 700; fill: #0f172a; }
+            .legend-text { font-family: 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif; font-size: 10.8px; fill: #1e293b; }
+          ]]></style>
+
+          <!-- Pan/Zoom Transform Group -->
+          <g id="map-pan-zoom-group">
+
+            <!-- LAYER 1: BASE OCEAN FILL -->
+            <rect id="base-ocean-rect" x="0" y="0" width="1200" height="1070.635" class="water-bg" />
+
+            <!-- LAYER 2: OFFICIAL WIKIMEDIA COMMONS BASEMAP (Iran_location_map_(counties).svg) -->
+            <g id="wikimedia-counties-basemap" clip-path="url(#map-frame-clip)">
+              <!-- InlineFallback Basemap (automatically hidden once Wikimedia Iran_location_map_(counties).svg loads) -->
+              <g id="fallback-basemap">
+                <path class="neighbor-land" d="M 0,0 L 210,0 L 185,120 L 152,215 L 0,215 Z" />
+                <path class="neighbor-land" d="M 210,0 L 395,0 L 385,165 L 330,130 L 285,105 L 220,98 Z" />
+                <path class="neighbor-land" d="M 0,215 L 152,215 L 220,390 L 265,515 L 180,610 L 0,610 Z" />
+                <path class="neighbor-land" d="M 0,610 L 235,610 L 340,760 L 520,880 L 660,860 L 720,1070.635 L 0,1070.635 Z" />
+                <path class="neighbor-land" d="M 590,0 L 960,0 L 920,210 L 820,235 L 705,175 L 605,160 Z" />
+                <path class="neighbor-land" d="M 960,0 L 1200,0 L 1200,590 L 985,595 L 945,450 L 920,210 Z" />
+                <path class="neighbor-land" d="M 985,595 L 1200,590 L 1200,910 L 1035,895 L 1020,740 Z" />
+                <path class="iran-land" d="M 162,92 L 225,112 L 285,105 L 345,148 L 385,168 C 385,225 415,275 495,282 C 565,286 602,255 605,160 L 705,175 L 820,235 L 920,210 L 945,355 L 938,485 L 965,585 L 1020,665 L 1035,885 C 940,875 835,865 765,835 C 715,810 675,785 635,810 C 575,838 495,810 425,735 C 375,675 340,595 265,565 L 245,475 L 195,385 L 152,255 L 145,145 Z" />
+                <path class="lake-water" d="M 192,155 C 204,152 212,170 208,195 C 202,215 188,210 185,185 Z" />
+              </g>
+
+              <!-- Direct Wikimedia Commons SVG Image Layer (1200 x 1070.635 native coordinates) -->
+              <image id="wikimedia-counties-img"
+                     href="https://upload.wikimedia.org/wikipedia/commons/3/3c/Iran_location_map_%28counties%29.svg"
+                     xlink:href="https://upload.wikimedia.org/wikipedia/commons/3/3c/Iran_location_map_%28counties%29.svg"
+                     x="0" y="0" width="1200" height="1070.635"
+                     preserveAspectRatio="none" />
+
+              <!-- Container where fetched inline county SVG paths get injected for 100% self-contained SVG export -->
+              <g id="inlined-counties-svg-container"></g>
+            </g>
+
+            <!-- LAYER 3: LAT/LON GRATICULE & COORDINATE GRID (Calibrated to 43.8°E–63.6°E, 24.8°N–40.0°N) -->
+            <g id="graticule" clip-path="url(#map-frame-clip)">
+              <!-- Longitudes: 45°E (x=72.73), 50°E (x=375.76), 55°E (x=678.79), 60°E (x=981.82) -->
+              <line x1="72.73" y1="0" x2="72.73" y2="1070.635" class="graticule-line" />
+              <line x1="375.76" y1="0" x2="375.76" y2="1070.635" class="graticule-line" />
+              <line x1="678.79" y1="0" x2="678.79" y2="1070.635" class="graticule-line" />
+              <line x1="981.82" y1="0" x2="981.82" y2="1070.635" class="graticule-line" />
+
+              <!-- Latitudes: 38°N (y=140.87), 35°N (y=352.18), 32°N (y=563.49), 29°N (y=774.80), 26°N (y=986.11) -->
+              <line x1="0" y1="140.87" x2="1200" y2="140.87" class="graticule-line" />
+              <line x1="0" y1="352.18" x2="1200" y2="352.18" class="graticule-line" />
+              <line x1="0" y1="563.49" x2="1200" y2="563.49" class="graticule-line" />
+              <line x1="0" y1="774.80" x2="1200" y2="774.80" class="graticule-line" />
+              <line x1="0" y1="986.11" x2="1200" y2="986.11" class="graticule-line" />
+
+              <!-- Coordinate Labels -->
+              <text x="77" y="18" class="graticule-text">45°E</text>
+              <text x="380" y="18" class="graticule-text">50°E</text>
+              <text x="683" y="18" class="graticule-text">55°E</text>
+              <text x="986" y="18" class="graticule-text">60°E</text>
+
+              <text x="8" y="137" class="graticule-text">38°N</text>
+              <text x="8" y="348" class="graticule-text">35°N</text>
+              <text x="8" y="559" class="graticule-text">32°N</text>
+              <text x="8" y="770" class="graticule-text">29°N</text>
+              <text x="8" y="982" class="graticule-text">26°N</text>
+            </g>
+
+            <!-- LAYER 4: GEOGRAPHIC & WATER BODY LABELS -->
+            <g id="geo-labels" clip-path="url(#map-frame-clip)">
+              <text x="488" y="145" text-anchor="middle" class="water-label">CASPIAN</text>
+              <text x="488" y="165" text-anchor="middle" class="water-label">SEA</text>
+
+              <text x="435" y="795" text-anchor="middle" transform="rotate(34 435 795)" class="water-label">PERSIAN GULF</text>
+              <text x="712" y="876" text-anchor="middle" class="water-sublabel">Strait of Hormuz</text>
+              <text x="915" y="968" text-anchor="middle" class="water-label">GULF OF OMAN</text>
+
+              <text x="68" y="140" text-anchor="middle" class="country-label">TURKEY</text>
+              <text x="245" y="45" text-anchor="middle" class="country-label" style="font-size:10.5px; letter-spacing:1.2px;">ARMENIA</text>
+              <text x="342" y="74" text-anchor="middle" class="country-label" style="font-size:11px; letter-spacing:1.2px;">AZERBAIJAN</text>
+              <text x="92" y="460" text-anchor="middle" class="country-label">IRAQ</text>
+              <text x="205" y="885" text-anchor="middle" class="country-label">SAUDI ARABIA</text>
+              <text x="775" y="82" text-anchor="middle" class="country-label">TURKMENISTAN</text>
+              <text x="1085" y="340" text-anchor="middle" class="country-label">AFGHANISTAN</text>
+              <text x="1115" y="775" text-anchor="middle" class="country-label">PAKISTAN</text>
+            </g>
+
+            <!-- LAYER 5: ISFAHAN – BEHJATABAD – PICKAXE MTN / NATANZ CORRIDOR OVERLAY -->
+            <g id="corridor-overlay">
+              <!-- Dynamically drawn dashed geodesic vector connecting Isfahan <-> Behjatabad <-> Pickaxe Mtn / Natanz -->
+            </g>
+
+            <!-- LAYER 6: VERIFIED NUCLEAR FACILITIES (17 Sites) -->
+            <g id="facilities">
+              <!-- Populated dynamically -->
+            </g>
+
+            <!-- LAYER 7: FACILITY LABELS & LEADER LINES -->
+            <g id="labels">
+              <!-- Populated dynamically -->
+            </g>
+
+            <!-- LAYER 8: ENCYCLOPEDIC LEGEND, SCALE BAR & NORTH ARROW -->
+            <g id="legend">
+              <!-- Legend Box (Top-Right) -->
+              <rect x="892" y="24" width="286" height="288" rx="7" fill="#ffffff" fill-opacity="0.96" stroke="#64748b" stroke-width="1.2" filter="url(#legend-shadow)" />
+              <line x1="892" y1="56" x2="1178" y2="56" stroke="#cbd5e1" stroke-width="1" />
+              <text x="1035" y="44" text-anchor="middle" class="legend-title">Iran's Nuclear Facilities</text>
+
+              <!-- Item 1: Capital / Research Reactor -->
+              <use href="#icon-capital" x="914" y="77" />
+              <text x="934" y="75" class="legend-text" style="font-weight:700;">Tehran (Capital)</text>
+              <text x="934" y="88" class="legend-text" style="font-size:9.6px; fill:#475569;">Research Reactor &amp; AEOI HQ</text>
+
+              <!-- Item 2: Uranium Enrichment -->
+              <use href="#icon-enrichment" x="914" y="112" />
+              <text x="934" y="110" class="legend-text" style="font-weight:700;">Uranium Enrichment</text>
+              <text x="934" y="123" class="legend-text" style="font-size:9.6px; fill:#475569;">Gas centrifuge &amp; laser facilities</text>
+
+              <!-- Item 3: Deep Underground / Hardened Sites (NEW) -->
+              <use href="#icon-underground" x="914" y="147" />
+              <text x="934" y="145" class="legend-text" style="font-weight:700; fill:#5b21b6;">Deep Underground Site</text>
+              <text x="934" y="158" class="legend-text" style="font-size:9.6px; fill:#475569;">Behjatabad (Nov 2026) &amp; Pickaxe Mtn</text>
+
+              <!-- Item 4: Nuclear Reactors / Power -->
+              <use href="#icon-reactor" x="914" y="182" />
+              <text x="934" y="180" class="legend-text" style="font-weight:700;">Nuclear Reactor / Power</text>
+              <text x="934" y="193" class="legend-text" style="font-size:9.6px; fill:#475569;">Light/heavy water &amp; planned plants</text>
+
+              <!-- Item 5: Uranium Mining & Conversion -->
+              <use href="#icon-mining" x="914" y="217" />
+              <text x="934" y="215" class="legend-text" style="font-weight:700;">Mining &amp; Conversion</text>
+              <text x="934" y="228" class="legend-text" style="font-size:9.6px; fill:#475569;">Uranium mines, yellowcake &amp; UCF</text>
+
+              <!-- Item 6: Nuclear Research & Testing -->
+              <use href="#icon-research" x="914" y="252" />
+              <text x="934" y="250" class="legend-text" style="font-weight:700;">Research &amp; Testing</text>
+              <text x="934" y="263" class="legend-text" style="font-size:9.6px; fill:#475569;">Nuclear tech, medical &amp; R&amp;D centers</text>
+
+              <!-- Divider & Source Note -->
+              <line x1="904" y1="278" x2="1166" y2="278" stroke="#e2e8f0" stroke-width="1" />
+              <text x="1035" y="294" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:9px; fill:#64748b;">
+                Basemap: Iran_location_map_(counties).svg (CC0)
+              </text>
+              <text x="1035" y="305" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:8.8px; fill:#5b21b6; font-weight:600;">
+                Updated Nov 2026: Behjatabad &amp; Pickaxe Mtn
+              </text>
+
+              <!-- Scale Bar & North Arrow Box (Bottom-Left) -->
+              <g id="scale-and-compass" transform="translate(24, 976)">
+                <rect x="0" y="0" width="265" height="72" rx="6" fill="#ffffff" fill-opacity="0.94" stroke="#64748b" stroke-width="1.1" />
+
+                <!-- North Arrow -->
+                <g transform="translate(28, 36)">
+                  <polygon points="0,-20 7,7 0,1 -7,7" fill="#1e293b" />
+                  <polygon points="0,-20 0,1 -7,7" fill="#64748b" />
+                  <text x="0" y="-23" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:10px; font-weight:700; fill:#0f172a;">N</text>
+                </g>
+
+                <!-- Scale Bar (At 32.5°N, 1° lon = 93.8 km = 60.6 px => 300 km = 193.8 px; 150 mi = 241.4 km = 155.9 px) -->
+                <g transform="translate(56, 20)">
+                  <rect x="0" y="6" width="96.9" height="5.5" fill="#1e293b" stroke="#1e293b" stroke-width="0.8" />
+                  <rect x="96.9" y="6" width="96.9" height="5.5" fill="#ffffff" stroke="#1e293b" stroke-width="0.8" />
+                  <text x="0" y="3" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:9px; fill:#1e293b;">0</text>
+                  <text x="96.9" y="3" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:9px; fill:#1e293b;">150</text>
+                  <text x="193.8" y="3" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:9px; fill:#1e293b;">300 km</text>
+
+                  <rect x="0" y="22" width="78.0" height="5.5" fill="#ffffff" stroke="#475569" stroke-width="0.8" />
+                  <rect x="78.0" y="22" width="78.0" height="5.5" fill="#64748b" stroke="#475569" stroke-width="0.8" />
+                  <text x="0" y="38" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:9px; fill:#475569;">0</text>
+                  <text x="78.0" y="38" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:9px; fill:#475569;">75</text>
+                  <text x="156.0" y="38" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:9px; fill:#475569;">150 mi</text>
+                </g>
+              </g>
+            </g>
+
+            <!-- Outer Neatline Frame -->
+            <rect x="0.75" y="0.75" width="1198.5" height="1069.135" fill="none" stroke="#334155" stroke-width="1.5" />
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Right Panel: Accuracy Audit & Interactive Facility Directory -->
+    <aside class="lg:col-span-4 xl:col-span-3 flex flex-col gap-3">
+
+      <!-- Selected Facility Inspector Card -->
+      <div id="inspector-card" class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-purple-700">Site Verification Inspector</span>
+          <span id="insp-category-badge" class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-purple-100 text-purple-800">
+            New Underground Site
+          </span>
+        </div>
+        <h2 id="insp-title" class="text-base font-bold text-slate-900">Behjatabad Underground Facility</h2>
+        <div id="insp-coords" class="font-mono text-xs text-slate-500 mt-0.5 mb-2.5">33.17°N, 51.72°E</div>
+
+        <div class="space-y-2 text-xs">
+          <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+            <span class="block text-[10px] font-semibold uppercase text-slate-400 mb-0.5">Facility Function &amp; Status</span>
+            <p id="insp-role" class="text-slate-700 leading-relaxed">
+              Deeply buried underground nuclear-linked tunnel complex under rapid excavation inside a ~12,000-acre (5,000 ha) double-fenced perimeter in Isfahan Province.
+            </p>
+          </div>
+          <div class="p-2.5 rounded-lg bg-purple-50/80 border border-purple-200/90">
+            <span class="block text-[10px] font-semibold uppercase text-purple-700 mb-0.5">Satellite Imagery &amp; Coordinate Audit</span>
+            <p id="insp-verification" class="text-purple-950 leading-relaxed">
+              Reported Nov 25–26, 2026 via Vantor high-resolution satellite imagery and Institute for Science and International Security (ISIS) analysis. Positioned midway (~62 km) between Isfahan UCF/ENTC and Pickaxe Mountain near Natanz.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filterable 17-Site Directory -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col flex-1 min-h-[380px] max-h-[640px]">
+        <div class="p-3.5 border-b border-slate-200">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">Verified Facilities (17)</h3>
+            <span class="text-[11px] text-slate-400">Click to inspect</span>
+          </div>
+          <select id="category-filter" class="w-full text-xs rounded-lg border border-slate-300 bg-slate-50 px-2.5 py-1.5 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="all">All Categories (17 Sites)</option>
+            <option value="underground">Deep Underground / Nov 2026 (2)</option>
+            <option value="enrichment">Uranium Enrichment (3)</option>
+            <option value="reactor">Reactors &amp; Power Plants (4)</option>
+            <option value="mining">Uranium Mining &amp; Conversion (4)</option>
+            <option value="research">Research &amp; Testing Centers (4)</option>
+          </select>
+        </div>
+
+        <div id="facility-list" class="overflow-y-auto divide-y divide-slate-100 p-1.5 flex-1">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+    </aside>
+  </main>
+
+  <script>
+    /**
+     * Equirectangular WGS84 Projection Parameters calibrated to Wikimedia Commons:
+     * File:Iran_location_map_(counties).svg (1200 x 1070.635 viewBox, CC0 by Ali Zifan)
+     * Standard Wikimedia Iran Location Map Bounds:
+     *   left   = 43.8°E, right  = 63.6°E  (span = 19.8°)
+     *   top    = 40.0°N, bottom = 24.8°N  (span = 15.2°)
+     */
+    const PROJ = {
+      minLon: 43.8,
+      maxLon: 63.6,
+      minLat: 24.8,
+      maxLat: 40.0,
+      width: 1200,
+      height: 1070.635,
+      lonOffset: 0.0,
+      latOffset: 0.0
+    };
+
+    function geoToSvg(lat, lon) {
+      const adjLon = lon + PROJ.lonOffset;
+      const adjLat = lat + PROJ.latOffset;
+      const x = ((adjLon - PROJ.minLon) / (PROJ.maxLon - PROJ.minLon)) * PROJ.width;
+      const y = ((PROJ.maxLat - adjLat) / (PROJ.maxLat - PROJ.minLat)) * PROJ.height;
+      return { x: Number(x.toFixed(2)), y: Number(y.toFixed(2)) };
+    }
+
+    function svgToGeo(x, y) {
+      const lon = PROJ.minLon + (x / PROJ.width) * (PROJ.maxLon - PROJ.minLon) - PROJ.lonOffset;
+      const lat = PROJ.maxLat - (y / PROJ.height) * (PROJ.maxLat - PROJ.minLat) - PROJ.latOffset;
+      return { lat: lat.toFixed(2), lon: lon.toFixed(2) };
+    }
+
+    /**
+     * Master Verified Dataset:
+     * Includes the newly identified Behjatabad Underground Facility (Nov 2026) & Pickaxe Mountain,
+     * plus all 15 classic sites from Iran_nuclear_program_map-en.png.
+     */
+    const FACILITIES = [
+      {
+        id: 'behjatabad',
+        name: 'Behjatabad Underground Site',
+        subtitle: 'New Underground Complex (Nov 2026)',
+        lat: 33.17,
+        lon: 51.72,
+        category: 'underground',
+        icon: '#icon-underground',
+        badgeText: 'NEW • Nov 2026',
+        badgeClass: 'bg-purple-100 text-purple-800 border border-purple-300',
+        isNew: true,
+        labelDx: 22,
+        labelDy: 4,
+        anchor: 'start',
+        leader: true,
+        role: 'Deeply buried underground tunnel facility under rapid excavation since Dec 2025 inside a ~12,000-acre (5,000-hectare) double-fenced security perimeter in Isfahan Province.',
+        verification: 'Verified via Nov 25–26, 2026 Vantor high-resolution satellite imagery & Institute for Science and International Security (ISIS) report. Situated midway (~62 km) between Isfahan ENTC/UCF and Pickaxe Mountain near Natanz.'
+      },
+      {
+        id: 'pickaxe-mountain',
+        name: 'Pickaxe Mountain',
+        subtitle: 'Kūh-e Kolang Gaz Lā (Underground)',
+        lat: 33.705,
+        lon: 51.710,
+        category: 'underground',
+        icon: '#icon-underground',
+        badgeText: 'Deep Underground',
+        badgeClass: 'bg-purple-100 text-purple-800',
+        isNew: false,
+        labelDx: -18,
+        labelDy: 14,
+        anchor: 'end',
+        leader: true,
+        role: 'Deep subterranean tunnel complex excavated beneath Kūh-e Kolang Gaz Lā immediately south of the Natanz Fuel Enrichment Plant.',
+        verification: 'Verified at 33.705°N, 51.710°E (~2 km south of Natanz FEP). Forms the northern anchor of the ~125 km Isfahan–Behjatabad–Natanz nuclear corridor.'
+      },
+      {
+        id: 'natanz',
+        name: 'Natanz',
+        subtitle: 'Fuel Enrichment Plant',
+        lat: 33.725,
+        lon: 51.727,
+        category: 'enrichment',
+        icon: '#icon-enrichment',
+        badgeText: 'Enrichment',
+        badgeClass: 'bg-red-100 text-red-800',
+        labelDx: 18,
+        labelDy: -8,
+        anchor: 'start',
+        leader: true,
+        role: 'Iran’s primary commercial-scale Fuel Enrichment Plant (FEP) and Pilot Fuel Enrichment Plant (PFEP).',
+        verification: 'Verified at 33.725°N, 51.727°E in Natanz County, Isfahan Province. Separated via leader line from Pickaxe Mountain immediately to its south.'
+      },
+      {
+        id: 'isfahan',
+        name: 'Isfahan (Esfahan)',
+        subtitle: 'Uranium Conversion (UCF)',
+        lat: 32.580,
+        lon: 51.832,
+        category: 'mining',
+        icon: '#icon-mining',
+        badgeText: 'Conversion / Fuel',
+        badgeClass: 'bg-emerald-100 text-emerald-800',
+        labelDx: 18,
+        labelDy: 6,
+        anchor: 'start',
+        leader: true,
+        role: 'Uranium Conversion Facility (UCF), Fuel Manufacturing Plant (FMP), and Isfahan Nuclear Technology Center (ENTC).',
+        verification: 'Verified at 32.580°N, 51.832°E southeast of Isfahan city (~62 km south of Behjatabad Underground Facility).'
+      },
+      {
+        id: 'tehran',
+        name: 'Tehran',
+        subtitle: 'Research Reactor / AEOI',
+        lat: 35.738,
+        lon: 51.388,
+        category: 'reactor',
+        icon: '#icon-capital',
+        badgeText: 'Capital / Reactor',
+        badgeClass: 'bg-red-100 text-red-800',
+        labelDx: 18,
+        labelDy: -8,
+        anchor: 'start',
+        leader: true,
+        role: '5 MW Tehran Research Reactor (TRR), Atomic Energy Organization of Iran (AEOI) HQ, and medical isotope production.',
+        verification: 'Verified at 35.738°N, 51.388°E in Tehran County at the southern foot of the Alborz mountains.'
+      },
+      {
+        id: 'karaj',
+        name: 'Karaj',
+        subtitle: 'Agri & Medical Research',
+        lat: 35.818,
+        lon: 50.961,
+        category: 'research',
+        icon: '#icon-research',
+        badgeText: 'Research / Centrifuges',
+        badgeClass: 'bg-blue-100 text-blue-800',
+        labelDx: -16,
+        labelDy: -16,
+        anchor: 'end',
+        leader: true,
+        role: 'Agricultural and Medical Research Center; former centrifuge component manufacturing and testing workshops (TESA).',
+        verification: 'Verified at 35.818°N, 50.961°E in Karaj County, Alborz Province (~40 km WNW of Tehran).'
+      },
+      {
+        id: 'lashkar-abad',
+        name: 'Lashkar Abad',
+        subtitle: 'Laser Enrichment (Former)',
+        lat: 35.915,
+        lon: 50.692,
+        category: 'enrichment',
+        icon: '#icon-enrichment',
+        badgeText: 'Enrichment (Former)',
+        badgeClass: 'bg-red-100 text-red-800',
+        labelDx: -18,
+        labelDy: 4,
+        anchor: 'end',
+        leader: true,
+        role: 'Pilot laser isotope separation facility dismantled in 2003 following IAEA inspections.',
+        verification: 'Verified at 35.915°N, 50.692°E in Savojbolagh County, Alborz Province west of Karaj.'
+      },
+      {
+        id: 'parchin',
+        name: 'Parchin',
+        subtitle: 'Military R&D Complex',
+        lat: 35.515,
+        lon: 51.771,
+        category: 'research',
+        icon: '#icon-research',
+        badgeText: 'Research / Testing',
+        badgeClass: 'bg-blue-100 text-blue-800',
+        labelDx: 18,
+        labelDy: 14,
+        anchor: 'start',
+        leader: true,
+        role: 'Defense Industries Organization military complex ~30 km southeast of Tehran; inspected by the IAEA in 2005 and 2015.',
+        verification: 'Verified at 35.515°N, 51.771°E in Pakdasht County southeast of Tehran.'
+      },
+      {
+        id: 'fordow',
+        name: 'Fordow (Qom)',
+        subtitle: 'Fuel Enrichment Plant',
+        lat: 34.885,
+        lon: 50.996,
+        category: 'enrichment',
+        icon: '#icon-enrichment',
+        badgeText: 'Enrichment',
+        badgeClass: 'bg-red-100 text-red-800',
+        labelDx: -16,
+        labelDy: 4,
+        anchor: 'end',
+        leader: true,
+        role: 'Fordow Fuel Enrichment Plant (FFEP), hardened underground gas centrifuge enrichment facility northeast of Qom.',
+        verification: 'Verified at 34.885°N, 50.996°E in Qom County (~32 km NE of Qom city).'
+      },
+      {
+        id: 'arak',
+        name: 'Arak (Khondab)',
+        subtitle: 'IR-40 Heavy Water Reactor',
+        lat: 34.372,
+        lon: 49.245,
+        category: 'reactor',
+        icon: '#icon-reactor',
+        badgeText: 'Heavy Water Reactor',
+        badgeClass: 'bg-amber-100 text-amber-800',
+        labelDx: -15,
+        labelDy: 4,
+        anchor: 'end',
+        leader: false,
+        role: 'IR-40 40 MWth heavy water research reactor and adjacent Heavy Water Production Plant (HWPP) near Khondab.',
+        verification: 'Verified at 34.372°N, 49.245°E in Khondab County, Markazi Province.'
+      },
+      {
+        id: 'ardakan',
+        name: 'Ardakan',
+        subtitle: 'Yellowcake Production',
+        lat: 32.310,
+        lon: 54.017,
+        category: 'mining',
+        icon: '#icon-mining',
+        badgeText: 'Yellowcake Mill',
+        badgeClass: 'bg-emerald-100 text-emerald-800',
+        labelDx: -15,
+        labelDy: 4,
+        anchor: 'end',
+        leader: false,
+        role: 'Ardakan Yellowcake Production Plant, processing uranium ore from Saghand into U₃O₈ concentrate.',
+        verification: 'Verified at 32.310°N, 54.017°E in Ardakan County, Yazd Province.'
+      },
+      {
+        id: 'saghand',
+        name: 'Saghand',
+        subtitle: 'Uranium Mine',
+        lat: 32.312,
+        lon: 55.405,
+        category: 'mining',
+        icon: '#icon-mining',
+        badgeText: 'Uranium Mine',
+        badgeClass: 'bg-emerald-100 text-emerald-800',
+        labelDx: 15,
+        labelDy: 4,
+        anchor: 'start',
+        leader: false,
+        role: 'Underground uranium ore mining complex in central Yazd Province supplying the Ardakan mill.',
+        verification: 'Verified at 32.312°N, 55.405°E in Ardakan County, northeastern Yazd Province.'
+      },
+      {
+        id: 'bushehr',
+        name: 'Bushehr',
+        subtitle: 'Nuclear Power Plant',
+        lat: 28.830,
+        lon: 50.886,
+        category: 'reactor',
+        icon: '#icon-reactor',
+        badgeText: 'Power Reactor',
+        badgeClass: 'bg-amber-100 text-amber-800',
+        labelDx: -15,
+        labelDy: 5,
+        anchor: 'end',
+        leader: false,
+        role: 'Bushehr Nuclear Power Plant (BNPP), 1,000 MWe VVER-1000 pressurized water reactor on the Persian Gulf coast.',
+        verification: 'Verified at 28.830°N, 50.886°E on the Halileh peninsula coastline in Bushehr County.'
+      },
+      {
+        id: 'gchine',
+        name: 'Gchine',
+        subtitle: 'Uranium Mine & Mill',
+        lat: 27.115,
+        lon: 56.115,
+        category: 'mining',
+        icon: '#icon-mining',
+        badgeText: 'Mine & Mill',
+        badgeClass: 'bg-emerald-100 text-emerald-800',
+        labelDx: -14,
+        labelDy: -4,
+        anchor: 'end',
+        leader: false,
+        role: 'Near-surface uranium mine and yellowcake mill near Bandar Abbas overlooking the Strait of Hormuz.',
+        verification: 'Verified at 27.115°N, 56.115°E in Bandar Abbas County, Hormozgan Province.'
+      },
+      {
+        id: 'bonab',
+        name: 'Bonab',
+        subtitle: 'Atomic Energy Research',
+        lat: 37.340,
+        lon: 46.056,
+        category: 'research',
+        icon: '#icon-research',
+        badgeText: 'Research Center',
+        badgeClass: 'bg-blue-100 text-blue-800',
+        labelDx: 14,
+        labelDy: 5,
+        anchor: 'start',
+        leader: false,
+        role: 'Bonab Atomic Energy Research Center, focusing on agricultural radiation applications and nuclear physics.',
+        verification: 'Verified at 37.340°N, 46.056°E in Bonab County near the southeastern shore of Lake Urmia.'
+      },
+      {
+        id: 'anarak',
+        name: 'Anarak',
+        subtitle: 'Nuclear Waste Storage',
+        lat: 33.309,
+        lon: 53.700,
+        category: 'research',
+        icon: '#icon-research',
+        badgeText: 'Waste Storage',
+        badgeClass: 'bg-blue-100 text-blue-800',
+        labelDx: 15,
+        labelDy: -4,
+        anchor: 'start',
+        leader: false,
+        role: 'Near-surface radioactive waste storage and nuclear materials repository near Anarak in northeastern Isfahan Province.',
+        verification: 'Verified at 33.309°N, 53.700°E in Nain County, Isfahan Province.'
+      },
+      {
+        id: 'darkhovin',
+        name: 'Darkhovin',
+        subtitle: 'Planned Power Plant',
+        lat: 30.713,
+        lon: 48.378,
+        category: 'reactor',
+        icon: '#icon-reactor',
+        badgeText: 'Planned Reactor',
+        badgeClass: 'bg-amber-100 text-amber-800',
+        labelDx: -14,
+        labelDy: 4,
+        anchor: 'end',
+        leader: false,
+        role: 'Planned 300–360 MWe indigenous pressurized water nuclear power plant along the Karun River in Khuzestan.',
+        verification: 'Verified at 30.713°N, 48.378°E in Shadegan County along the Karun River.'
+      }
+    ];
+
+    // DOM Elements
+    const svgEl = document.getElementById('iran-nuclear-svg');
+    const facilitiesGroup = document.getElementById('facilities');
+    const labelsGroup = document.getElementById('labels');
+    const corridorGroup = document.getElementById('corridor-overlay');
+    const facilityListEl = document.getElementById('facility-list');
+    const categoryFilterEl = document.getElementById('category-filter');
+    const tooltipEl = document.getElementById('map-tooltip');
+    const mapViewport = document.getElementById('map-viewport');
+    const panZoomGroup = document.getElementById('map-pan-zoom-group');
+
+    let selectedFacilityId = 'behjatabad';
+    let inlinedCountiesMarkup = null;
+
+    /**
+     * Fetch & inline the official Wikimedia Commons SVG `Iran_location_map_(counties).svg`
+     * so both live rendering and standalone `.svg` exports embed the true county vector paths.
+     */
+    async function loadWikimediaCountiesBasemap() {
+      const statusText = document.getElementById('basemap-status-text');
+      const fallbackGroup = document.getElementById('fallback-basemap');
+      const imgEl = document.getElementById('wikimedia-counties-img');
+      const inlineContainer = document.getElementById('inlined-counties-svg-container');
+
+      const candidateUrls = [
+        'https://upload.wikimedia.org/wikipedia/commons/e/e5/Iran_location_map_%28counties%29.svg',
+        'https://upload.wikimedia.org/wikipedia/commons/3/3c/Iran_location_map_%28counties%29.svg'
+      ];
+
+      try {
+        // Dynamically resolve the canonical Wikimedia Commons file URL via MediaWiki API (CORS enabled)
+        const apiResp = await fetch(
+          'https://commons.wikimedia.org/w/api.php?action=query&titles=File:Iran_location_map_(counties).svg&prop=imageinfo&iiprop=url&format=json&origin=*'
+        );
+        if (apiResp.ok) {
+          const apiData = await apiResp.json();
+          const pages = apiData?.query?.pages || {};
+          const pageKey = Object.keys(pages)[0];
+          const resolvedUrl = pages[pageKey]?.imageinfo?.[0]?.url;
+          if (resolvedUrl && !candidateUrls.includes(resolvedUrl)) {
+            candidateUrls.unshift(resolvedUrl);
+          }
+        }
+      } catch (e) {
+        // Proceed with fallback Wikimedia upload URLs
+      }
+
+      // Set <image> href to best URL as progressive preview while raw SVG XML loads
+      imgEl.setAttribute('href', candidateUrls[0]);
+      imgEl.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', candidateUrls[0]);
+      imgEl.addEventListener('load', () => {
+        if (!inlinedCountiesMarkup && fallbackGroup) fallbackGroup.style.display = 'none';
+        if (!inlinedCountiesMarkup && statusText) statusText.textContent = 'Wikimedia Counties SVG Active';
+      });
+
+      // Fetch raw SVG XML over CORS and inline pure vector paths so Canvas PNG rasterization is NEVER CORS-tainted
+      for (const url of candidateUrls) {
+        try {
+          const svgResp = await fetch(url, { mode: 'cors' });
+          if (!svgResp.ok) continue;
+          const svgText = await svgResp.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(svgText, 'image/svg+xml');
+          const fetchedSvg = doc.querySelector('svg');
+          if (fetchedSvg) {
+            const importedNodes = [];
+            Array.from(fetchedSvg.childNodes).forEach((node) => {
+              if (node.nodeType === 1 && node.tagName.toLowerCase() !== 'title' && node.tagName.toLowerCase() !== 'desc') {
+                importedNodes.push(document.importNode(node, true));
+              }
+            });
+            inlineContainer.innerHTML = '';
+            importedNodes.forEach((n) => inlineContainer.appendChild(n));
+            inlinedCountiesMarkup = true;
+            // Once true vector paths are inlined, hide external <image> and fallback
+            imgEl.style.display = 'none';
+            if (fallbackGroup) fallbackGroup.style.display = 'none';
+            if (statusText) statusText.textContent = 'Counties Vector Inlined (Untainted)';
+            break;
+          }
+        } catch (err) {
+          // Try next candidate URL; if all fail, clean inline vector fallback remains available for untainted PNG export
+        }
+      }
+    }
+
+    /**
+     * Render all 17 verified facilities + Isfahan–Behjatabad–Pickaxe Mtn corridor vector
+     */
+    function renderMapFacilities() {
+      const SVG_NS = 'http://www.w3.org/2000/svg';
+      facilitiesGroup.innerHTML = '';
+      labelsGroup.innerHTML = '';
+      corridorGroup.innerHTML = '';
+
+      // Compute coordinates for all sites first
+      FACILITIES.forEach((fac) => {
+        const { x, y } = geoToSvg(fac.lat, fac.lon);
+        fac._x = x;
+        fac._y = y;
+      });
+
+      // Draw Isfahan <-> Behjatabad <-> Pickaxe Mountain ~125 km corridor indicator
+      const isf = FACILITIES.find((f) => f.id === 'isfahan');
+      const beh = FACILITIES.find((f) => f.id === 'behjatabad');
+      const pic = FACILITIES.find((f) => f.id === 'pickaxe-mountain');
+      if (isf && beh && pic) {
+        const corridorPath = document.createElementNS(SVG_NS, 'polyline');
+        corridorPath.setAttribute('points', `${isf._x},${isf._y} ${beh._x},${beh._y} ${pic._x},${pic._y}`);
+        corridorPath.setAttribute('class', 'corridor-line');
+        corridorGroup.appendChild(corridorPath);
+      }
+
+      FACILITIES.forEach((fac) => {
+        const x = fac._x;
+        const y = fac._y;
+
+        // 1. Create Marker Group in <g id="facilities">
+        const g = document.createElementNS(SVG_NS, 'g');
+        g.setAttribute('id', `marker-${fac.id}`);
+        g.setAttribute('class', 'facility-marker');
+        g.setAttribute('transform', `translate(${x}, ${y})`);
+        g.setAttribute('data-id', fac.id);
+
+        // Pulsing callout ring for newly identified Behjatabad Underground Facility
+        if (fac.isNew) {
+          const pulse = document.createElementNS(SVG_NS, 'circle');
+          pulse.setAttribute('class', 'new-site-pulse');
+          pulse.setAttribute('cx', '0');
+          pulse.setAttribute('cy', '0');
+          pulse.setAttribute('r', '15');
+          pulse.setAttribute('fill', 'none');
+          pulse.setAttribute('stroke', '#7c3aed');
+          pulse.setAttribute('stroke-width', '2.2');
+          g.appendChild(pulse);
+        }
+
+        // Interactive subtle selection/hover halo
+        const halo = document.createElementNS(SVG_NS, 'circle');
+        halo.setAttribute('class', 'marker-halo');
+        halo.setAttribute('cx', '0');
+        halo.setAttribute('cy', '0');
+        halo.setAttribute('r', fac.id === selectedFacilityId ? '18' : '14');
+        halo.setAttribute('fill', fac.isNew ? '#7c3aed' : '#2563eb');
+        halo.setAttribute('opacity', fac.id === selectedFacilityId ? '0.32' : '0');
+        g.appendChild(halo);
+
+        // Icon <use>
+        const useEl = document.createElementNS(SVG_NS, 'use');
+        useEl.setAttribute('href', fac.icon);
+        useEl.setAttribute('xlink:href', fac.icon);
+        useEl.setAttribute('x', '0');
+        useEl.setAttribute('y', '0');
+        g.appendChild(useEl);
+
+        // Events for hover tooltip & click inspection
+        g.addEventListener('mouseenter', (e) => showTooltip(fac, e));
+        g.addEventListener('mousemove', (e) => moveTooltip(e));
+        g.addEventListener('mouseleave', hideTooltip);
+        g.addEventListener('click', (e) => {
+          e.stopPropagation();
+          selectFacility(fac.id);
+        });
+
+        facilitiesGroup.appendChild(g);
+
+        // 2. Create Leader Line & Typography Label in <g id="labels">
+        const labelX = x + fac.labelDx;
+        const labelY = y + fac.labelDy;
+
+        if (fac.leader) {
+          const line = document.createElementNS(SVG_NS, 'line');
+          line.setAttribute('x1', x);
+          line.setAttribute('y1', y);
+          line.setAttribute('x2', labelX + (fac.anchor === 'start' ? -3 : 3));
+          line.setAttribute('y2', labelY - 3);
+          line.setAttribute('class', 'leader-line');
+          if (fac.isNew) {
+            line.setAttribute('stroke', '#6d28d9');
+            line.setAttribute('stroke-width', '1.35');
+          }
+          labelsGroup.appendChild(line);
+        }
+
+        const text = document.createElementNS(SVG_NS, 'text');
+        text.setAttribute('x', labelX);
+        text.setAttribute('y', labelY);
+        text.setAttribute('text-anchor', fac.anchor);
+        text.setAttribute('class', fac.isNew ? 'facility-label-new' : 'facility-label');
+        text.textContent = fac.name;
+        labelsGroup.appendChild(text);
+
+        if (fac.subtitle) {
+          const subtext = document.createElementNS(SVG_NS, 'text');
+          subtext.setAttribute('x', labelX);
+          subtext.setAttribute('y', labelY + 12);
+          subtext.setAttribute('text-anchor', fac.anchor);
+          subtext.setAttribute('class', 'facility-sublabel');
+          if (fac.isNew) {
+            subtext.setAttribute('style', 'fill:#6d28d9; font-weight:600;');
+          }
+          subtext.textContent = fac.subtitle;
+          labelsGroup.appendChild(subtext);
+        }
+      });
+    }
+
+    function renderSidebarList() {
+      const filter = categoryFilterEl.value;
+      const filtered = filter === 'all'
+        ? FACILITIES
+        : FACILITIES.filter((f) => f.category === filter);
+
+      facilityListEl.innerHTML = filtered.map((fac) => {
+        const isSelected = fac.id === selectedFacilityId;
+        return `
+          <button type="button"
+            onclick="selectFacility('${fac.id}')"
+            class="w-full text-left px-3 py-2.5 rounded-lg transition flex items-start justify-between gap-2 ${
+              isSelected
+                ? (fac.isNew ? 'bg-purple-50/90 border border-purple-300 shadow-2xs' : 'bg-blue-50/90 border border-blue-200 shadow-2xs')
+                : 'hover:bg-slate-50 border border-transparent'
+            }">
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="font-semibold text-xs ${fac.isNew ? 'text-purple-950' : 'text-slate-900'} truncate">${fac.name}</span>
+                <span class="font-mono text-[10px] text-slate-400 shrink-0">${fac.lat.toFixed(2)}°N, ${fac.lon.toFixed(2)}°E</span>
+              </div>
+              <p class="text-[11px] text-slate-500 truncate mt-0.5">${fac.subtitle}</p>
+            </div>
+            <span class="px-1.5 py-0.5 rounded text-[9.5px] font-semibold shrink-0 ${fac.badgeClass}">
+              ${fac.badgeText}
+            </span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectFacility(id) {
+      selectedFacilityId = id;
+      const fac = FACILITIES.find((f) => f.id === id);
+      if (!fac) return;
+
+      // Update Inspector Card
+      document.getElementById('insp-title').textContent = `${fac.name}`;
+      document.getElementById('insp-coords').textContent = `${fac.lat.toFixed(3)}°N, ${fac.lon.toFixed(3)}°E  •  SVG (${fac._x}, ${fac._y})`;
+      document.getElementById('insp-role').textContent = fac.role;
+      document.getElementById('insp-verification').textContent = fac.verification;
+
+      const badge = document.getElementById('insp-category-badge');
+      badge.textContent = fac.badgeText;
+      badge.className = `px-2 py-0.5 rounded-full text-[10px] font-semibold ${fac.badgeClass}`;
+
+      // Highlight selected halo on SVG
+      document.querySelectorAll('.facility-marker').forEach((node) => {
+        const halo = node.querySelector('.marker-halo');
+        if (!halo) return;
+        if (node.getAttribute('data-id') === id) {
+          halo.setAttribute('r', '18');
+          halo.setAttribute('opacity', '0.35');
+        } else {
+          halo.setAttribute('r', '14');
+          halo.setAttribute('opacity', '0');
+        }
+      });
+
+      renderSidebarList();
+    }
+
+    // Tooltip positioning & display
+    function showTooltip(fac, e) {
+      document.getElementById('tt-name').textContent = fac.name;
+      document.getElementById('tt-coords').textContent = `${fac.lat.toFixed(3)}°N, ${fac.lon.toFixed(3)}°E`;
+      document.getElementById('tt-role').textContent = fac.role;
+      document.getElementById('tt-verify').textContent = '✓ ' + fac.verification;
+
+      const badge = document.getElementById('tt-badge');
+      badge.textContent = fac.badgeText;
+      badge.className = `px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide shrink-0 ${fac.badgeClass}`;
+
+      tooltipEl.classList.remove('hidden');
+      moveTooltip(e);
+    }
+
+    function moveTooltip(e) {
+      const rect = mapViewport.getBoundingClientRect();
+      const ttRect = tooltipEl.getBoundingClientRect();
+      let left = e.clientX - rect.left + 14;
+      let top = e.clientY - rect.top + 14;
+
+      if (left + ttRect.width > rect.width - 10) {
+        left = e.clientX - rect.left - ttRect.width - 14;
+      }
+      if (top + ttRect.height > rect.height - 10) {
+        top = e.clientY - rect.top - ttRect.height - 14;
+      }
+
+      tooltipEl.style.left = `${Math.max(8, left)}px`;
+      tooltipEl.style.top = `${Math.max(8, top)}px`;
+    }
+
+    function hideTooltip() {
+      tooltipEl.classList.add('hidden');
+    }
+
+    // Layer Toggles
+    document.getElementById('toggle-counties').addEventListener('change', (e) => {
+      document.getElementById('wikimedia-counties-basemap').style.opacity = e.target.checked ? '1' : '0.18';
+    });
+    document.getElementById('toggle-graticule').addEventListener('change', (e) => {
+      document.getElementById('graticule').style.display = e.target.checked ? 'inline' : 'none';
+    });
+    document.getElementById('toggle-labels').addEventListener('change', (e) => {
+      document.getElementById('labels').style.display = e.target.checked ? 'inline' : 'none';
+    });
+    document.getElementById('toggle-corridor').addEventListener('change', (e) => {
+      document.getElementById('corridor-overlay').style.display = e.target.checked ? 'inline' : 'none';
+    });
+
+    // Calibration Controls
+    document.getElementById('btn-toggle-calib').addEventListener('click', () => {
+      document.getElementById('calibration-bar').classList.toggle('hidden');
+    });
+
+    const calibLonInput = document.getElementById('calib-lon');
+    const calibLatInput = document.getElementById('calib-lat');
+
+    function applyCalibration() {
+      PROJ.lonOffset = parseFloat(calibLonInput.value);
+      PROJ.latOffset = parseFloat(calibLatInput.value);
+      document.getElementById('calib-lon-val').textContent = `${PROJ.lonOffset >= 0 ? '+' : ''}${PROJ.lonOffset.toFixed(2)}°`;
+      document.getElementById('calib-lat-val').textContent = `${PROJ.latOffset >= 0 ? '+' : ''}${PROJ.latOffset.toFixed(2)}°`;
+      renderMapFacilities();
+      selectFacility(selectedFacilityId);
+    }
+
+    calibLonInput.addEventListener('input', applyCalibration);
+    calibLatInput.addEventListener('input', applyCalibration);
+    document.getElementById('calib-reset').addEventListener('click', () => {
+      calibLonInput.value = '0';
+      calibLatInput.value = '0';
+      applyCalibration();
+    });
+
+    categoryFilterEl.addEventListener('change', renderSidebarList);
+
+    // Interactive Pan & Zoom on Map Viewport
+    let zoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+
+    function updateTransform() {
+      panZoomGroup.setAttribute('transform', `translate(${panX}, ${panY}) scale(${zoom})`);
+      document.getElementById('zoom-level').textContent = `${Math.round(zoom * 100)}%`;
+    }
+
+    document.getElementById('zoom-in').addEventListener('click', () => {
+      zoom = Math.min(4.0, +(zoom + 0.3).toFixed(2));
+      updateTransform();
+    });
+
+    document.getElementById('zoom-out').addEventListener('click', () => {
+      zoom = Math.max(1, +(zoom - 0.3).toFixed(2));
+      if (zoom === 1) {
+        panX = 0;
+        panY = 0;
+      }
+      updateTransform();
+    });
+
+    document.getElementById('btn-reset-view').addEventListener('click', () => {
+      zoom = 1;
+      panX = 0;
+      panY = 0;
+      updateTransform();
+    });
+
+    mapViewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.25 : -0.25;
+      zoom = Math.min(4.0, Math.max(1, +(zoom + delta).toFixed(2)));
+      if (zoom === 1) {
+        panX = 0;
+        panY = 0;
+      }
+      updateTransform();
+    }, { passive: false });
+
+    mapViewport.addEventListener('mousedown', (e) => {
+      if (zoom <= 1) return;
+      isDragging = true;
+      dragStartX = e.clientX - panX;
+      dragStartY = e.clientY - panY;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      const rect = svgEl.getBoundingClientRect();
+      if (
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+      ) {
+        const svgX = (((e.clientX - rect.left) / rect.width) * 1200 - panX) / zoom;
+        const svgY = (((e.clientY - rect.top) / rect.height) * 1070.635 - panY) / zoom;
+        const geo = svgToGeo(svgX, svgY);
+        document.getElementById('cursor-coords').textContent = `${geo.lat}°N, ${geo.lon}°E`;
+      }
+
+      if (!isDragging) return;
+      panX = e.clientX - dragStartX;
+      panY = e.clientY - dragStartY;
+      updateTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    /**
+     * Generate Clean, Standalone W3C-Valid SVG Code for Inkscape / Illustrator / Wikimedia Commons
+     * or for Untainted Client-Side Canvas PNG Rasterization.
+     */
+    function buildCleanStandaloneSVG(options = {}) {
+      const targetWidth = options.width || 1200;
+      const targetHeight = options.height || 1070.635;
+      const forPng = Boolean(options.forPng);
+      const transparentBg = Boolean(options.transparentBg);
+
+      const clone = svgEl.cloneNode(true);
+      clone.removeAttribute('class');
+      clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+      clone.setAttribute('viewBox', '0 0 1200 1070.635');
+      clone.setAttribute('width', String(targetWidth));
+      clone.setAttribute('height', String(targetHeight));
+
+      const pzGroup = clone.querySelector('#map-pan-zoom-group');
+      if (pzGroup) {
+        pzGroup.removeAttribute('transform');
+      }
+
+      const imgNode = clone.querySelector('#wikimedia-counties-img');
+      const fbNode = clone.querySelector('#fallback-basemap');
+
+      if (inlinedCountiesMarkup) {
+        // Pure vector county paths are inlined — strip external <image> and fallback
+        if (imgNode) imgNode.remove();
+        if (fbNode) fbNode.remove();
+      } else if (forPng) {
+        // For PNG canvas rasterization, NEVER leave an external <image> (prevents CORS taint SecurityError)
+        if (imgNode) imgNode.remove();
+        if (fbNode) fbNode.style.display = 'inline';
+      }
+
+      // Handle optional transparent ocean/background for PNG export
+      if (transparentBg) {
+        const oceanRect = clone.querySelector('#base-ocean-rect');
+        if (oceanRect) oceanRect.setAttribute('fill', 'none');
+        // Also clear any full-frame ocean background rect inside the inlined Wikimedia SVG
+        const inlineContainer = clone.querySelector('#inlined-counties-svg-container');
+        if (inlineContainer) {
+          inlineContainer.querySelectorAll('rect').forEach((r) => {
+            const w = parseFloat(r.getAttribute('width') || '0');
+            const h = parseFloat(r.getAttribute('height') || '0');
+            if (w >= 1100 && h >= 950) {
+              r.setAttribute('fill', 'none');
+              r.style.fill = 'none';
+            }
+          });
+        }
+      }
+
+      // Remove transient UI halos/animations for static print/Wikimedia cleanliness
+      clone.querySelectorAll('.marker-halo, .new-site-pulse').forEach((el) => el.remove());
+
+      const serializer = new XMLSerializer();
+      let svgString = serializer.serializeToString(clone);
+
+      if (!svgString.startsWith('<?xml')) {
+        svgString = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' + svgString;
+      }
+      return svgString;
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes >= 1024 * 1024) {
+        return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+      }
+      return `${(bytes / 1024).toFixed(1)} KB`;
+    }
+
+    /**
+     * Wikimedia-Commons-Style Client-Side SVG-to-PNG Rasterizer
+     * Pipeline: Clone SVG -> XMLSerializer -> Blob URL -> HTMLImageElement -> Offscreen <canvas> -> canvas.toBlob('image/png')
+     */
+    function rasterizeSvgToPng(targetWidth, transparentBg = false) {
+      return new Promise((resolve, reject) => {
+        const t0 = performance.now();
+        const targetHeight = Math.round(targetWidth * (1070.635 / 1200));
+
+        try {
+          const cleanSvg = buildCleanStandaloneSVG({
+            width: targetWidth,
+            height: targetHeight,
+            forPng: true,
+            transparentBg
+          });
+
+          const svgBlob = new Blob([cleanSvg], { type: 'image/svg+xml;charset=utf-8' });
+          const svgUrl = URL.createObjectURL(svgBlob);
+          const img = new Image();
+          img.crossOrigin = 'anonymous';
+
+          img.onload = () => {
+            try {
+              const canvas = document.createElement('canvas');
+              canvas.width = targetWidth;
+              canvas.height = targetHeight;
+              const ctx = canvas.getContext('2d');
+
+              if (!transparentBg) {
+                ctx.fillStyle = '#c6ecff';
+                ctx.fillRect(0, 0, targetWidth, targetHeight);
+              }
+
+              ctx.imageSmoothingEnabled = true;
+              ctx.imageSmoothingQuality = 'high';
+              ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+              URL.revokeObjectURL(svgUrl);
+
+              canvas.toBlob((pngBlob) => {
+                if (!pngBlob) {
+                  reject(new Error('Canvas PNG encoding returned empty blob.'));
+                  return;
+                }
+                const elapsedMs = Math.round(performance.now() - t0);
+                resolve({
+                  blob: pngBlob,
+                  width: targetWidth,
+                  height: targetHeight,
+                  elapsedMs,
+                  sizeText: formatFileSize(pngBlob.size)
+                });
+              }, 'image/png');
+            } catch (drawErr) {
+              URL.revokeObjectURL(svgUrl);
+              reject(drawErr);
+            }
+          };
+
+          img.onerror = () => {
+            URL.revokeObjectURL(svgUrl);
+            reject(new Error('Failed to decode serialized SVG into image buffer.'));
+          };
+
+          img.src = svgUrl;
+        } catch (err) {
+          reject(err);
+        }
+      });
+    }
+
+    function triggerPngDownload(blob, width) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `iran_nuclear_program_map_${width}px.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    let lastPreviewPng = null;
+
+    // Export .PNG Button
+    document.getElementById('btn-export-png').addEventListener('click', async () => {
+      const width = parseInt(document.getElementById('png-resolution').value, 10) || 1280;
+      const transparentBg = document.getElementById('png-transparent-bg').checked;
+      const btnLabel = document.getElementById('export-png-label');
+      btnLabel.textContent = 'Rendering...';
+
+      try {
+        const result = await rasterizeSvgToPng(width, transparentBg);
+        triggerPngDownload(result.blob, result.width);
+        showToast(`Exported PNG: ${result.width}×${result.height} px • ${result.sizeText} • rendered in ${result.elapsedMs} ms`);
+      } catch (err) {
+        showToast(`PNG export failed: ${err.message}`);
+      } finally {
+        btnLabel.textContent = 'Export .PNG';
+      }
+    });
+
+    // Preview PNG Modal Controls
+    const previewModal = document.getElementById('png-preview-modal');
+    const previewImg = document.getElementById('png-preview-img');
+    const previewMeta = document.getElementById('png-preview-meta');
+
+    document.getElementById('btn-preview-png').addEventListener('click', async () => {
+      const width = parseInt(document.getElementById('png-resolution').value, 10) || 1280;
+      const transparentBg = document.getElementById('png-transparent-bg').checked;
+      previewMeta.textContent = `Rasterizing ${width}px PNG via offscreen Canvas...`;
+      previewModal.classList.remove('hidden');
+      previewModal.classList.add('flex');
+
+      try {
+        const result = await rasterizeSvgToPng(width, transparentBg);
+        if (lastPreviewPng && lastPreviewPng.objectUrl) {
+          URL.revokeObjectURL(lastPreviewPng.objectUrl);
+        }
+        const objectUrl = URL.createObjectURL(result.blob);
+        lastPreviewPng = { ...result, objectUrl };
+        previewImg.src = objectUrl;
+        previewMeta.textContent = `${result.width} × ${result.height} px  •  ${result.sizeText}  •  ${result.elapsedMs} ms  •  ${transparentBg ? 'Transparent BG' : 'Ocean Fill'}`;
+      } catch (err) {
+        previewMeta.textContent = `Preview failed: ${err.message}`;
+      }
+    });
+
+    document.getElementById('btn-modal-download-png').addEventListener('click', () => {
+      if (lastPreviewPng) {
+        triggerPngDownload(lastPreviewPng.blob, lastPreviewPng.width);
+        showToast(`Downloaded PNG: ${lastPreviewPng.width}×${lastPreviewPng.height} px (${lastPreviewPng.sizeText})`);
+      }
+    });
+
+    function closePngModal() {
+      previewModal.classList.add('hidden');
+      previewModal.classList.remove('flex');
+    }
+
+    document.getElementById('btn-modal-close-png').addEventListener('click', closePngModal);
+    previewModal.addEventListener('click', (e) => {
+      if (e.target === previewModal) closePngModal();
+    });
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3400);
+    }
+
+    // Download Clean .SVG
+    document.getElementById('btn-download-svg').addEventListener('click', () => {
+      const cleanSvg = buildCleanStandaloneSVG();
+      const blob = new Blob([cleanSvg], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Iran_nuclear_program_map-en-2026.svg';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Downloaded standalone W3C SVG: Iran_nuclear_program_map-en-2026.svg');
+    });
+
+    // Copy SVG Code
+    document.getElementById('btn-copy-svg').addEventListener('click', () => {
+      const cleanSvg = buildCleanStandaloneSVG();
+      const textarea = document.createElement('textarea');
+      textarea.value = cleanSvg;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        const label = document.getElementById('copy-btn-text');
+        label.textContent = 'Copied!';
+        showToast('Clean W3C SVG XML copied to clipboard.');
+        setTimeout(() => {
+          label.textContent = 'Copy SVG Code';
+        }, 2000);
+      } catch (err) {
+        showToast('Unable to copy automatically; use Download Clean .SVG.');
+      }
+      document.body.removeChild(textarea);
+    });
+
+    // Initialize Application
+    loadWikimediaCountiesBasemap();
+    renderMapFacilities();
+    renderSidebarList();
+    selectFacility('behjatabad');
+  </script>
+</body>
+</html>
