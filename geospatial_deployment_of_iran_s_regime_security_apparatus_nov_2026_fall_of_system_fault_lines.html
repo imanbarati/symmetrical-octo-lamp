@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geospatial Deployment of Iran's Regime &amp; Security Apparatus (Nov 2026) &amp; Fall-of-System Fault Lines</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    }
+    .map-node {
+      cursor: pointer;
+    }
+    .map-node:hover .node-halo {
+      opacity: 0.36;
+    }
+    .fault-zone {
+      cursor: pointer;
+      transition: opacity 0.18s ease;
+    }
+    .fault-zone:hover .zone-ring {
+      stroke-width: 2.6;
+      fill-opacity: 0.24;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- Scholarly Intelligence-Atlas Dark Header Bar -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 shadow-sm sticky top-0 z-30">
+    <div class="max-w-[1740px] mx-auto px-4 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <!-- Title & Verification Badges -->
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-9 h-9 rounded-lg bg-red-900/80 border border-amber-400/50 flex items-center justify-center text-amber-300 shadow-inner shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+            <polygon points="12,2 21,7 21,17 12,22 3,17 3,7" />
+            <circle cx="12" cy="12" r="3" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h1 class="text-sm sm:text-base font-bold tracking-tight text-white truncate">
+              Geospatial Deployment of Iran's Regime &amp; Security Apparatus (Nov 2026)
+            </h1>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
+              36 Command Nodes &bull; 7 Fault Lines
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-400 truncate">
+            Wikimedia <code>Iran_location_map_(counties).svg</code> (1200&times;1070.635, CC0) &bull; IRGC NEZSA/NEDSA, Artesh NEZAJA/IRIN &amp; Fall-of-System Zones
+          </p>
+        </div>
+      </div>
+
+      <!-- Export & Rasterizer Toolbar -->
+      <div class="flex items-center gap-1.5 flex-wrap">
+        <button id="btn-copy-svg" type="button"
+          class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="copy-btn-text">Copy SVG Code</span>
+        </button>
+
+        <button id="btn-download-svg" type="button"
+          class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow-xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          Download Clean .SVG
+        </button>
+
+        <div class="flex items-center gap-1.5 pl-2 ml-0.5 border-l border-slate-700 flex-wrap">
+          <select id="png-resolution" title="PNG Export Resolution"
+            class="px-2 py-1.5 text-xs font-mono font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <option value="960">960 &times; 857 px</option>
+            <option value="1280" selected>1280 &times; 1142 px</option>
+            <option value="2400">2400 &times; 2141 px</option>
+            <option value="3840">3840 &times; 3427 (4K)</option>
+          </select>
+
+          <label title="Export PNG with transparent ocean/background"
+            class="inline-flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 cursor-pointer text-[11px] font-medium text-slate-200 select-none">
+            <input type="checkbox" id="png-transparent-bg" class="rounded text-emerald-500 focus:ring-emerald-500" />
+            <span>Transparent BG</span>
+          </label>
+
+          <button id="btn-preview-png" type="button"
+            class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            Preview PNG
+          </button>
+
+          <button id="btn-export-png" type="button"
+            class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span id="export-png-label">Export .PNG</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Toast Banner -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden transition-all duration-200">
+    <div class="bg-slate-900 text-white text-xs font-medium px-4 py-3 rounded-xl shadow-xl border border-slate-700 flex items-center gap-2.5">
+      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span id="toast-message">Action completed</span>
+    </div>
+  </div>
+
+  <!-- PNG Preview Modal -->
+  <div id="png-preview-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/75 backdrop-blur-xs p-4">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden">
+      <div class="px-5 py-3.5 border-b border-slate-200 flex items-center justify-between gap-3 bg-slate-50">
+        <div>
+          <h3 class="text-sm font-bold text-slate-900">Rasterized PNG Preview (Untainted Client-Side SVG &rarr; Canvas)</h3>
+          <p id="png-preview-meta" class="text-xs font-mono text-slate-500 mt-0.5">Rendering...</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btn-modal-download-png" type="button"
+            class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+            </svg>
+            Download PNG
+          </button>
+          <button id="btn-modal-close-png" type="button"
+            class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 transition">
+            Close
+          </button>
+        </div>
+      </div>
+      <div class="flex-1 overflow-auto p-4 flex items-center justify-center"
+           style="background-image: linear-gradient(45deg, #e2e8f0 25%, transparent 25%), linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e2e8f0 75%), linear-gradient(-45deg, transparent 75%, #e2e8f0 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;">
+        <img id="png-preview-img" src="" alt="Rasterized Iran Regime & Security Deployment Map PNG" class="max-w-full max-h-[74vh] rounded-lg shadow-lg border border-slate-300" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-[1740px] w-full mx-auto p-3 sm:p-4 grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+    <!-- Left/Center: Interactive SVG Map Canvas -->
+    <section id="map-column" class="lg:col-span-8 xl:col-span-9 flex flex-col gap-3 transition-all">
+
+      <!-- Layer Toggles, Zoom & Calibration Toolbar -->
+      <div class="bg-white rounded-xl border border-slate-200 px-3.5 py-2.5 shadow-xs flex flex-wrap items-center justify-between gap-2.5">
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mr-0.5">Layers:</span>
+
+          <button id="btn-toggle-counties" type="button" data-active="true"
+            class="px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition bg-blue-50 text-blue-800 border-blue-300">
+            County Borders
+          </button>
+
+          <button id="btn-toggle-c2" type="button" data-active="true"
+            class="px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition bg-blue-50 text-blue-800 border-blue-300">
+            Command Lines
+          </button>
+
+          <button id="btn-toggle-zones" type="button" data-active="true"
+            class="px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition bg-blue-50 text-blue-800 border-blue-300">
+            Fault-Line Zones
+          </button>
+
+          <button id="btn-toggle-labels" type="button" data-active="true"
+            class="px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition bg-blue-50 text-blue-800 border-blue-300">
+            Labels
+          </button>
+
+          <button id="btn-toggle-inset" type="button" data-active="true"
+            class="px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition bg-blue-50 text-blue-800 border-blue-300">
+            Tehran Inset
+          </button>
+
+          <button id="btn-toggle-calib" type="button"
+            class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-300 text-xs font-semibold text-amber-900 transition">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+            Calibrate
+          </button>
+        </div>
+
+        <!-- Status, Coordinates & Zoom -->
+        <div class="flex items-center gap-2 flex-wrap">
+          <div id="basemap-status" class="hidden 2xl:flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-50 border border-emerald-200 text-[11px] font-medium text-emerald-700">
+            <span id="basemap-status-dot" class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+            <span id="basemap-status-text">Fetching Wikimedia Counties SVG...</span>
+          </div>
+          <div id="cursor-coords" class="hidden sm:flex items-center px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 font-mono text-[11px] text-slate-600">
+            35.69°N, 51.40°E
+          </div>
+          <div class="inline-flex rounded-lg border border-slate-300 overflow-hidden bg-white">
+            <button id="zoom-out" type="button" title="Zoom Out" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-slate-100 border-r border-slate-300">&minus;</button>
+            <span id="zoom-level" class="px-2 py-1 text-xs font-mono text-slate-600 bg-slate-50">100%</span>
+            <button id="zoom-in" type="button" title="Zoom In" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-slate-100 border-l border-slate-300">+</button>
+            <button id="zoom-reset" type="button" title="Reset View" class="px-2 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-100 border-l border-slate-300">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsible Basemap Alignment Calibration Bar -->
+      <div id="calibration-bar" class="hidden bg-amber-50/95 border border-amber-300 rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="font-bold text-amber-950">Basemap Alignment Calibration:</span>
+          <span class="text-amber-800">WGS84 Equirectangular <code>43.8°E–63.6°E</code>, <code>24.8°N–40.0°N</code></span>
+        </div>
+        <div class="flex items-center gap-3.5 flex-wrap">
+          <label class="flex items-center gap-1.5 font-mono text-[11px] text-amber-950">
+            <span>X Offset:</span>
+            <input type="range" id="calib-x" min="-30" max="30" step="0.5" value="0" class="w-20 accent-amber-600" />
+            <span id="calib-x-val" class="w-11 text-right">0.0px</span>
+          </label>
+          <label class="flex items-center gap-1.5 font-mono text-[11px] text-amber-950">
+            <span>Y Offset:</span>
+            <input type="range" id="calib-y" min="-30" max="30" step="0.5" value="0" class="w-20 accent-amber-600" />
+            <span id="calib-y-val" class="w-11 text-right">0.0px</span>
+          </label>
+          <label class="flex items-center gap-1.5 font-mono text-[11px] text-amber-950">
+            <span>Scale:</span>
+            <input type="range" id="calib-scale" min="0.96" max="1.04" step="0.002" value="1" class="w-20 accent-amber-600" />
+            <span id="calib-scale-val" class="w-12 text-right">1.000x</span>
+          </label>
+          <button id="calib-reset" type="button" class="px-2.5 py-1 rounded-md bg-amber-200 hover:bg-amber-300 text-amber-950 font-semibold transition">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Map Viewport Container (Exact 1200 x 1070.635 aspect ratio) -->
+      <div id="map-viewport" class="relative bg-[#c6ecff] rounded-xl border border-slate-300 shadow-md overflow-hidden select-none" style="aspect-ratio: 1200 / 1070.635;">
+        <!-- Hover Tooltip -->
+        <div id="map-tooltip" class="hidden absolute z-20 pointer-events-none max-w-xs bg-white/95 backdrop-blur-xs border border-slate-300 rounded-xl shadow-lg p-3 text-xs">
+          <div class="flex items-start justify-between gap-2 mb-1">
+            <span id="tt-name" class="font-bold text-slate-900 text-sm leading-tight"></span>
+            <span id="tt-badge" class="px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide shrink-0"></span>
+          </div>
+          <div id="tt-coords" class="font-mono text-[11px] text-slate-500 mb-1"></div>
+          <div id="tt-cmd" class="text-[11px] text-slate-800 font-semibold mb-1"></div>
+          <p id="tt-role" class="text-slate-600 leading-snug"></p>
+        </div>
+
+        <!-- Master W3C Standalone SVG Map -->
+        <svg id="iran-deployment-svg"
+             xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             version="1.1"
+             viewBox="0 0 1200 1070.635"
+             width="100%"
+             height="100%"
+             class="w-full h-full block cursor-grab active:cursor-grabbing">
+          <title>Geospatial Deployment of Iran's Regime &amp; Security Apparatus (Nov 2026) &amp; Fall-of-System Fault Lines</title>
+          <desc>Encyclopedic geospatial vector map plotting 36 verified Iranian clerical, IRGC Ground Forces (NEZSA), Artesh (NEZAJA/IRIN), and IRGC Navy (NEDSA) command nodes plus 7 Fall-of-System scenario fault-line zones atop Wikimedia Commons File:Iran_location_map_(counties).svg (CC0).</desc>
+
+          <defs>
+            <clipPath id="map-frame-clip">
+              <rect x="0" y="0" width="1200" height="1070.635" />
+            </clipPath>
+
+            <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="1" dy="1.5" stdDeviation="1.8" flood-color="#0f172a" flood-opacity="0.16" />
+            </filter>
+
+            <!-- Category A: Regime & Clerical Command Core (#991b1b Deep Crimson / Gold Star-in-Hexagon) -->
+            <g id="icon-core">
+              <polygon points="0,-10.2 8.8,-5.1 8.8,5.1 0,10.2 -8.8,5.1 -8.8,-5.1" fill="#991b1b" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" />
+              <polygon points="0,-5.4 1.5,-1.7 5.4,-1.7 2.2,0.7 3.4,4.5 0,2.2 -3.4,4.5 -2.2,0.7 -5.4,-1.7 -1.5,-1.7" fill="#fde047" />
+            </g>
+
+            <!-- Category B: IRGC Ground Forces (NEZSA) Regional HQs (#14532d Forest Green Shield/Diamond) -->
+            <g id="icon-irgc-ground">
+              <path d="M 0,-9.6 L 8.2,-5.8 L 7.4,2.2 C 6.9,5.8 3.7,8.2 0,9.8 C -3.7,8.2 -6.9,5.8 -7.4,2.2 L -8.2,-5.8 Z" fill="#14532d" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" />
+              <polygon points="0,-4.4 4.2,0.4 0,5.2 -4.2,0.4" fill="#bbf7d0" />
+            </g>
+
+            <!-- Category C: Artesh Regional Commands & Fleet HQs (#1e3a8a Slate Blue Square/Chevron) -->
+            <g id="icon-artesh">
+              <rect x="-8.2" y="-8.2" width="16.4" height="16.4" rx="2.2" fill="#1e3a8a" stroke="#ffffff" stroke-width="1.6" />
+              <polyline points="-4.6,2.6 0,-2.6 4.6,2.6" fill="none" stroke="#ffffff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
+              <polyline points="-4.6,5.8 0,0.8 4.6,5.8" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+
+            <!-- Category D: IRGC Navy (NEDSA) & Strategic Nodes (#0f766e Teal Anchor/Circle) -->
+            <g id="icon-irgcn">
+              <circle cx="0" cy="0" r="9.2" fill="#0f766e" stroke="#ffffff" stroke-width="1.6" />
+              <circle cx="0" cy="-3.8" r="1.4" fill="none" stroke="#ffffff" stroke-width="1.2" />
+              <path d="M 0,-2.3 L 0,4.2 M -2.8,-0.5 L 2.8,-0.5 M -3.8,1.8 C -3.5,4.2 -1.7,4.9 0,4.9 C 1.7,4.9 3.5,4.2 3.8,1.8" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" />
+            </g>
+          </defs>
+
+          <!-- Embedded Styles for Standalone SVG & Untainted Canvas Export -->
+          <style type="text/css"><![CDATA[
+            .water-bg { fill: #c6ecff; }
+            .neighbor-land { fill: #e3e3de; stroke: #8a8a82; stroke-width: 1.05; stroke-linejoin: round; }
+            .iran-land { fill: #fdfbea; stroke: #4b4a44; stroke-width: 1.85; stroke-linejoin: round; }
+            .lake-water { fill: #c6ecff; stroke: #3b82b6; stroke-width: 1.1; }
+            .graticule-line { fill: none; stroke: #475569; stroke-width: 0.55; stroke-opacity: 0.32; stroke-dasharray: 4,3; }
+            .graticule-text { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 9.8px; font-weight: 600; fill: #334155; paint-order: stroke; stroke: #ffffff; stroke-width: 2px; }
+            .country-label { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 12.5px; font-weight: 700; fill: #64645b; letter-spacing: 1.8px; paint-order: stroke; stroke: #e3e3de; stroke-width: 2.2px; }
+            .water-label { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 13.5px; font-style: italic; font-weight: 700; fill: #1e6091; letter-spacing: 1.3px; }
+            .node-label { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 10.2px; font-weight: 700; fill: #0f172a; paint-order: stroke; stroke: #fdfbea; stroke-width: 3.2px; stroke-linecap: round; stroke-linejoin: round; }
+            .node-label-core { fill: #7f1d1d; }
+            .node-label-irgc-ground { fill: #14532d; }
+            .node-label-artesh { fill: #1e3a8a; }
+            .node-label-irgcn { fill: #115e59; }
+            .leader-line { fill: none; stroke: #334155; stroke-width: 0.95; stroke-opacity: 0.85; }
+            .c2-irgc-line { fill: none; stroke: #14532d; stroke-width: 1.15; stroke-dasharray: 5,3.5; stroke-opacity: 0.58; }
+            .c2-irgcn-line { fill: none; stroke: #0f766e; stroke-width: 1.2; stroke-dasharray: 2.2,3; stroke-opacity: 0.65; }
+            .zone-label { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 8.8px; font-weight: 700; letter-spacing: 0.3px; paint-order: stroke; stroke: #ffffff; stroke-width: 2.6px; }
+            .title-main { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 13.2px; font-weight: 700; fill: #0f172a; }
+            .title-sub { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 9.2px; fill: #475569; }
+            .legend-title { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 11.6px; font-weight: 700; fill: #0f172a; }
+            .legend-text { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 9.8px; fill: #1e293b; }
+          ]]></style>
+
+          <!-- Pan / Zoom Transform Group -->
+          <g id="map-pan-zoom-group">
+
+            <!-- LAYER 1: BASE OCEAN -->
+            <rect id="base-ocean-rect" x="0" y="0" width="1200" height="1070.635" class="water-bg" />
+
+            <!-- LAYER 2: OFFICIAL WIKIMEDIA COMMONS COUNTIES BASEMAP -->
+            <g id="basemap-clip-wrapper" clip-path="url(#map-frame-clip)">
+              <g id="basemap-transform-group">
+                <!-- Clean Offline Vector Fallback (hidden automatically once Wikimedia SVG paths inline) -->
+                <g id="fallback-basemap">
+                  <path class="neighbor-land" d="M 0,0 L 210,0 L 185,120 L 152,215 L 0,215 Z" />
+                  <path class="neighbor-land" d="M 210,0 L 395,0 L 385,165 L 330,130 L 285,105 L 220,98 Z" />
+                  <path class="neighbor-land" d="M 0,215 L 152,215 L 220,390 L 265,515 L 180,610 L 0,610 Z" />
+                  <path class="neighbor-land" d="M 0,610 L 235,610 L 340,760 L 520,880 L 660,860 L 720,1070.635 L 0,1070.635 Z" />
+                  <path class="neighbor-land" d="M 590,0 L 960,0 L 920,210 L 820,235 L 705,175 L 605,160 Z" />
+                  <path class="neighbor-land" d="M 960,0 L 1200,0 L 1200,590 L 985,595 L 945,450 L 920,210 Z" />
+                  <path class="neighbor-land" d="M 985,595 L 1200,590 L 1200,910 L 1035,895 L 1020,740 Z" />
+                  <path class="iran-land" d="M 162,92 L 225,112 L 285,105 L 345,148 L 385,168 C 385,225 415,275 495,282 C 565,286 602,255 605,160 L 705,175 L 820,235 L 920,210 L 945,355 L 938,485 L 965,585 L 1020,665 L 1035,885 C 940,875 835,865 765,835 C 715,810 675,785 635,810 C 575,838 495,810 425,735 C 375,675 340,595 265,565 L 245,475 L 195,385 L 152,255 L 145,145 Z" />
+                  <path class="lake-water" d="M 192,155 C 204,152 212,170 208,195 C 202,215 188,210 185,185 Z" />
+                  <path class="iran-land" d="M 718,926 L 748,914 L 755,922 L 725,934 Z" stroke-width="1" />
+                </g>
+
+                <!-- Dynamically Inlined Wikimedia Commons County SVG Vectors (Untainted) -->
+                <g id="wikimedia-counties-layer"></g>
+              </g>
+            </g>
+
+            <!-- LAYER 3: LAT/LON GRATICULE -->
+            <g id="graticule-layer" clip-path="url(#map-frame-clip)">
+              <line x1="72.73" y1="0" x2="72.73" y2="1070.635" class="graticule-line" />
+              <line x1="375.76" y1="0" x2="375.76" y2="1070.635" class="graticule-line" />
+              <line x1="678.79" y1="0" x2="678.79" y2="1070.635" class="graticule-line" />
+              <line x1="981.82" y1="0" x2="981.82" y2="1070.635" class="graticule-line" />
+
+              <line x1="0" y1="140.87" x2="1200" y2="140.87" class="graticule-line" />
+              <line x1="0" y1="352.18" x2="1200" y2="352.18" class="graticule-line" />
+              <line x1="0" y1="563.49" x2="1200" y2="563.49" class="graticule-line" />
+              <line x1="0" y1="774.80" x2="1200" y2="774.80" class="graticule-line" />
+              <line x1="0" y1="986.11" x2="1200" y2="986.11" class="graticule-line" />
+
+              <text x="77" y="1062" class="graticule-text">45°E</text>
+              <text x="380" y="18" class="graticule-text">50°E</text>
+              <text x="683" y="18" class="graticule-text">55°E</text>
+              <text x="8" y="137" class="graticule-text">38°N</text>
+              <text x="8" y="348" class="graticule-text">35°N</text>
+              <text x="8" y="559" class="graticule-text">32°N</text>
+              <text x="8" y="770" class="graticule-text">29°N</text>
+            </g>
+
+            <!-- LAYER 4: GEOGRAPHIC WATER & NEIGHBOR LABELS -->
+            <g id="geo-labels-layer" clip-path="url(#map-frame-clip)">
+              <text x="492" y="130" text-anchor="middle" class="water-label">CASPIAN</text>
+              <text x="492" y="148" text-anchor="middle" class="water-label">SEA</text>
+              <text x="515" y="902" text-anchor="middle" transform="rotate(30 515 902)" class="water-label">PERSIAN GULF</text>
+              <text x="905" y="1028" text-anchor="middle" class="water-label" style="font-size:12.5px;">GULF OF OMAN</text>
+
+              <text x="58" y="114" text-anchor="middle" class="country-label" style="font-size:11px;">TURKEY</text>
+              <text x="86" y="492" text-anchor="middle" class="country-label">IRAQ</text>
+              <text x="735" y="76" text-anchor="middle" class="country-label">TURKMENISTAN</text>
+              <text x="1102" y="388" text-anchor="middle" class="country-label" style="font-size:11.5px;">AFGHANISTAN</text>
+              <text x="1126" y="744" text-anchor="middle" class="country-label" style="font-size:11.5px;">PAKISTAN</text>
+            </g>
+
+            <!-- LAYER 5: FALL-OF-SYSTEM SCENARIO FAULT-LINE ZONES (7 Translucent Overlays) -->
+            <g id="fault-zones-layer" clip-path="url(#map-frame-clip)"></g>
+
+            <!-- LAYER 6: COMMAND & CONTROL (C2) BUS LINES -->
+            <g id="c2-lines-layer" clip-path="url(#map-frame-clip)"></g>
+
+            <!-- LAYER 7: 36 VERIFIED COMMAND NODES -->
+            <g id="nodes-layer"></g>
+
+            <!-- LAYER 8: ANTI-COLLISION LABELS & LEADER LINES -->
+            <g id="labels-layer"></g>
+
+            <!-- LAYER 9: TEHRAN COMMAND CORE INSET (Upper-Right Margin: x 858..1186, y 16..226) -->
+            <g id="tehran-inset-layer">
+              <!-- Leader callout lines from Tehran cluster (461, 303) to Inset Box -->
+              <rect x="446" y="286" width="32" height="34" rx="2" fill="#991b1b" fill-opacity="0.10" stroke="#991b1b" stroke-width="1.3" stroke-dasharray="3,2" />
+              <line x1="478" y1="286" x2="858" y2="16" stroke="#991b1b" stroke-width="0.9" stroke-dasharray="4,3" stroke-opacity="0.65" />
+              <line x1="478" y1="320" x2="858" y2="226" stroke="#991b1b" stroke-width="0.9" stroke-dasharray="4,3" stroke-opacity="0.65" />
+
+              <!-- Inset Frame -->
+              <g filter="url(#card-shadow)">
+                <rect x="858" y="16" width="328" height="210" rx="6" fill="#FAF9F5" stroke="#334155" stroke-width="1.4" />
+                <rect x="858" y="16" width="328" height="24" rx="6" fill="#7f1d1d" />
+                <rect x="858" y="34" width="328" height="6" fill="#7f1d1d" />
+                <text x="1022" y="32" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:10.5px; font-weight:700; fill:#ffffff; letter-spacing:0.6px;">
+                  TEHRAN COMMAND CORE INSET (NOV 2026)
+                </text>
+              </g>
+
+              <!-- Subtle urban axis crosshair inside inset -->
+              <line x1="868" y1="130" x2="1176" y2="130" stroke="#cbd5e1" stroke-width="0.7" stroke-dasharray="3,3" />
+              <line x1="1020" y1="46" x2="1020" y2="218" stroke="#cbd5e1" stroke-width="0.7" stroke-dasharray="3,3" />
+              <text x="872" y="216" style="font-family:Arial,sans-serif; font-size:8.2px; fill:#64748b;">
+                Pasteur St. / Lavizan / Evin / Chitgar Metropolitan Security Cluster
+              </text>
+
+              <!-- Inset Interactive Nodes Container (populated by JS) -->
+              <g id="tehran-inset-nodes"></g>
+            </g>
+
+            <!-- LAYER 10: EMBEDDED TITLE BANNER, LEGEND BOX, SCALE BAR & SOURCE FOOTER -->
+            <g id="cartography-chrome">
+              <!-- Title Banner (Top-Left over Armenia/NW Caspian margin) -->
+              <g id="title-banner" transform="translate(16, 14)" filter="url(#card-shadow)">
+                <rect x="0" y="0" width="448" height="62" rx="6" fill="#ffffff" fill-opacity="0.96" stroke="#334155" stroke-width="1.2" />
+                <rect x="0" y="0" width="6" height="62" rx="2" fill="#991b1b" />
+                <text x="16" y="22" class="title-main">Iran's Regime &amp; Security Apparatus (Nov 2026)</text>
+                <text x="16" y="38" class="title-sub">Geospatial Deployment of Clerical Core, IRGC, Artesh &amp; Fault Lines</text>
+                <text x="16" y="52" class="title-sub" style="font-size:8.5px; fill:#64748b;">36 Verified Command Nodes &bull; 7 Fall-of-System Scenario Zones &bull; CC0 Basemap</text>
+              </g>
+
+              <!-- Encyclopedic Legend + Scale Bar + North Arrow (Bottom-Left over empty SW corner) -->
+              <g id="legend-box" transform="translate(16, 686)" filter="url(#card-shadow)">
+                <rect x="0" y="0" width="326" height="368" rx="7" fill="#ffffff" fill-opacity="0.96" stroke="#475569" stroke-width="1.2" />
+                <line x1="0" y1="30" x2="326" y2="30" stroke="#cbd5e1" stroke-width="1" />
+                <text x="163" y="20" text-anchor="middle" class="legend-title">Deployment &amp; Fault-Line Legend</text>
+
+                <!-- Cat A -->
+                <use href="#icon-core" x="22" y="52" />
+                <text x="40" y="49" class="legend-text" style="font-weight:700; fill:#7f1d1d;">Regime &amp; Clerical Command Core (6)</text>
+                <text x="40" y="61" class="legend-text" style="font-size:8.8px; fill:#475569;">Beit-e Rahbari, SNSC, AFGS, IRGC HQ, MOIS, Qom</text>
+
+                <!-- Cat B -->
+                <use href="#icon-irgc-ground" x="22" y="88" />
+                <text x="40" y="85" class="legend-text" style="font-weight:700; fill:#14532d;">IRGC Ground Forces — 11 Regional HQs</text>
+                <text x="40" y="97" class="legend-text" style="font-size:8.8px; fill:#475569;">NEZSA Gharargah (Mosaic Defense command)</text>
+
+                <!-- Cat C -->
+                <use href="#icon-artesh" x="22" y="124" />
+                <text x="40" y="121" class="legend-text" style="font-weight:700; fill:#1e3a8a;">Artesh Regional Commands &amp; Fleets (10)</text>
+                <text x="40" y="133" class="legend-text" style="font-size:8.8px; fill:#475569;">NEZAJA Joint/Regional HQs &amp; IRIN Fleets</text>
+
+                <!-- Cat D -->
+                <use href="#icon-irgcn" x="22" y="160" />
+                <text x="40" y="157" class="legend-text" style="font-weight:700; fill:#0f766e;">IRGC Navy (NEDSA) &amp; Strategic Nodes (9)</text>
+                <text x="40" y="169" class="legend-text" style="font-size:8.8px; fill:#475569;">5 Naval Districts, Faror, Babolsar, Behjatabad</text>
+
+                <!-- Cat E -->
+                <circle cx="22" cy="196" r="8.5" fill="#dc2626" fill-opacity="0.16" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="3,2" />
+                <text x="40" y="193" class="legend-text" style="font-weight:700; fill:#991b1b;">Fall-of-System Fault-Line Zones (7)</text>
+                <text x="40" y="205" class="legend-text" style="font-size:8.8px; fill:#475569;">Scenarios 1–4: Uprising, Chokepoints, Fracture</text>
+
+                <!-- C2 Line Key -->
+                <line x1="12" y1="220" x2="314" y2="220" stroke="#e2e8f0" stroke-width="1" />
+                <line x1="16" y1="236" x2="48" y2="236" class="c2-irgc-line" style="stroke-opacity:0.95; stroke-width:1.6;" />
+                <text x="54" y="239" class="legend-text" style="font-size:9px;">Tehran &rarr; 11 IRGC Regional HQs (C2 Bus)</text>
+
+                <line x1="16" y1="254" x2="48" y2="254" class="c2-irgcn-line" style="stroke-opacity:0.95; stroke-width:1.7;" />
+                <text x="54" y="257" class="legend-text" style="font-size:9px;">Bandar Abbas &rarr; 5 IRGCN Naval Regions</text>
+
+                <!-- Scale Bar & North Arrow -->
+                <line x1="12" y1="270" x2="314" y2="270" stroke="#e2e8f0" stroke-width="1" />
+                <g transform="translate(16, 284)">
+                  <g transform="translate(18, 30)">
+                    <polygon points="0,-18 6.5,6.5 0,1 -6.5,6.5" fill="#0f172a" />
+                    <polygon points="0,-18 0,1 -6.5,6.5" fill="#64748b" />
+                    <text x="0" y="-21" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:9.5px; font-weight:700; fill:#0f172a;">N</text>
+                  </g>
+                  <g transform="translate(50, 8)">
+                    <rect x="0" y="6" width="96.9" height="5" fill="#0f172a" stroke="#0f172a" stroke-width="0.8" />
+                    <rect x="96.9" y="6" width="96.9" height="5" fill="#ffffff" stroke="#0f172a" stroke-width="0.8" />
+                    <text x="0" y="3" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:8.6px; fill:#1e293b;">0</text>
+                    <text x="96.9" y="3" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:8.6px; fill:#1e293b;">150</text>
+                    <text x="193.8" y="3" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:8.6px; fill:#1e293b;">300 km</text>
+
+                    <rect x="0" y="21" width="78.0" height="5" fill="#ffffff" stroke="#475569" stroke-width="0.8" />
+                    <rect x="78.0" y="21" width="78.0" height="5" fill="#64748b" stroke="#475569" stroke-width="0.8" />
+                    <text x="0" y="36" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:8.6px; fill:#475569;">0</text>
+                    <text x="78.0" y="36" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:8.6px; fill:#475569;">75</text>
+                    <text x="156.0" y="36" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:8.6px; fill:#475569;">150 mi</text>
+                  </g>
+                </g>
+
+                <text x="163" y="357" text-anchor="middle" style="font-family:Arial,sans-serif; font-size:8.4px; fill:#64748b;">
+                  Equirectangular WGS84 (43.8°E–63.6°E, 24.8°N–40.0°N)
+                </text>
+              </g>
+
+              <!-- Embedded Source Attribution Footer Strip (Bottom-Right) -->
+              <g id="source-footer" transform="translate(354, 1042)">
+                <rect x="0" y="0" width="830" height="20" rx="3" fill="#ffffff" fill-opacity="0.88" stroke="#cbd5e1" stroke-width="0.8" />
+                <text x="10" y="13.2" style="font-family:Arial,sans-serif; font-size:8.6px; fill:#334155;">
+                  Sources: CTP-ISW (2026), FRS (2026), FDD Long War Journal (Nov 2026), ONI / MEI, Wikipedia (IRGC/Artesh), Wikimedia Commons Iran_location_map_(counties).svg (CC0).
+                </text>
+              </g>
+            </g>
+
+            <!-- Outer Neatline Border -->
+            <rect x="0.75" y="0.75" width="1198.5" height="1069.135" fill="none" stroke="#334155" stroke-width="1.5" />
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Right-Hand Inspector Drawer (3 Tabs) -->
+    <aside class="lg:col-span-4 xl:col-span-3 flex flex-col gap-3">
+      <div class="bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col overflow-hidden max-h-[880px]">
+        <!-- 3-Tab Switcher -->
+        <div class="grid grid-cols-3 border-b border-slate-200 bg-slate-50 p-1 gap-1">
+          <button type="button" data-tab="inspector"
+            class="drawer-tab-btn py-2 px-2 rounded-lg text-[11.5px] font-bold transition bg-white text-slate-900 shadow-2xs border border-slate-200">
+            Site Inspector
+          </button>
+          <button type="button" data-tab="zones"
+            class="drawer-tab-btn py-2 px-2 rounded-lg text-[11.5px] font-semibold transition text-slate-600 hover:text-slate-900">
+            Fault Lines (7)
+          </button>
+          <button type="button" data-tab="sources"
+            class="drawer-tab-btn py-2 px-2 rounded-lg text-[11.5px] font-semibold transition text-slate-600 hover:text-slate-900">
+            Sources (10)
+          </button>
+        </div>
+
+        <!-- TAB 1: SITE INSPECTOR + FILTERABLE DIRECTORY -->
+        <div id="tab-inspector" class="flex-1 flex flex-col overflow-hidden">
+          <!-- Selected Node Dossier -->
+          <div class="p-3.5 border-b border-slate-200 space-y-2.5 overflow-y-auto max-h-[390px]">
+            <div class="flex items-center justify-between gap-2">
+              <span id="insp-badge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-red-100 text-red-900 border border-red-200">
+                Regime &amp; Clerical Core
+              </span>
+              <span id="insp-coords" class="font-mono text-[10.5px] text-slate-500">35.694°N, 51.401°E</span>
+            </div>
+
+            <h2 id="insp-title" class="text-sm font-bold text-slate-900 leading-snug">
+              Beit-e Rahbari (Office of Supreme Leader Mojtaba Khamenei)
+            </h2>
+
+            <div class="grid grid-cols-1 gap-1.5 text-xs">
+              <div class="p-2 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="block text-[9.5px] font-bold uppercase text-slate-400">Nov 2026 Commander / Incumbent</span>
+                <p id="insp-commander" class="font-semibold text-slate-900 mt-0.5"></p>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="block text-[9.5px] font-bold uppercase text-slate-400">Subordinate Formations &amp; Area of Responsibility</span>
+                <p id="insp-formations" class="text-slate-700 mt-0.5 leading-snug"></p>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="block text-[9.5px] font-bold uppercase text-slate-400">Role in Regime Security</span>
+                <p id="insp-role" class="text-slate-700 mt-0.5 leading-snug"></p>
+              </div>
+              <div class="p-2 rounded-lg bg-amber-50/90 border border-amber-200">
+                <span class="block text-[9.5px] font-bold uppercase text-amber-800">Vulnerability Under Fall-of-System Scenarios</span>
+                <p id="insp-vuln" class="text-amber-950 mt-0.5 leading-snug"></p>
+              </div>
+            </div>
+
+            <div>
+              <span class="block text-[9.5px] font-bold uppercase text-slate-400 mb-1">Source Citations</span>
+              <div id="insp-sources" class="flex flex-wrap gap-1.5"></div>
+            </div>
+          </div>
+
+          <!-- Category Filter Pills, Search & 36-Node Directory -->
+          <div class="p-3 border-b border-slate-200 space-y-2 bg-slate-50/60">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600">
+                Command Nodes (<span id="visible-node-count">36</span>)
+              </span>
+              <button id="btn-reset-filters" type="button" class="text-[11px] font-medium text-blue-600 hover:underline">
+                Show All
+              </button>
+            </div>
+            <input id="node-search" type="text" placeholder="Search city, HQ, commander, division..."
+              class="w-full px-2.5 py-1.5 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <div id="category-pills" class="flex flex-wrap gap-1.5"></div>
+          </div>
+
+          <div id="node-directory" class="overflow-y-auto divide-y divide-slate-100 p-1.5 flex-1 min-h-[180px]"></div>
+        </div>
+
+        <!-- TAB 2: SCENARIO FAULT LINES (7 ZONES) -->
+        <div id="tab-zones" class="hidden flex-1 overflow-y-auto p-3.5 space-y-2.5">
+          <div class="p-2.5 rounded-lg bg-red-50 border border-red-200 text-[11px] text-red-950 leading-snug">
+            Click any fault-line zone below (or on the map) to highlight its geographic perimeter and inspect its role across the 4 Fall-of-System scenarios.
+          </div>
+          <div id="zones-directory" class="space-y-2"></div>
+        </div>
+
+        <!-- TAB 3: VERIFIED SOURCES -->
+        <div id="tab-sources" class="hidden flex-1 overflow-y-auto p-3.5 space-y-2">
+          <div class="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-950 leading-snug">
+            Verified intelligence, OSINT, and cartographic references backing the Nov 2026 deployment data and county-level vector basemap.
+          </div>
+          <div id="sources-list" class="space-y-2"></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    /**
+     * ============================================================================
+     * 1. PROJECTION PARAMETERS (Matches File:Iran_location_map_(counties).svg)
+     * ============================================================================
+     */
+    const PROJ = {
+      lonMin: 43.8,
+      lonMax: 63.6,
+      latMin: 24.8,
+      latMax: 40.0,
+      width: 1200,
+      height: 1070.635
+    };
+
+    function geoToSvg(lat, lon) {
+      const x = ((lon - PROJ.lonMin) / (PROJ.lonMax - PROJ.lonMin)) * PROJ.width;
+      const y = ((PROJ.latMax - lat) / (PROJ.latMax - PROJ.latMin)) * PROJ.height;
+      return { x: Number(x.toFixed(2)), y: Number(y.toFixed(2)) };
+    }
+
+    function svgToGeo(x, y) {
+      const lon = PROJ.lonMin + (x / PROJ.width) * (PROJ.lonMax - PROJ.lonMin);
+      const lat = PROJ.latMax - (y / PROJ.height) * (PROJ.latMax - PROJ.latMin);
+      return { lat: lat.toFixed(2), lon: lon.toFixed(2) };
+    }
+
+    /**
+     * ============================================================================
+     * 2. VERIFIED SOURCES BIBLIOGRAPHY
+     * ============================================================================
+     */
+    const SOURCES = {
+      ctpIsw: {
+        id: 'ctpIsw',
+        org: 'CTP-ISW (Institute for the Study of War)',
+        title: 'Iran Update Special Report: Armed Forces Reorganization & Regional Commands (Aug–Nov 2026)',
+        url: 'https://understandingwar.org/research/middle-east/iran-update-special-report-august-10-2026/'
+      },
+      criticalThreats: {
+        id: 'criticalThreats',
+        org: 'AEI Critical Threats Project',
+        title: 'Iran File: IRGC Ground Forces Mosaic Defense & Regional Headquarters Order of Battle',
+        url: 'https://www.criticalthreats.org/analysis/iran-update'
+      },
+      frs2026: {
+        id: 'frs2026',
+        org: 'Fondation pour la Recherche Stratégique (FRS)',
+        title: 'Iran after Ali Khamenei: Power, Security Governance, and the Emerging Political Order (2026)',
+        url: 'https://www.frstrategie.org/en/publications/recherches-et-documents/iran-after-ali-khamenei-power-security-governance-and-emerging-political-order-2026'
+      },
+      lwjMois: {
+        id: 'lwjMois',
+        org: "FDD's Long War Journal",
+        title: 'Iran moves to restructure Intelligence Ministry & expands Basij AI surveillance (Nov 2026)',
+        url: 'https://www.longwarjournal.org/archives/2026/11/analysis-iran-moves-to-restructure-intelligence-ministry-as-5-contenders-emerge-to-lead-it.php'
+      },
+      wikiIrgcGround: {
+        id: 'wikiIrgcGround',
+        org: 'Wikipedia',
+        title: 'Ground Forces of the Islamic Revolutionary Guard Corps (11 Regional Headquarters)',
+        url: 'https://en.wikipedia.org/wiki/Ground_Forces_of_the_Islamic_Revolutionary_Guard_Corps'
+      },
+      wikiIrgcNavy: {
+        id: 'wikiIrgcNavy',
+        org: 'Wikipedia / ONI',
+        title: 'Navy of the Islamic Revolutionary Guard Corps (5 Naval Districts & Island Outposts)',
+        url: 'https://en.wikipedia.org/wiki/Navy_of_the_Islamic_Revolutionary_Guard_Corps'
+      },
+      wikiArtesh: {
+        id: 'wikiArtesh',
+        org: 'Wikipedia',
+        title: 'Islamic Republic of Iran Army (NEZAJA Regional Commands & IRIN Fleet Districts)',
+        url: 'https://en.wikipedia.org/wiki/Islamic_Republic_of_Iran_Army'
+      },
+      oniMei: {
+        id: 'oniMei',
+        org: 'Office of Naval Intelligence (ONI) / Middle East Institute (MEI)',
+        title: 'Iranian Naval Forces: A Tale of Two Navies & Strait of Hormuz Command Architecture',
+        url: 'https://www.mei.edu/publications'
+      },
+      iranIntlAtlas: {
+        id: 'iranIntlAtlas',
+        org: 'Iran International / ISIS OSINT',
+        title: 'Atlas of Iranian Underground Missile Cities & Hardened Continuity Facilities (2026)',
+        url: 'https://www.iranintl.com/en'
+      },
+      wikimediaBase: {
+        id: 'wikimediaBase',
+        org: 'Wikimedia Commons (CC0 — Ali Zifan)',
+        title: 'File:Iran_location_map_(counties).svg (1200×1070.635 Equirectangular Basemap)',
+        url: 'https://commons.wikimedia.org/wiki/File:Iran_location_map_(counties).svg'
+      }
+    };
+
+    /**
+     * ============================================================================
+     * 3. CATEGORY METADATA
+     * ============================================================================
+     */
+    const CATEGORIES = {
+      core: {
+        label: 'Regime & Clerical Core',
+        short: 'Regime Core',
+        color: '#991b1b',
+        icon: '#icon-core',
+        badgeClass: 'bg-red-100 text-red-900 border border-red-200',
+        pillActive: 'bg-[#991b1b] text-white border-[#7f1d1d]',
+        pillIdle: 'bg-red-50 text-red-900 border-red-200 hover:bg-red-100'
+      },
+      'irgc-ground': {
+        label: 'IRGC Ground (11 HQs)',
+        short: 'IRGC Ground',
+        color: '#14532d',
+        icon: '#icon-irgc-ground',
+        badgeClass: 'bg-emerald-100 text-emerald-950 border border-emerald-300',
+        pillActive: 'bg-[#14532d] text-white border-[#052e16]',
+        pillIdle: 'bg-emerald-50 text-emerald-900 border-emerald-200 hover:bg-emerald-100'
+      },
+      artesh: {
+        label: 'Artesh & IRIN Fleets',
+        short: 'Artesh',
+        color: '#1e3a8a',
+        icon: '#icon-artesh',
+        badgeClass: 'bg-blue-100 text-blue-900 border border-blue-200',
+        pillActive: 'bg-[#1e3a8a] text-white border-[#172554]',
+        pillIdle: 'bg-blue-50 text-blue-900 border-blue-200 hover:bg-blue-100'
+      },
+      irgcn: {
+        label: 'IRGC Navy & Hardened',
+        short: 'IRGC Navy',
+        color: '#0f766e',
+        icon: '#icon-irgcn',
+        badgeClass: 'bg-teal-100 text-teal-900 border border-teal-200',
+        pillActive: 'bg-[#0f766e] text-white border-[#115e59]',
+        pillIdle: 'bg-teal-50 text-teal-900 border-teal-200 hover:bg-teal-100'
+      }
+    };
+
+    /**
+     * ============================================================================
+     * 4. 36 VERIFIED COMMAND NODES (NOVEMBER 2026)
+     *    Includes inTehranInset coordinates for clean anti-collision callout box.
+     * ============================================================================
+     */
+    const NODES = [
+      // === CATEGORY A: Regime & Clerical Command Core (6 nodes) ===
+      {
+        id: 'beit-rahbari',
+        name: 'Beit-e Rahbari (Office of Supreme Leader)',
+        mapLabel: 'Beit-e Rahbari',
+        lat: 35.694, lon: 51.401,
+        category: 'core',
+        inTehranInset: { x: 902, y: 156, label: 'Beit-e Rahbari (Pasteur St.)', sub: 'Mojtaba Khamenei' },
+        hideMainLabel: true,
+        commander: 'Ayatollah Seyyed Mojtaba Khamenei (Selected Mar 2026)',
+        formations: 'Office of the Supreme Leader, Clerical Commissariat, Special Reps across ministries',
+        role: 'Pasteur St. complex serving as supreme executive, constitutional, and clerical-security apex.',
+        vuln: 'Scenario 1/3: Unseen publicly due to strike risk; dynastic succession strains clerical consensus.',
+        sources: ['frs2026', 'ctpIsw']
+      },
+      {
+        id: 'afgs-khatam',
+        name: 'AFGS & Khatam al-Anbiya Central HQ',
+        mapLabel: 'AFGS / Khatam HQ',
+        lat: 35.741, lon: 51.448,
+        category: 'core',
+        inTehranInset: { x: 1054, y: 98, label: 'AFGS & Khatam al-Anbiya', sub: 'Maj. Gen. Ali Abdollahi' },
+        hideMainLabel: true,
+        commander: 'Maj. Gen. Ali Abdollahi (Chief of AFGS, Aug 2026)',
+        formations: 'Armed Forces General Staff & integrated Khatam al-Anbiya wartime operational command',
+        role: 'Joint operational coordination of IRGC, Artesh, and FARAJA theater defense and air defense.',
+        vuln: 'Scenario 1/4: Primary decapitation target in renewed air campaigns; rapid 2025–2026 leadership turnover.',
+        sources: ['ctpIsw', 'frs2026']
+      },
+      {
+        id: 'snsc-defense',
+        name: 'SNSC & Defense Council Secretariat',
+        mapLabel: 'SNSC / Defense Council',
+        lat: 35.702, lon: 51.411,
+        category: 'core',
+        inTehranInset: { x: 902, y: 194, label: 'SNSC & Defense Council', sub: 'Mohsen Rezaei (Sec.)' },
+        hideMainLabel: true,
+        commander: 'Mohsen Rezaei (SNSC Sec., Aug 2026) & Saeed Jalili (Leader Rep.)',
+        formations: 'Supreme National Security Council & post-2025 revived Defense Council war-cabinet',
+        role: 'Post-Aug 2026 collective security crisis cabinet steering Hormuz deterrence and domestic security.',
+        vuln: 'Scenario 1/2: Core engine of Praetorian Junta consolidation, but vulnerable to elite factional splits.',
+        sources: ['frs2026', 'ctpIsw']
+      },
+      {
+        id: 'irgc-hq-sarallah',
+        name: 'IRGC General Command & Sarallah HQ',
+        mapLabel: 'IRGC HQ / Sarallah',
+        lat: 35.716, lon: 51.454,
+        category: 'core',
+        inTehranInset: { x: 1054, y: 146, label: 'IRGC Cmd & Sarallah HQ', sub: 'A. Vahidi / H. Nejat' },
+        hideMainLabel: true,
+        commander: 'Maj. Gen. Ahmad Vahidi (IRGC C-in-C) & Brig. Gen. Hossein Nejat (Sarallah HQ)',
+        formations: '27th Mohammad Rasoul Allah Div, 10th Seyyed ol-Shohada Div, Tehran Basij corps',
+        role: 'Supreme IRGC command and capital anti-uprising security garrison protecting Tehran.',
+        vuln: 'Scenario 3: Overstretch during simultaneous multi-city general strikes could force reliance on lethal crackdowns.',
+        sources: ['ctpIsw', 'frs2026', 'wikiIrgcGround']
+      },
+      {
+        id: 'mois-evin',
+        name: 'MOIS HQ (Restructuring) & Evin Complex',
+        mapLabel: 'MOIS / Evin',
+        lat: 35.792, lon: 51.385,
+        category: 'core',
+        inTehranInset: { x: 902, y: 74, label: 'MOIS HQ & Evin Complex', sub: '[Vacant / Restructuring]' },
+        hideMainLabel: true,
+        commander: '[Ministerial Post Vacant since Mar 2026] — Parliamentary Restructuring (Nov 2026)',
+        formations: 'Ministry of Intelligence (VAJA) domestic counter-espionage directorates & Evin detention complex',
+        role: 'Domestic intelligence, political policing, and counter-espionage across state institutions.',
+        vuln: 'Scenario 2/3: Catastrophic foreign penetration exposed in 2026 strikes; internal spy hunts fuel elite paranoia.',
+        sources: ['lwjMois', 'frs2026']
+      },
+      {
+        id: 'qom-nexus',
+        name: 'Qom Clerical & Constitutional Nexus',
+        mapLabel: 'Qom Clerical Nexus',
+        lat: 34.641, lon: 50.876,
+        category: 'core',
+        dx: -18, dy: 14, anchor: 'end', leader: true,
+        commander: 'Assembly of Experts, Guardian Council Clerics & Hawza Seminary Leadership',
+        formations: 'Qom Seminary (Hawza), Assembly of Experts secretariat, Guardian Council ideological network',
+        role: 'Ideological and constitutional legitimation center of velayat-e faqih south of Tehran.',
+        vuln: 'Scenario 1/2: Traditional Qom clerics uneasy over hereditary succession and militarization of the state.',
+        sources: ['frs2026', 'criticalThreats']
+      },
+
+      // === CATEGORY B: IRGC Ground Forces (NEZSA) — 11 Regional Headquarters (11 nodes) ===
+      {
+        id: 'irgc-sarallah-reg',
+        name: 'Sarallah Regional HQ (Tehran / Alborz)',
+        mapLabel: 'Sarallah Reg. HQ',
+        lat: 35.78, lon: 51.18,
+        category: 'irgc-ground',
+        inTehranInset: { x: 902, y: 114, label: 'Sarallah Reg. HQ (W. Tehran)', sub: '27th & 10th Divs' },
+        hideMainLabel: true,
+        c2Target: 'irgc',
+        commander: 'Brig. Gen. Hossein Nejat (Deputy Cmdr., Operational Lead)',
+        formations: '27th Mohammad Rasoul Allah Div (Tehran), 10th Seyyed ol-Shohada Div (Alborz/Tehran)',
+        role: 'Capital defense, regime-survival ring, and rapid anti-uprising deployment across Tehran–Karaj.',
+        vuln: 'Scenario 3: Decisive hinge of urban uprising containment; cannot abandon Tehran to reinforce provinces.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+      {
+        id: 'irgc-hamze',
+        name: 'Hamze Seyyed al-Shohada HQ (Urmia)',
+        mapLabel: 'Hamze HQ (Urmia)',
+        lat: 37.552, lon: 45.076,
+        category: 'irgc-ground',
+        dx: 16, dy: -10, anchor: 'start', leader: true,
+        c2Target: 'irgc',
+        commander: 'NEZSA NW Operational Command (West Azerbaijan & Kurdistan)',
+        formations: '3rd Hamze Special Forces Div, 22nd Beit-ol-Moqaddas Div (Kurdistan), border brigades',
+        role: 'Secures volatile Iraqi/Turkish borders and conducts counter-insurgency across Kurdish belt.',
+        vuln: 'Scenario 4: High exposure to cross-border Kurdish armed mobilization and dense urban protests.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+      {
+        id: 'irgc-ashura',
+        name: 'Ashura Regional HQ (Tabriz)',
+        mapLabel: 'Ashura HQ (Tabriz)',
+        lat: 38.080, lon: 46.292,
+        category: 'irgc-ground',
+        dx: 16, dy: -6, anchor: 'start', leader: true,
+        c2Target: 'irgc',
+        commander: 'NEZSA Azerbaijan Operational Command',
+        formations: '31st Ashura Mechanized Div, East Azerbaijan, Zanjan & Ardabil provincial corps',
+        role: 'Protects NW industrial corridor, Caucasus border approaches, and Baku–Tabriz axis.',
+        vuln: 'Scenario 2/4: Sensitive to Azerbaijan/Caucasus geopolitical shifts and Tabriz bazaar/industrial strikes.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+      {
+        id: 'irgc-najaf',
+        name: 'Najaf-e Ashraf HQ (Kermanshah)',
+        mapLabel: 'Najaf-e Ashraf HQ',
+        lat: 34.314, lon: 47.065,
+        category: 'irgc-ground',
+        dx: -16, dy: 14, anchor: 'end', leader: true,
+        c2Target: 'irgc',
+        commander: 'NEZSA Western Operational Command',
+        formations: '29th Nabi Akram Div (Kermanshah), 11th Amir al-Momenin Bde (Ilam), 32nd Ansar al-Hossein Bde (Hamadan)',
+        role: 'Guards central Zagros mountain passes, western Iraq border, and Kermanshah missile cities.',
+        vuln: 'Scenario 4: Stretched between Kurdish/Lur protest hotspots and external strikes on Zagros missile silos.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+      {
+        id: 'irgc-karbala',
+        name: 'Karbala Regional HQ (Ahvaz)',
+        mapLabel: 'Karbala HQ (Ahvaz)',
+        lat: 31.318, lon: 48.671,
+        category: 'irgc-ground',
+        dx: -16, dy: -10, anchor: 'end', leader: true,
+        c2Target: 'irgc',
+        commander: 'NEZSA Southwestern Operational Command',
+        formations: '7th Vali-e Asr Armored Div, Khuzestan, Lorestan & Kohgiluyeh provincial corps',
+        role: 'Secures Iran\'s primary onshore oil fields, refineries, and southwestern Iraqi frontier.',
+        vuln: 'Scenario 2/3: Acute vulnerability to oil-worker general strikes, water-crisis unrest, and energy sabotage.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+      {
+        id: 'irgc-madineh',
+        name: 'Madineh-ye al-Munavareh HQ (Shiraz)',
+        mapLabel: 'Madineh HQ (Shiraz)',
+        lat: 29.592, lon: 52.584,
+        category: 'irgc-ground',
+        dx: 16, dy: 12, anchor: 'start', leader: true,
+        c2Target: 'irgc',
+        commander: 'NEZSA Southern Operational Command',
+        formations: '19th Fajr Div (Shiraz), 33rd Al-Mahdi Airborne Special Forces Bde, Fars/Bushehr/Hormozgan corps',
+        role: 'Commands southern coastal hinterland defense and rapid reinforcement toward Persian Gulf ports.',
+        vuln: 'Scenario 1/3: Critical reserve for southern energy/maritime corridor; Shiraz historically sees strong protests.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+      {
+        id: 'irgc-quds',
+        name: 'Quds Regional HQ (Zahedan)',
+        mapLabel: 'Quds HQ (Zahedan)',
+        lat: 29.496, lon: 60.863,
+        category: 'irgc-ground',
+        dx: -14, dy: -8, anchor: 'end', leader: false,
+        c2Target: 'irgc',
+        commander: 'NEZSA Southeastern Operational Command',
+        formations: '41st Sarallah Div (Kerman), 110th Salman Farsi Bde (Sistan & Baluchestan), border units',
+        role: 'Southeastern counter-insurgency and Pakistan/Afghanistan frontier security.',
+        vuln: 'Scenario 4: Chronically stretched by Baloch militant groups (MPF merger Nov 2026) and sectarian friction.',
+        sources: ['wikiIrgcGround', 'ctpIsw']
+      },
+      {
+        id: 'irgc-samen',
+        name: "Samen al-A'emmeh HQ (Mashhad)",
+        mapLabel: "Samen al-A'emmeh HQ",
+        lat: 36.260, lon: 59.617,
+        category: 'irgc-ground',
+        dx: -16, dy: 14, anchor: 'end', leader: true,
+        c2Target: 'irgc',
+        commander: 'NEZSA Northeastern Operational Command',
+        formations: '5th Nasr Armored Div, 21st Imam Reza Armored Bde, Razavi/North/South Khorasan corps',
+        role: 'Secures eastern Afghanistan border, ISKP buffer zone, and religious-economic hub of Mashhad.',
+        vuln: 'Scenario 1/4: Strong conservative patronage base, though vulnerable to eastern border smuggling/infiltration.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+      {
+        id: 'irgc-ghadir',
+        name: 'Ghadir Regional HQ (Sari)',
+        mapLabel: 'Ghadir HQ (Sari)',
+        lat: 36.563, lon: 53.060,
+        category: 'irgc-ground',
+        dx: 14, dy: -8, anchor: 'start', leader: true,
+        c2Target: 'irgc',
+        commander: 'NEZSA Caspian / Northern Operational Command',
+        formations: '25th Karbala Div (Mazandaran), 16th Qods Bde (Gilan), Golestan provincial corps',
+        role: 'Controls Alborz northern slopes, Caspian coast logistics, and northern approaches to Tehran.',
+        vuln: 'Scenario 3: High urban density in Gilan/Mazandaran produces recurring youth protest waves.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+      {
+        id: 'irgc-saheb',
+        name: 'Saheb al-Zaman HQ (Qom)',
+        mapLabel: 'Saheb al-Zaman HQ',
+        lat: 34.680, lon: 50.940,
+        category: 'irgc-ground',
+        dx: 16, dy: -12, anchor: 'start', leader: true,
+        c2Target: 'irgc',
+        commander: 'NEZSA Central-North Operational Command',
+        formations: '17th Ali ibn Abi Talib Div (Qom), Markazi, Qazvin & Semnan provincial corps',
+        role: 'Shields clerical heartland of Qom and key missile/space corridors across Semnan and Markazi.',
+        vuln: 'Scenario 1/3: Key loyalist bastion reinforcing Tehran from the south during crisis scenarios.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+      {
+        id: 'irgc-seyyed',
+        name: 'Hazrat Seyyed al-Shohada HQ (Isfahan)',
+        mapLabel: 'Seyyed al-Shohada HQ',
+        lat: 32.654, lon: 51.668,
+        category: 'irgc-ground',
+        dx: -16, dy: 6, anchor: 'end', leader: true,
+        c2Target: 'irgc',
+        commander: 'NEZSA Central Strategic Reserve Command',
+        formations: '8th Najaf Ashraf Armored Div, 14th Imam Hossein Div, Isfahan/Yazd/Chaharmahal corps',
+        role: 'Central strategic reserve guarding Iran\'s nuclear-missile industrial core (Isfahan–Natanz–Behjatabad).',
+        vuln: 'Scenario 1/4: Exposed to air strikes on defense plants and recurring Isfahan farmer/water protests.',
+        sources: ['wikiIrgcGround', 'criticalThreats']
+      },
+
+      // === CATEGORY C: Artesh Regional Commands & Fleet HQs (10 nodes) ===
+      {
+        id: 'artesh-joint',
+        name: 'Artesh Joint Staff & 65th NOHED Airborne Bde',
+        mapLabel: 'Artesh Joint Staff',
+        lat: 35.755, lon: 51.515,
+        category: 'artesh',
+        inTehranInset: { x: 1054, y: 194, label: 'Artesh Joint Staff & 65th', sub: 'Maj. Gen. Amir Hatami' },
+        hideMainLabel: true,
+        commander: 'Maj. Gen. Amir Hatami (Artesh C-in-C) & Brig. Gen. Ali Jahanshahi (NEZAJA)',
+        formations: '65th NOHED Airborne Special Forces Bde, 23rd Mobile Assault Div (Robat Karim)',
+        role: 'Conventional armed forces command responsible for territorial defense and rapid airborne reserve.',
+        vuln: 'Scenario 2/3: Pivotal swing institution—Artesh neutrality or pact-making is decisive in regime transitions.',
+        sources: ['wikiArtesh', 'frs2026']
+      },
+      {
+        id: 'artesh-nw',
+        name: 'Artesh NW Regional HQ (Urmia)',
+        mapLabel: 'Artesh NW HQ',
+        lat: 37.460, lon: 45.140,
+        category: 'artesh',
+        dx: 16, dy: 14, anchor: 'start', leader: true,
+        commander: 'NEZAJA Northwestern Regional Command',
+        formations: '64th Infantry Div (Urmia), 21st Infantry Div (Tabriz), 216th Armored Bde (Zanjan)',
+        role: 'Conventional border defense facing Turkey, Iraq, and the South Caucasus.',
+        vuln: 'Scenario 3/4: Conscript-heavy ranks reluctant to engage in prolonged domestic civilian suppression.',
+        sources: ['wikiArtesh']
+      },
+      {
+        id: 'artesh-west',
+        name: 'Artesh West Regional HQ (Kermanshah)',
+        mapLabel: 'Artesh West HQ',
+        lat: 34.380, lon: 47.220,
+        category: 'artesh',
+        dx: 16, dy: -10, anchor: 'start', leader: true,
+        commander: 'NEZAJA Western Regional Command',
+        formations: '81st Armored Div (Kermanshah), 71st Mech Bde (Sarpol-e Zahab), 84th Inf Div (Khorramabad)',
+        role: 'Heavy conventional armored defense along the central-western Iraqi frontier.',
+        vuln: 'Scenario 2/4: Maintains distinct institutional identity separate from IRGC Najaf-e Ashraf HQ.',
+        sources: ['wikiArtesh']
+      },
+      {
+        id: 'artesh-sw',
+        name: 'Artesh SW Regional HQ (Ahvaz)',
+        mapLabel: 'Artesh SW HQ',
+        lat: 31.260, lon: 48.800,
+        category: 'artesh',
+        dx: 16, dy: 12, anchor: 'start', leader: true,
+        commander: 'NEZAJA Southwestern Regional Command',
+        formations: '92nd Armored Div (Ahvaz), 292nd Armored Bde (Dezful)',
+        role: 'Premier heavy armor command defending Khuzestan plains and Shatt al-Arab approaches.',
+        vuln: 'Scenario 2/3: Crucial actor if Khuzestan oil-sector strikes escalate beyond FARAJA/IRGC capacity.',
+        sources: ['wikiArtesh']
+      },
+      {
+        id: 'artesh-ne',
+        name: 'Artesh NE Regional HQ (Mashhad)',
+        mapLabel: 'Artesh NE HQ',
+        lat: 36.330, lon: 59.520,
+        category: 'artesh',
+        dx: -16, dy: -12, anchor: 'end', leader: true,
+        commander: 'NEZAJA Northeastern Regional Command',
+        formations: '77th Khorasan Infantry Div (Mashhad), 30th Infantry Div (Birjand)',
+        role: 'Conventional eastern border defense facing Afghanistan and Turkmenistan.',
+        vuln: 'Scenario 4: Anchors eastern territorial integrity if central fiscal transfers falter.',
+        sources: ['wikiArtesh']
+      },
+      {
+        id: 'artesh-se',
+        name: 'Artesh SE Regional HQ (Kerman)',
+        mapLabel: 'Artesh SE HQ (Kerman)',
+        lat: 30.284, lon: 57.083,
+        category: 'artesh',
+        dx: 14, dy: -4, anchor: 'start', leader: false,
+        commander: 'NEZAJA Southeastern Regional Command',
+        formations: '88th Armored Div (Zahedan), Kerman & Sistan-Baluchestan border garrisons',
+        role: 'Conventional armored and border defense backing SE frontier stability.',
+        vuln: 'Scenario 4: Overstretched supply lines across desert terrain amid Baloch insurgency.',
+        sources: ['wikiArtesh']
+      },
+      {
+        id: 'artesh-fars',
+        name: 'Artesh Fars / South HQ (Shiraz)',
+        mapLabel: 'Artesh South HQ',
+        lat: 29.650, lon: 52.490,
+        category: 'artesh',
+        dx: -16, dy: -10, anchor: 'end', leader: true,
+        commander: 'NEZAJA Southern Regional Command',
+        formations: '55th Airborne Bde (Shiraz), 37th Armored Bde (Shiraz)',
+        role: 'Mobile airborne and armored reserve for southern Iran and Persian Gulf approaches.',
+        vuln: 'Scenario 2: High-prestige professional formations valued in any managed elite transition.',
+        sources: ['wikiArtesh']
+      },
+      {
+        id: 'irin-1st-fleet',
+        name: 'IRIN 1st Fleet HQ (Bandar Abbas)',
+        mapLabel: 'IRIN 1st Fleet',
+        lat: 27.145, lon: 56.180,
+        category: 'artesh',
+        dx: -20, dy: -12, anchor: 'end', leader: true,
+        commander: 'IRIN Southern Fleet Command',
+        formations: 'Kilo-class submarines, Moudge-class frigates, Bandar Abbas naval dockyards',
+        role: 'Regular Navy blue-water and Gulf of Oman fleet headquarters.',
+        vuln: 'Scenario 1: Surface fleet highly exposed to US-coalition naval blockade and standoff strikes.',
+        sources: ['wikiArtesh', 'oniMei']
+      },
+      {
+        id: 'irin-3rd-dist',
+        name: 'IRIN 3rd Naval District (Konarak / Chabahar)',
+        mapLabel: 'IRIN 3rd Dist. (Konarak)',
+        lat: 25.350, lon: 60.390,
+        category: 'artesh',
+        dx: -16, dy: -12, anchor: 'end', leader: true,
+        commander: 'IRIN 3rd Naval District Command',
+        formations: 'Makran coast forward fleet, naval aviation & marine brigades',
+        role: 'Indian Ocean and Gulf of Oman maritime projection outside the Strait of Hormuz.',
+        vuln: 'Scenario 1/4: Isolated logistics along Makran coast; strategic fallback if Hormuz is contested.',
+        sources: ['wikiArtesh', 'oniMei']
+      },
+      {
+        id: 'irin-4th-dist',
+        name: 'IRIN 4th Naval District (Bandar-e Anzali)',
+        mapLabel: 'IRIN 4th Dist. (Anzali)',
+        lat: 37.473, lon: 49.462,
+        category: 'artesh',
+        dx: -14, dy: -8, anchor: 'end', leader: false,
+        commander: 'IRIN Northern Fleet (Caspian) Command',
+        formations: 'Sina-class missile craft, Damavand/Deylaman destroyers, Caspian patrol flotilla',
+        role: 'Caspian Sea fleet HQ safeguarding Russia-Iran maritime trade corridor.',
+        vuln: 'Scenario 1: Vital sanctions-evasion logistics link to Russia via Caspian ports.',
+        sources: ['wikiArtesh', 'oniMei']
+      },
+
+      // === CATEGORY D: IRGC Navy (NEDSA — 5 Naval Districts) & Strategic Nodes (9 nodes) ===
+      {
+        id: 'irgcn-1st',
+        name: 'IRGCN HQ & 1st Naval Region (Bandar Abbas)',
+        mapLabel: 'IRGCN HQ / 1st Reg.',
+        lat: 27.205, lon: 56.340,
+        category: 'irgcn',
+        dx: 18, dy: -12, anchor: 'start', leader: true,
+        c2Target: 'irgcn-hub',
+        commander: 'Rear Adm. Ali Azmaei (IRGCN Cmdr., post-Jul 2026)',
+        formations: 'Saheb al-Zaman 1st Naval Region, Qeshm/Hormuz coastal anti-ship missile & mine warfare units',
+        role: 'Overall IRGC Navy command and primary Strait of Hormuz asymmetric closure authority.',
+        vuln: 'Scenario 1: Primary escalatory lever against US naval blockade; high attrition under air superiority.',
+        sources: ['wikiIrgcNavy', 'ctpIsw', 'oniMei']
+      },
+      {
+        id: 'irgcn-2nd',
+        name: 'IRGCN 2nd Naval Region (Bushehr)',
+        mapLabel: 'IRGCN 2nd (Bushehr)',
+        lat: 28.923, lon: 50.820,
+        category: 'irgcn',
+        dx: -16, dy: 4, anchor: 'end', leader: true,
+        c2Target: 'irgcn',
+        commander: 'Nouh-e Nabi 2nd Naval Region Command',
+        formations: 'Fast-attack missile craft, Kharg Island oil terminal & Bushehr NPP maritime defense',
+        role: 'Defends Northern Persian Gulf, Kharg crude export terminal, and Bushehr nuclear plant.',
+        vuln: 'Scenario 1/2: Disruption of Kharg terminal immediately starves state hard-currency revenues.',
+        sources: ['wikiIrgcNavy', 'oniMei']
+      },
+      {
+        id: 'irgcn-3rd',
+        name: 'IRGCN 3rd Naval Region (Mahshahr)',
+        mapLabel: 'IRGCN 3rd (Mahshahr)',
+        lat: 30.558, lon: 49.198,
+        category: 'irgcn',
+        dx: 16, dy: 8, anchor: 'start', leader: true,
+        c2Target: 'irgcn',
+        commander: 'Imam Hussein 3rd Naval Region Command',
+        formations: 'Coastal patrol, littoral missile craft & petrochemical port security',
+        role: 'Controls Arvand Rud / Shatt al-Arab approaches and NW Persian Gulf petrochemical corridor.',
+        vuln: 'Scenario 2/3: Closely tied to Khuzestan industrial/port stability.',
+        sources: ['wikiIrgcNavy', 'oniMei']
+      },
+      {
+        id: 'irgcn-4th',
+        name: 'IRGCN 4th Naval Region (Asaluyeh)',
+        mapLabel: 'IRGCN 4th (Asaluyeh)',
+        lat: 27.476, lon: 52.608,
+        category: 'irgcn',
+        dx: -16, dy: 8, anchor: 'end', leader: true,
+        c2Target: 'irgcn',
+        commander: 'Sarallah 4th Naval Region Command',
+        formations: 'South Pars offshore platform defense, coastal radar & missile batteries',
+        role: 'Protects Iran\'s critical South Pars natural gas processing and domestic energy grid lifeline.',
+        vuln: 'Scenario 1/3: Damage to South Pars triggers nationwide winter power/heating shortages and unrest.',
+        sources: ['wikiIrgcNavy', 'oniMei']
+      },
+      {
+        id: 'irgcn-5th',
+        name: 'IRGCN 5th Naval Region (Bandar Lengeh)',
+        mapLabel: 'IRGCN 5th (Lengeh)',
+        lat: 26.558, lon: 54.881,
+        category: 'irgcn',
+        dx: -16, dy: -8, anchor: 'end', leader: true,
+        c2Target: 'irgcn',
+        commander: 'Imam Mohammad Bagher 5th Naval Region Command',
+        formations: 'Abu Musa, Greater & Lesser Tunb island garrisons, UAV & coastal missile sites',
+        role: 'Enforces western Strait of Hormuz chokepoint and disputed Gulf island chain.',
+        vuln: 'Scenario 1: Frontline flashpoint for maritime interdiction and tanker seizures.',
+        sources: ['wikiIrgcNavy', 'oniMei']
+      },
+      {
+        id: 'irgcn-faror',
+        name: 'IRGCN SNSF Special Force Base (Faror Island)',
+        mapLabel: 'Faror I. (SNSF)',
+        lat: 26.283, lon: 54.512,
+        category: 'irgcn',
+        dx: -16, dy: 12, anchor: 'end', leader: true,
+        c2Target: 'irgcn',
+        commander: 'Sepah Navy Special Force (SNSF) Command',
+        formations: 'Maritime boarding teams, mini-submarines, combat divers & helicopter assault dets',
+        role: 'Forward maritime interdiction, vessel boarding, and covert sea-lane operations.',
+        vuln: 'Scenario 1: Exposed island garrison vulnerable to precision standoff neutralization.',
+        sources: ['wikiIrgcNavy', 'oniMei']
+      },
+      {
+        id: 'irgcn-chabahar',
+        name: 'IRGCN Imam Ali Independent Base (Chabahar)',
+        mapLabel: 'IRGCN Imam Ali (Chabahar)',
+        lat: 25.291, lon: 60.643,
+        category: 'irgcn',
+        dx: 14, dy: 12, anchor: 'start', leader: true,
+        c2Target: 'irgcn',
+        commander: 'IRGCN Gulf of Oman Independent Outpost',
+        formations: 'Long-range coastal anti-ship missile & UCAV detachments',
+        role: 'Asymmetric maritime outpost extending IRGCN reach into the Gulf of Oman.',
+        vuln: 'Scenario 1/4: Operates inside volatile Sistan-Baluchestan security perimeter.',
+        sources: ['wikiIrgcNavy', 'oniMei']
+      },
+      {
+        id: 'irgcn-babolsar',
+        name: 'IRGCN Samen al-Hojaj Base (Babolsar)',
+        mapLabel: 'IRGCN (Babolsar)',
+        lat: 36.702, lon: 52.658,
+        category: 'irgcn',
+        dx: -16, dy: -12, anchor: 'end', leader: true,
+        commander: 'IRGCN Caspian Maritime Detachment',
+        formations: 'Caspian littoral patrol craft & coastal surveillance',
+        role: 'IRGC Navy maritime presence and security coordination on the Caspian Sea.',
+        vuln: 'Scenario 1: Secondary maritime theater supporting northern trade security.',
+        sources: ['wikiIrgcNavy']
+      },
+      {
+        id: 'behjatabad-pickaxe',
+        name: 'Behjatabad & Pickaxe Mtn Hardened Complex',
+        mapLabel: 'Behjatabad / Pickaxe Mtn',
+        lat: 33.170, lon: 51.720,
+        category: 'irgcn',
+        dx: 18, dy: 4, anchor: 'start', leader: true,
+        commander: 'IRGC Aerospace / Strategic Continuity Directorate',
+        formations: 'Deep underground tunnel complexes (Behjatabad Nov 2026 & Kūh-e Kolang Gaz Lā)',
+        role: 'Deep-bunker continuity, aerospace, and nuclear survivability axis between Isfahan and Natanz.',
+        vuln: 'Scenario 1/4: Focal point of external bunker-buster strike risk and post-2026 survivability strategy.',
+        sources: ['iranIntlAtlas', 'ctpIsw']
+      }
+    ];
+
+    // Precompute projected SVG coordinates for all 36 nodes
+    NODES.forEach((n) => {
+      const pt = geoToSvg(n.lat, n.lon);
+      n._x = pt.x;
+      n._y = pt.y;
+    });
+
+    /**
+     * ============================================================================
+     * 5. 7 FALL-OF-SYSTEM SCENARIO FAULT-LINE ZONES
+     * ============================================================================
+     */
+    const FAULT_ZONES = [
+      {
+        id: 'zone-tehran-qom',
+        name: 'Tehran–Karaj–Qom Corridor',
+        shortLabel: 'Z1: CORE SURVIVAL (SCEN. 1 & 3)',
+        scenarios: 'Scenario 1 & 3 — Core Regime Survival',
+        lat: 35.25, lon: 51.20, r: 72,
+        color: '#b91c1c',
+        labelDy: 56,
+        summary: 'Praetorian consolidation vs. mass urban uprising & Sarallah/FARAJA overstretch across the political-clerical heartland.',
+        dynamics: 'Houses 15M+ metropolitan population, Beit-e Rahbari, SNSC, AFGS, Sarallah HQ, and Qom seminaries. Decisive battleground between Praetorian continuity and bottom-up collapse.',
+        sources: ['frs2026', 'lwjMois', 'ctpIsw']
+      },
+      {
+        id: 'zone-kurdish-west',
+        name: 'Kurdish Western Belt (Sanandaj / Mahabad / Kermanshah)',
+        shortLabel: 'Z2: KURDISH BELT (SCEN. 4)',
+        scenarios: 'Scenario 4 — Peripheral Fragmentation',
+        lat: 35.40, lon: 46.60, r: 68,
+        color: '#7e22ce',
+        labelDy: -48,
+        summary: 'High historical protest density, entrenched civil resistance networks, and cross-border Kurdish armed groups.',
+        dynamics: 'Policed by Hamze and Najaf-e Ashraf IRGC HQs alongside Artesh 81st/64th Divs. High risk of rapid autonomy bids if central command fractures.',
+        sources: ['criticalThreats', 'ctpIsw']
+      },
+      {
+        id: 'zone-baluchestan',
+        name: 'Sistan & Baluchestan Belt (Zahedan / Saravan)',
+        shortLabel: 'Z3: BALUCHESTAN (SCEN. 4)',
+        scenarios: 'Scenario 4 — Insurgency & Border Attrition',
+        lat: 28.50, lon: 61.00, r: 78,
+        color: '#7e22ce',
+        labelDy: 58,
+        summary: 'Chronic sectarian and Baloch insurgent attrition; Quds Regional HQ stretched thin along Pakistan/Afghanistan frontiers.',
+        dynamics: 'Recent Nov 2026 militant coalition mergers and persistent attacks on FARAJA/IRGC outposts make SE Iran the earliest flashpoint in a failed-state spiral.',
+        sources: ['ctpIsw', 'criticalThreats']
+      },
+      {
+        id: 'zone-khuzestan',
+        name: 'Khuzestan Oil & Water Belt (Ahvaz / Abadan / Mahshahr)',
+        shortLabel: 'Z4: OIL CHOKEPOINT (SCEN. 2 & 3)',
+        scenarios: 'Scenario 2 & 3 — Economic Chokepoint',
+        lat: 31.10, lon: 48.90, r: 62,
+        color: '#b45309',
+        labelDy: 46,
+        summary: 'Oil-worker general strike leverage, chronic water-scarcity protests, and Arab-minority grievances.',
+        dynamics: 'Echoes the 1978–79 oil strike trigger; paralysis of Khuzestan crude/petrochemical output cuts off regime fiscal lifelines and pressures elites toward a managed pact.',
+        sources: ['frs2026', 'criticalThreats']
+      },
+      {
+        id: 'zone-hormuz',
+        name: 'Strait of Hormuz & South Pars Arc',
+        shortLabel: 'Z5: HORMUZ / SOUTH PARS (SCEN. 1)',
+        scenarios: 'Scenario 1 & External Escalation',
+        lat: 26.60, lon: 55.30, r: 75,
+        color: '#0f766e',
+        labelDy: 58,
+        summary: 'Primary maritime deterrence lever (IRGCN 1st/4th/5th Regions) & Iran\'s critical natural gas/export artery.',
+        dynamics: 'Simultaneously Tehran\'s strongest asymmetric bargaining chip against US naval blockade and its greatest economic vulnerability if South Pars is struck.',
+        sources: ['oniMei', 'ctpIsw']
+      },
+      {
+        id: 'zone-tabriz-nw',
+        name: 'NW Azerbaijan / Tabriz Axis',
+        shortLabel: 'Z6: TABRIZ AXIS (SCEN. 2)',
+        scenarios: 'Scenario 2 — Economic & Industrial Axis',
+        lat: 38.00, lon: 46.50, r: 58,
+        color: '#1d4ed8',
+        labelDy: -40,
+        summary: 'Major industrial/bazaar strike risk and acute South Caucasus border sensitivity.',
+        dynamics: 'Monitored by Ashura IRGC HQ (31st Div) and Artesh 21st Div. Industrial/merchant mobilization here signals deep elite and middle-class defection.',
+        sources: ['frs2026', 'criticalThreats']
+      },
+      {
+        id: 'zone-isfahan-corridor',
+        name: 'Isfahan–Natanz–Behjatabad Strategic Corridor',
+        shortLabel: 'Z7: BUNKER CORRIDOR (CONTINUITY)',
+        scenarios: 'External Strike / Continuity Axis',
+        lat: 33.15, lon: 51.75, r: 55,
+        color: '#991b1b',
+        labelDy: -40,
+        summary: 'Heavy 2025–2026 air-strike damage contrasted with deep-bunker survivability (Behjatabad & Pickaxe Mtn).',
+        dynamics: 'Core defense-industrial and nuclear survivability hub protected by Hazrat Seyyed al-Shohada IRGC HQ.',
+        sources: ['iranIntlAtlas', 'ctpIsw']
+      }
+    ];
+
+    FAULT_ZONES.forEach((z) => {
+      const pt = geoToSvg(z.lat, z.lon);
+      z._x = pt.x;
+      z._y = pt.y;
+    });
+
+    /**
+     * ============================================================================
+     * 6. APPLICATION STATE & RENDERING
+     * ============================================================================
+     */
+    const state = {
+      selectedNodeId: 'beit-rahbari',
+      selectedZoneId: null,
+      activeCategories: new Set(['core', 'irgc-ground', 'artesh', 'irgcn']),
+      searchQuery: '',
+      inlinedCounties: false,
+      showC2: true,
+      showZones: true,
+      showLabels: true,
+      showInset: true,
+      calibX: 0,
+      calibY: 0,
+      calibScale: 1,
+      zoom: 1,
+      panX: 0,
+      panY: 0
+    };
+
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+    const svgEl = document.getElementById('iran-deployment-svg');
+    const nodesLayer = document.getElementById('nodes-layer');
+    const labelsLayer = document.getElementById('labels-layer');
+    const zonesLayer = document.getElementById('fault-zones-layer');
+    const c2Layer = document.getElementById('c2-lines-layer');
+    const insetNodesLayer = document.getElementById('tehran-inset-nodes');
+    const panZoomGroup = document.getElementById('map-pan-zoom-group');
+    const basemapTransformGroup = document.getElementById('basemap-transform-group');
+    const mapViewport = document.getElementById('map-viewport');
+    const tooltipEl = document.getElementById('map-tooltip');
+
+    function svgCreate(tag, attrs = {}, parent = null) {
+      const node = document.createElementNS(SVG_NS, tag);
+      for (const [k, v] of Object.entries(attrs)) {
+        node.setAttribute(k, String(v));
+      }
+      if (parent) parent.appendChild(node);
+      return node;
+    }
+
+    /**
+     * Dynamically resolve & inline File:Iran_location_map_(counties).svg via MediaWiki API
+     * so Canvas PNG export is 100% untainted (zero CORS taint).
+     */
+    async function loadWikimediaCountiesBasemap() {
+      const statusText = document.getElementById('basemap-status-text');
+      const statusDot = document.getElementById('basemap-status-dot');
+      const fallbackGroup = document.getElementById('fallback-basemap');
+      const inlineLayer = document.getElementById('wikimedia-counties-layer');
+
+      const candidateUrls = [
+        'https://upload.wikimedia.org/wikipedia/commons/e/e5/Iran_location_map_%28counties%29.svg',
+        'https://upload.wikimedia.org/wikipedia/commons/3/3c/Iran_location_map_%28counties%29.svg'
+      ];
+
+      try {
+        const apiResp = await fetch(
+          'https://commons.wikimedia.org/w/api.php?action=query&titles=File:Iran_location_map_(counties).svg&prop=imageinfo&iiprop=url&format=json&origin=*'
+        );
+        if (apiResp.ok) {
+          const data = await apiResp.json();
+          const pages = data?.query?.pages || {};
+          const key = Object.keys(pages)[0];
+          const resolvedUrl = pages[key]?.imageinfo?.[0]?.url;
+          if (resolvedUrl && !candidateUrls.includes(resolvedUrl)) {
+            candidateUrls.unshift(resolvedUrl);
+          }
+        }
+      } catch (err) {
+        // Proceed with direct upload URLs
+      }
+
+      for (const url of candidateUrls) {
+        try {
+          const resp = await fetch(url, { mode: 'cors' });
+          if (!resp.ok) continue;
+          const xmlText = await resp.text();
+          const doc = new DOMParser().parseFromString(xmlText, 'image/svg+xml');
+          const fetchedSvg = doc.querySelector('svg');
+          if (!fetchedSvg) continue;
+
+          inlineLayer.innerHTML = '';
+          Array.from(fetchedSvg.childNodes).forEach((child) => {
+            if (child.nodeType === 1) {
+              const tag = child.tagName.toLowerCase();
+              if (tag !== 'title' && tag !== 'desc' && tag !== 'metadata') {
+                inlineLayer.appendChild(document.importNode(child, true));
+              }
+            }
+          });
+
+          state.inlinedCounties = true;
+          if (fallbackGroup) fallbackGroup.style.display = 'none';
+          if (statusText) statusText.textContent = 'Wikimedia Counties Inlined (Untainted)';
+          if (statusDot) {
+            statusDot.classList.remove('bg-amber-500', 'animate-pulse');
+            statusDot.classList.add('bg-emerald-500');
+          }
+          return;
+        } catch (err) {
+          // Try next candidate
+        }
+      }
+
+      if (statusText) statusText.textContent = 'Offline Vector Fallback Active';
+      if (statusDot) {
+        statusDot.classList.remove('bg-amber-500', 'animate-pulse');
+        statusDot.classList.add('bg-blue-500');
+      }
+    }
+
+    function getFilteredNodes() {
+      const q = state.searchQuery.trim().toLowerCase();
+      return NODES.filter((n) => {
+        if (!state.activeCategories.has(n.category)) return false;
+        if (q) {
+          const hay = `${n.name} ${n.commander} ${n.formations} ${n.role}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+    }
+
+    /**
+     * Render Curved C2 Command Bus Lines
+     */
+    function renderC2Lines() {
+      c2Layer.innerHTML = '';
+      if (!state.showC2) return;
+
+      const tehranHub = geoToSvg(35.716, 51.454);
+      const bandarHub = geoToSvg(27.205, 56.340);
+
+      // Green dashed curves: Tehran -> 11 IRGC Regional HQs
+      if (state.activeCategories.has('irgc-ground')) {
+        NODES.filter((n) => n.c2Target === 'irgc').forEach((target) => {
+          const mx = (tehranHub.x + target._x) / 2;
+          const my = (tehranHub.y + target._y) / 2 - 22;
+          svgCreate('path', {
+            d: `M ${tehranHub.x},${tehranHub.y} Q ${mx.toFixed(1)},${my.toFixed(1)} ${target._x},${target._y}`,
+            class: 'c2-irgc-line'
+          }, c2Layer);
+        });
+      }
+
+      // Teal dotted curves: Tehran -> Bandar Abbas HQ -> IRGCN Naval Regions
+      if (state.activeCategories.has('irgcn')) {
+        const mx0 = (tehranHub.x + bandarHub.x) / 2 + 28;
+        const my0 = (tehranHub.y + bandarHub.y) / 2;
+        svgCreate('path', {
+          d: `M ${tehranHub.x},${tehranHub.y} Q ${mx0.toFixed(1)},${my0.toFixed(1)} ${bandarHub.x},${bandarHub.y}`,
+          class: 'c2-irgcn-line'
+        }, c2Layer);
+
+        NODES.filter((n) => n.c2Target === 'irgcn').forEach((target) => {
+          const mx = (bandarHub.x + target._x) / 2;
+          const my = (bandarHub.y + target._y) / 2 + 18;
+          svgCreate('path', {
+            d: `M ${bandarHub.x},${bandarHub.y} Q ${mx.toFixed(1)},${my.toFixed(1)} ${target._x},${target._y}`,
+            class: 'c2-irgcn-line'
+          }, c2Layer);
+        });
+      }
+    }
+
+    /**
+     * Render 7 Fall-of-System Scenario Fault-Line Zones
+     */
+    function renderFaultZones() {
+      zonesLayer.innerHTML = '';
+      if (!state.showZones) return;
+
+      FAULT_ZONES.forEach((z) => {
+        const isSel = state.selectedZoneId === z.id;
+        const g = svgCreate('g', {
+          id: `svg-${z.id}`,
+          class: 'fault-zone',
+          'data-zone-id': z.id
+        }, zonesLayer);
+
+        svgCreate('circle', {
+          class: 'zone-ring',
+          cx: z._x,
+          cy: z._y,
+          r: z.r,
+          fill: z.color,
+          'fill-opacity': isSel ? '0.24' : '0.11',
+          stroke: z.color,
+          'stroke-width': isSel ? '2.8' : '1.6',
+          'stroke-dasharray': '6,4'
+        }, g);
+
+        const lbl = svgCreate('text', {
+          x: z._x,
+          y: z._y + z.labelDy,
+          'text-anchor': 'middle',
+          fill: z.color,
+          class: 'zone-label'
+        }, g);
+        lbl.textContent = z.shortLabel;
+
+        g.addEventListener('click', (e) => {
+          e.stopPropagation();
+          selectZone(z.id);
+        });
+      });
+    }
+
+    /**
+     * Render 36 Map Nodes, Anti-Collision Labels & Tehran Inset Nodes
+     */
+    function renderMapNodes() {
+      nodesLayer.innerHTML = '';
+      labelsLayer.innerHTML = '';
+      insetNodesLayer.innerHTML = '';
+
+      const visible = getFilteredNodes();
+      document.getElementById('visible-node-count').textContent = String(visible.length);
+
+      visible.forEach((node) => {
+        const cat = CATEGORIES[node.category];
+        const isSel = state.selectedNodeId === node.id;
+
+        // 1. Main Map Marker
+        const g = svgCreate('g', {
+          id: `marker-${node.id}`,
+          class: 'map-node',
+          transform: `translate(${node._x}, ${node._y})`,
+          'data-id': node.id
+        }, nodesLayer);
+
+        svgCreate('circle', {
+          class: 'node-halo',
+          cx: 0, cy: 0,
+          r: isSel ? 17 : 13,
+          fill: cat.color,
+          opacity: isSel ? '0.35' : '0'
+        }, g);
+
+        const useEl = svgCreate('use', { href: cat.icon, x: 0, y: 0 }, g);
+        useEl.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', cat.icon);
+
+        g.addEventListener('mouseenter', (e) => showTooltip(node, e));
+        g.addEventListener('mousemove', (e) => moveTooltip(e));
+        g.addEventListener('mouseleave', hideTooltip);
+        g.addEventListener('click', (e) => {
+          e.stopPropagation();
+          selectNode(node.id);
+        });
+
+        // 2. Main Map Label (skip Tehran cluster labels because they are cleanly displayed in the Tehran Inset)
+        if (!node.hideMainLabel) {
+          const lx = node._x + (node.dx || 14);
+          const ly = node._y + (node.dy || 4);
+          const anchor = node.anchor || 'start';
+
+          if (node.leader) {
+            svgCreate('line', {
+              x1: node._x,
+              y1: node._y,
+              x2: lx + (anchor === 'start' ? -3 : 3),
+              y2: ly - 3,
+              class: 'leader-line'
+            }, labelsLayer);
+          }
+
+          const t = svgCreate('text', {
+            x: lx,
+            y: ly,
+            'text-anchor': anchor,
+            class: `node-label node-label-${node.category}`
+          }, labelsLayer);
+          t.textContent = node.mapLabel;
+        }
+
+        // 3. Tehran Command Core Inset Node (if part of Tehran cluster)
+        if (node.inTehranInset) {
+          const ig = svgCreate('g', {
+            class: 'map-node',
+            transform: `translate(${node.inTehranInset.x}, ${node.inTehranInset.y})`,
+            'data-id': node.id
+          }, insetNodesLayer);
+
+          svgCreate('circle', {
+            class: 'node-halo',
+            cx: 0, cy: 0,
+            r: isSel ? 15 : 12,
+            fill: cat.color,
+            opacity: isSel ? '0.35' : '0'
+          }, ig);
+
+          const iUse = svgCreate('use', { href: cat.icon, x: 0, y: 0, transform: 'scale(0.88)' }, ig);
+          iUse.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', cat.icon);
+
+          const iLbl = svgCreate('text', {
+            x: 13, y: -1,
+            style: `font-family:Arial,sans-serif; font-size:9.1px; font-weight:700; fill:${cat.color};`
+          }, ig);
+          iLbl.textContent = node.inTehranInset.label;
+
+          const iSub = svgCreate('text', {
+            x: 13, y: 9.5,
+            style: 'font-family:Arial,sans-serif; font-size:8.0px; fill:#475569;'
+          }, ig);
+          iSub.textContent = node.inTehranInset.sub;
+
+          ig.addEventListener('mouseenter', (e) => showTooltip(node, e));
+          ig.addEventListener('mousemove', (e) => moveTooltip(e));
+          ig.addEventListener('mouseleave', hideTooltip);
+          ig.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectNode(node.id);
+          });
+        }
+      });
+    }
+
+    /**
+     * Render Category Filter Pills & Sidebar Directory
+     */
+    function renderCategoryPills() {
+      const container = document.getElementById('category-pills');
+      const counts = { core: 0, 'irgc-ground': 0, artesh: 0, irgcn: 0 };
+      const q = state.searchQuery.trim().toLowerCase();
+
+      NODES.forEach((n) => {
+        if (q && !`${n.name} ${n.commander} ${n.formations} ${n.role}`.toLowerCase().includes(q)) return;
+        counts[n.category]++;
+      });
+
+      container.innerHTML = Object.entries(CATEGORIES).map(([key, cfg]) => {
+        const active = state.activeCategories.has(key);
+        return `
+          <button type="button" data-cat="${key}"
+            class="cat-pill inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10.5px] font-semibold border transition ${active ? cfg.pillActive : cfg.pillIdle}">
+            <span class="w-1.5 h-1.5 rounded-full" style="background:${active ? '#ffffff' : cfg.color}"></span>
+            <span>${cfg.short}</span>
+            <span class="font-mono text-[9.5px] opacity-85">(${counts[key]})</span>
+          </button>
+        `;
+      }).join('');
+
+      container.querySelectorAll('.cat-pill').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const k = btn.getAttribute('data-cat');
+          if (state.activeCategories.has(k)) {
+            if (state.activeCategories.size > 1) {
+              state.activeCategories.delete(k);
+            } else {
+              Object.keys(CATEGORIES).forEach((c) => state.activeCategories.add(c));
+            }
+          } else {
+            state.activeCategories.add(k);
+          }
+          renderAll();
+        });
+      });
+    }
+
+    function renderNodeDirectory() {
+      const dir = document.getElementById('node-directory');
+      const visible = getFilteredNodes();
+
+      if (visible.length === 0) {
+        dir.innerHTML = '<div class="p-4 text-center text-xs text-slate-500">No command nodes match your filter.</div>';
+        return;
+      }
+
+      dir.innerHTML = visible.map((n) => {
+        const cat = CATEGORIES[n.category];
+        const isSel = state.selectedNodeId === n.id;
+        return `
+          <button type="button" data-id="${n.id}"
+            class="dir-node-btn w-full text-left px-2.5 py-2 rounded-lg transition flex items-start justify-between gap-2 ${
+              isSel ? 'bg-blue-50 border border-blue-300 shadow-2xs' : 'hover:bg-slate-50 border border-transparent'
+            }">
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full shrink-0" style="background:${cat.color}"></span>
+                <span class="font-semibold text-xs text-slate-900 truncate">${n.name}</span>
+              </div>
+              <p class="text-[10.5px] text-slate-500 truncate mt-0.5">${n.commander}</p>
+            </div>
+            <span class="font-mono text-[9.5px] text-slate-400 shrink-0 mt-0.5">${n.lat.toFixed(2)}°N</span>
+          </button>
+        `;
+      }).join('');
+
+      dir.querySelectorAll('.dir-node-btn').forEach((btn) => {
+        btn.addEventListener('click', () => selectNode(btn.getAttribute('data-id')));
+      });
+    }
+
+    function renderZonesDirectory() {
+      const dir = document.getElementById('zones-directory');
+      dir.innerHTML = FAULT_ZONES.map((z) => {
+        const isSel = state.selectedZoneId === z.id;
+        return `
+          <button type="button" data-zone="${z.id}"
+            class="zone-card-btn w-full text-left p-3 rounded-xl border transition ${
+              isSel ? 'bg-amber-50/90 border-amber-400 shadow-xs' : 'bg-slate-50 hover:bg-slate-100 border-slate-200'
+            }">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="font-bold text-xs text-slate-900">${z.name}</span>
+              <span class="px-1.5 py-0.5 rounded text-[9.5px] font-bold text-white shrink-0" style="background:${z.color}">
+                ${z.shortLabel.split(':')[0]}
+              </span>
+            </div>
+            <p class="text-[10.5px] font-semibold mb-1" style="color:${z.color}">${z.scenarios}</p>
+            <p class="text-[11px] text-slate-700 leading-snug mb-1.5">${z.summary}</p>
+            <p class="text-[10.5px] text-slate-500 leading-snug">${z.dynamics}</p>
+          </button>
+        `;
+      }).join('');
+
+      dir.querySelectorAll('.zone-card-btn').forEach((btn) => {
+        btn.addEventListener('click', () => selectZone(btn.getAttribute('data-zone')));
+      });
+    }
+
+    function renderSourcesList() {
+      const list = document.getElementById('sources-list');
+      list.innerHTML = Object.values(SOURCES).map((s, i) => `
+        <a href="${s.url}" target="_blank" rel="noopener noreferrer"
+           class="block p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 transition group">
+          <div class="text-[10.5px] font-bold text-slate-900 group-hover:text-blue-900">${i + 1}. ${s.org}</div>
+          <p class="text-[11px] text-blue-700 group-hover:underline leading-snug mt-0.5">${s.title}</p>
+          <p class="text-[9.5px] font-mono text-slate-400 truncate mt-1">${s.url}</p>
+        </a>
+      `).join('');
+    }
+
+    /**
+     * Selection Handlers
+     */
+    function selectNode(id) {
+      const node = NODES.find((n) => n.id === id);
+      if (!node) return;
+      state.selectedNodeId = id;
+      state.selectedZoneId = null;
+
+      switchDrawerTab('inspector');
+
+      const cat = CATEGORIES[node.category];
+      const badge = document.getElementById('insp-badge');
+      badge.textContent = cat.label;
+      badge.className = `px-2 py-0.5 rounded-full text-[10px] font-bold ${cat.badgeClass}`;
+
+      document.getElementById('insp-title').textContent = node.name;
+      document.getElementById('insp-coords').textContent = `${node.lat.toFixed(3)}°N, ${node.lon.toFixed(3)}°E`;
+      document.getElementById('insp-commander').textContent = node.commander;
+      document.getElementById('insp-formations').textContent = node.formations;
+      document.getElementById('insp-role').textContent = node.role;
+      document.getElementById('insp-vuln').textContent = node.vuln;
+
+      document.getElementById('insp-sources').innerHTML = (node.sources || []).map((k) => {
+        const s = SOURCES[k];
+        if (!s) return '';
+        return `
+          <a href="${s.url}" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 text-[10px] font-semibold transition">
+            <span>${s.org.split(' ')[0]}</span>
+            <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        `;
+      }).join('');
+
+      renderAll();
+    }
+
+    function selectZone(zoneId) {
+      state.selectedZoneId = zoneId;
+      switchDrawerTab('zones');
+      renderFaultZones();
+      renderZonesDirectory();
+    }
+
+    function renderAll() {
+      renderFaultZones();
+      renderC2Lines();
+      renderMapNodes();
+      renderCategoryPills();
+      renderNodeDirectory();
+      renderZonesDirectory();
+    }
+
+    // Drawer Tab Switcher
+    function switchDrawerTab(tabName) {
+      ['inspector', 'zones', 'sources'].forEach((t) => {
+        document.getElementById(`tab-${t}`).classList.toggle('hidden', t !== tabName);
+      });
+      document.querySelectorAll('.drawer-tab-btn').forEach((btn) => {
+        const active = btn.getAttribute('data-tab') === tabName;
+        btn.className = active
+          ? 'drawer-tab-btn py-2 px-2 rounded-lg text-[11.5px] font-bold transition bg-white text-slate-900 shadow-2xs border border-slate-200'
+          : 'drawer-tab-btn py-2 px-2 rounded-lg text-[11.5px] font-semibold transition text-slate-600 hover:text-slate-900';
+      });
+    }
+
+    document.querySelectorAll('.drawer-tab-btn').forEach((btn) => {
+      btn.addEventListener('click', () => switchDrawerTab(btn.getAttribute('data-tab')));
+    });
+
+    // Tooltip Helpers
+    function showTooltip(node, e) {
+      const cat = CATEGORIES[node.category];
+      document.getElementById('tt-name').textContent = node.name;
+      document.getElementById('tt-coords').textContent = `${node.lat.toFixed(3)}°N, ${node.lon.toFixed(3)}°E`;
+      document.getElementById('tt-cmd').textContent = node.commander;
+      document.getElementById('tt-role').textContent = node.role;
+
+      const badge = document.getElementById('tt-badge');
+      badge.textContent = cat.short;
+      badge.className = `px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide shrink-0 ${cat.badgeClass}`;
+
+      tooltipEl.classList.remove('hidden');
+      moveTooltip(e);
+    }
+
+    function moveTooltip(e) {
+      const rect = mapViewport.getBoundingClientRect();
+      const ttRect = tooltipEl.getBoundingClientRect();
+      let left = e.clientX - rect.left + 14;
+      let top = e.clientY - rect.top + 14;
+      if (left + ttRect.width > rect.width - 10) left = e.clientX - rect.left - ttRect.width - 14;
+      if (top + ttRect.height > rect.height - 10) top = e.clientY - rect.top - ttRect.height - 14;
+      tooltipEl.style.left = `${Math.max(8, left)}px`;
+      tooltipEl.style.top = `${Math.max(8, top)}px`;
+    }
+
+    function hideTooltip() {
+      tooltipEl.classList.add('hidden');
+    }
+
+    // Layer Toggle Buttons
+    function bindToggle(btnId, cb) {
+      const btn = document.getElementById(btnId);
+      btn.addEventListener('click', () => {
+        const next = btn.getAttribute('data-active') !== 'true';
+        btn.setAttribute('data-active', String(next));
+        btn.className = next
+          ? 'px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition bg-blue-50 text-blue-800 border-blue-300'
+          : 'px-2.5 py-1.5 rounded-lg text-xs font-medium border transition bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100';
+        cb(next);
+      });
+    }
+
+    bindToggle('btn-toggle-counties', (on) => {
+      basemapTransformGroup.style.opacity = on ? '1' : '0.16';
+    });
+    bindToggle('btn-toggle-c2', (on) => {
+      state.showC2 = on;
+      renderC2Lines();
+    });
+    bindToggle('btn-toggle-zones', (on) => {
+      state.showZones = on;
+      renderFaultZones();
+    });
+    bindToggle('btn-toggle-labels', (on) => {
+      state.showLabels = on;
+      labelsLayer.style.display = on ? 'inline' : 'none';
+    });
+    bindToggle('btn-toggle-inset', (on) => {
+      state.showInset = on;
+      document.getElementById('tehran-inset-layer').style.display = on ? 'inline' : 'none';
+    });
+
+    // Search & Reset Filters
+    document.getElementById('node-search').addEventListener('input', (e) => {
+      state.searchQuery = e.target.value;
+      renderAll();
+    });
+    document.getElementById('btn-reset-filters').addEventListener('click', () => {
+      state.activeCategories = new Set(['core', 'irgc-ground', 'artesh', 'irgcn']);
+      state.searchQuery = '';
+      document.getElementById('node-search').value = '';
+      renderAll();
+    });
+
+    // Calibration Controls
+    document.getElementById('btn-toggle-calib').addEventListener('click', () => {
+      document.getElementById('calibration-bar').classList.toggle('hidden');
+    });
+
+    const calibXEl = document.getElementById('calib-x');
+    const calibYEl = document.getElementById('calib-y');
+    const calibScaleEl = document.getElementById('calib-scale');
+
+    function applyCalibration() {
+      state.calibX = parseFloat(calibXEl.value);
+      state.calibY = parseFloat(calibYEl.value);
+      state.calibScale = parseFloat(calibScaleEl.value);
+
+      document.getElementById('calib-x-val').textContent = `${state.calibX >= 0 ? '+' : ''}${state.calibX.toFixed(1)}px`;
+      document.getElementById('calib-y-val').textContent = `${state.calibY >= 0 ? '+' : ''}${state.calibY.toFixed(1)}px`;
+      document.getElementById('calib-scale-val').textContent = `${state.calibScale.toFixed(3)}x`;
+
+      const cx = 600;
+      const cy = 535.3175;
+      if (state.calibX === 0 && state.calibY === 0 && state.calibScale === 1) {
+        basemapTransformGroup.removeAttribute('transform');
+      } else {
+        basemapTransformGroup.setAttribute(
+          'transform',
+          `translate(${cx + state.calibX}, ${cy + state.calibY}) scale(${state.calibScale}) translate(${-cx}, ${-cy})`
+        );
+      }
+    }
+
+    calibXEl.addEventListener('input', applyCalibration);
+    calibYEl.addEventListener('input', applyCalibration);
+    calibScaleEl.addEventListener('input', applyCalibration);
+    document.getElementById('calib-reset').addEventListener('click', () => {
+      calibXEl.value = '0';
+      calibYEl.value = '0';
+      calibScaleEl.value = '1';
+      applyCalibration();
+    });
+
+    // Pan & Zoom
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+
+    function updateTransform() {
+      panZoomGroup.setAttribute('transform', `translate(${state.panX}, ${state.panY}) scale(${state.zoom})`);
+      document.getElementById('zoom-level').textContent = `${Math.round(state.zoom * 100)}%`;
+    }
+
+    document.getElementById('zoom-in').addEventListener('click', () => {
+      state.zoom = Math.min(4.0, +(state.zoom + 0.3).toFixed(2));
+      updateTransform();
+    });
+    document.getElementById('zoom-out').addEventListener('click', () => {
+      state.zoom = Math.max(1, +(state.zoom - 0.3).toFixed(2));
+      if (state.zoom === 1) { state.panX = 0; state.panY = 0; }
+      updateTransform();
+    });
+    document.getElementById('zoom-reset').addEventListener('click', () => {
+      state.zoom = 1; state.panX = 0; state.panY = 0;
+      updateTransform();
+    });
+
+    mapViewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.25 : -0.25;
+      state.zoom = Math.min(4.0, Math.max(1, +(state.zoom + delta).toFixed(2)));
+      if (state.zoom === 1) { state.panX = 0; state.panY = 0; }
+      updateTransform();
+    }, { passive: false });
+
+    mapViewport.addEventListener('mousedown', (e) => {
+      if (state.zoom <= 1) return;
+      isDragging = true;
+      dragStartX = e.clientX - state.panX;
+      dragStartY = e.clientY - state.panY;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      const rect = svgEl.getBoundingClientRect();
+      if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+        const sx = (((e.clientX - rect.left) / rect.width) * PROJ.width - state.panX) / state.zoom;
+        const sy = (((e.clientY - rect.top) / rect.height) * PROJ.height - state.panY) / state.zoom;
+        const g = svgToGeo(sx, sy);
+        document.getElementById('cursor-coords').textContent = `${g.lat}°N, ${g.lon}°E`;
+      }
+      if (!isDragging) return;
+      state.panX = e.clientX - dragStartX;
+      state.panY = e.clientY - dragStartY;
+      updateTransform();
+    });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+
+    /**
+     * ============================================================================
+     * 7. STANDALONE SVG SERIALIZER & UNTAINTED CLIENT-SIDE PNG RASTERIZER
+     * ============================================================================
+     */
+    function buildCleanStandaloneSVG(options = {}) {
+      const targetW = options.width || 1200;
+      const targetH = options.height || 1070.635;
+      const transparentBg = Boolean(options.transparentBg);
+
+      const clone = svgEl.cloneNode(true);
+      clone.removeAttribute('class');
+      clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+      clone.setAttribute('viewBox', '0 0 1200 1070.635');
+      clone.setAttribute('width', String(targetW));
+      clone.setAttribute('height', String(targetH));
+
+      const pz = clone.querySelector('#map-pan-zoom-group');
+      if (pz) pz.removeAttribute('transform');
+
+      if (state.inlinedCounties) {
+        const fb = clone.querySelector('#fallback-basemap');
+        if (fb) fb.remove();
+      }
+
+      if (transparentBg) {
+        const ocean = clone.querySelector('#base-ocean-rect');
+        if (ocean) ocean.setAttribute('fill', 'none');
+        const inlineLayer = clone.querySelector('#wikimedia-counties-layer');
+        if (inlineLayer) {
+          inlineLayer.querySelectorAll('rect').forEach((r) => {
+            const w = parseFloat(r.getAttribute('width') || '0');
+            const h = parseFloat(r.getAttribute('height') || '0');
+            if (w >= 1100 && h >= 950) {
+              r.setAttribute('fill', 'none');
+              r.style.fill = 'none';
+            }
+          });
+        }
+      }
+
+      clone.querySelectorAll('.node-halo').forEach((h) => h.remove());
+
+      let xml = new XMLSerializer().serializeToString(clone);
+      if (!xml.startsWith('<?xml')) {
+        xml = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' + xml;
+      }
+      return xml;
+    }
+
+    function formatBytes(bytes) {
+      if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+      return `${(bytes / 1024).toFixed(1)} KB`;
+    }
+
+    function rasterizeSvgToPng(targetWidth, transparentBg = false) {
+      return new Promise((resolve, reject) => {
+        const t0 = performance.now();
+        const targetHeight = Math.round(targetWidth * (PROJ.height / PROJ.width));
+
+        try {
+          const cleanSvg = buildCleanStandaloneSVG({ width: targetWidth, height: targetHeight, transparentBg });
+          const svgBlob = new Blob([cleanSvg], { type: 'image/svg+xml;charset=utf-8' });
+          const svgUrl = URL.createObjectURL(svgBlob);
+          const img = new Image();
+          img.crossOrigin = 'anonymous';
+
+          img.onload = () => {
+            try {
+              const canvas = document.createElement('canvas');
+              canvas.width = targetWidth;
+              canvas.height = targetHeight;
+              const ctx = canvas.getContext('2d');
+
+              if (!transparentBg) {
+                ctx.fillStyle = '#c6ecff';
+                ctx.fillRect(0, 0, targetWidth, targetHeight);
+              }
+              ctx.imageSmoothingEnabled = true;
+              ctx.imageSmoothingQuality = 'high';
+              ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+              URL.revokeObjectURL(svgUrl);
+
+              canvas.toBlob((pngBlob) => {
+                if (!pngBlob) {
+                  reject(new Error('Canvas PNG encoding returned empty blob.'));
+                  return;
+                }
+                resolve({
+                  blob: pngBlob,
+                  width: targetWidth,
+                  height: targetHeight,
+                  elapsedMs: Math.round(performance.now() - t0),
+                  sizeText: formatBytes(pngBlob.size)
+                });
+              }, 'image/png');
+            } catch (drawErr) {
+              URL.revokeObjectURL(svgUrl);
+              reject(drawErr);
+            }
+          };
+
+          img.onerror = () => {
+            URL.revokeObjectURL(svgUrl);
+            reject(new Error('Failed to decode SVG into image buffer.'));
+          };
+
+          img.src = svgUrl;
+        } catch (err) {
+          reject(err);
+        }
+      });
+    }
+
+    function triggerDownload(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => toast.classList.add('hidden'), 3600);
+    }
+
+    // Download .SVG
+    document.getElementById('btn-download-svg').addEventListener('click', () => {
+      const xml = buildCleanStandaloneSVG();
+      triggerDownload(new Blob([xml], { type: 'image/svg+xml;charset=utf-8' }), 'Iran_regime_security_deployment_nov2026.svg');
+      showToast('Downloaded standalone W3C SVG: Iran_regime_security_deployment_nov2026.svg');
+    });
+
+    // Copy SVG Code (iFrame-safe)
+    document.getElementById('btn-copy-svg').addEventListener('click', () => {
+      const xml = buildCleanStandaloneSVG();
+      const ta = document.createElement('textarea');
+      ta.value = xml;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        const lbl = document.getElementById('copy-btn-text');
+        lbl.textContent = 'Copied!';
+        showToast('Clean W3C SVG XML copied to clipboard.');
+        setTimeout(() => { lbl.textContent = 'Copy SVG Code'; }, 2000);
+      } catch (err) {
+        showToast('Copy blocked; use Download Clean .SVG.');
+      }
+      document.body.removeChild(ta);
+    });
+
+    // Export .PNG
+    document.getElementById('btn-export-png').addEventListener('click', async () => {
+      const width = parseInt(document.getElementById('png-resolution').value, 10) || 1280;
+      const transparentBg = document.getElementById('png-transparent-bg').checked;
+      const lbl = document.getElementById('export-png-label');
+      lbl.textContent = 'Rendering...';
+      try {
+        const res = await rasterizeSvgToPng(width, transparentBg);
+        triggerDownload(res.blob, `Iran_regime_security_deployment_${res.width}px.png`);
+        showToast(`Exported PNG: ${res.width}×${res.height} px • ${res.sizeText} • ${res.elapsedMs} ms`);
+      } catch (err) {
+        showToast(`PNG export failed: ${err.message}`);
+      } finally {
+        lbl.textContent = 'Export .PNG';
+      }
+    });
+
+    // Preview PNG Modal
+    let lastPreview = null;
+    const modal = document.getElementById('png-preview-modal');
+    const modalImg = document.getElementById('png-preview-img');
+    const modalMeta = document.getElementById('png-preview-meta');
+
+    document.getElementById('btn-preview-png').addEventListener('click', async () => {
+      const width = parseInt(document.getElementById('png-resolution').value, 10) || 1280;
+      const transparentBg = document.getElementById('png-transparent-bg').checked;
+      modalMeta.textContent = `Rasterizing ${width}px PNG via offscreen Canvas...`;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      try {
+        const res = await rasterizeSvgToPng(width, transparentBg);
+        if (lastPreview?.objectUrl) URL.revokeObjectURL(lastPreview.objectUrl);
+        const objectUrl = URL.createObjectURL(res.blob);
+        lastPreview = { ...res, objectUrl };
+        modalImg.src = objectUrl;
+        modalMeta.textContent = `${res.width} × ${res.height} px  •  ${res.sizeText}  •  ${res.elapsedMs} ms  •  ${transparentBg ? 'Transparent BG' : 'Solid Ocean Fill'}`;
+      } catch (err) {
+        modalMeta.textContent = `Preview failed: ${err.message}`;
+      }
+    });
+
+    document.getElementById('btn-modal-download-png').addEventListener('click', () => {
+      if (lastPreview) {
+        triggerDownload(lastPreview.blob, `Iran_regime_security_deployment_${lastPreview.width}px.png`);
+        showToast(`Downloaded PNG: ${lastPreview.width}×${lastPreview.height} px (${lastPreview.sizeText})`);
+      }
+    });
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+    document.getElementById('btn-modal-close-png').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    // Initialize Application
+    renderSourcesList();
+    loadWikimediaCountiesBasemap();
+    selectNode('beit-rahbari');
+  </script>
+</body>
+</html>
